@@ -8,6 +8,6 @@ namespace Tita
 {
     public interface IGroupable
     {
-        bool IsLeapNode();
+        bool IsLeafNode();
     }
 }

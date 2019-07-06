@@ -38,7 +38,7 @@ namespace Tita
             this.Parent = Parent;
         }
 
-        public bool IsLeapNode()
+        public bool IsLeafNode()
         {
             return true;
         }
