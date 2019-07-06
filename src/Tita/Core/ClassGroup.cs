@@ -34,7 +34,7 @@ namespace Tita
             else return false;
         }
 
-        public bool IsLeapNode()
+        public bool IsLeafNode()
         {
             if (this.CountChildren() == 0) return true;
             else return false;
