@@ -16,18 +16,20 @@ using System.Windows.Shapes;
 namespace Tita
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// ScheduleControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ScheduleControl : UserControl
     {
-        public MainWindow()
+
+        public string Data { get; set; }
+
+
+
+        public ScheduleControl()
         {
             InitializeComponent();
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
+            //this.helloworld.Content = Data;
         }
     }
 }
