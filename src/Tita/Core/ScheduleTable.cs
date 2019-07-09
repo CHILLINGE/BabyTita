@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tita.Core
+namespace Tita
 {
     public class ScheduleTable
     {
@@ -14,14 +14,14 @@ namespace Tita.Core
         /// <summary>
         /// 과목을 추가하는 리스트
         /// </summary>
-        public List<ClassData> ClassList { get; set; }
+        public List<ClassInfoPlus> ClassList { get; set; }
 
 
         /// <summary>
         /// 과목 배열에 과목을 추가하는 매소드
         /// </summary>
         /// <param name="target">타겟</param>
-        public void ClassAddList(ClassData target)
+        public void ClassAddList(ClassInfoPlus target)
         {
             ClassList.Add(target); 
         }

@@ -7,43 +7,6 @@
         mc:Ignorable="d"
         Title="Tita" Height="437.261" Width="531.477" Loaded="Window_Loaded">
     <Grid x:Name="MainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="월" Style="{StaticResource DayOfWeek}" Grid.Column="1" Grid.Row="0"/>
-        <TextBlock Text="화" Style="{StaticResource DayOfWeek}" Grid.Column="2" Grid.Row="0"/>
-        <TextBlock Text="수" Style="{StaticResource DayOfWeek}" Grid.Column="3" Grid.Row="0"/>
-        <TextBlock Text="목" Style="{StaticResource DayOfWeek}" Grid.Column="4" Grid.Row="0"/>
-        <TextBlock Text="금" Style="{StaticResource DayOfWeek}" Grid.Column="5" Grid.Row="0"/>
         
-        <TextBlock Text="9:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="1"/>
-        <TextBlock Text="10:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="2"/>
-        <TextBlock Text="11:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="3"/>
-        <TextBlock Text="12:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="4"/>
-        <TextBlock Text="1:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="5"/>
-        <TextBlock Text="2:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="6"/>
-        <TextBlock Text="3:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="7"/>
-        <TextBlock Text="4:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="8"/>
-        <TextBlock Text="5:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="9"/>
-        <TextBlock Text="6:00" Style="{StaticResource DayOfWeek}" Grid.Column="0" Grid.Row="10"/>
-
     </Grid>
 </Window>
