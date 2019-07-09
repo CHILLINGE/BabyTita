@@ -32,7 +32,7 @@ namespace Tita
         /// <summary>
         /// 시간
         /// </summary>
-        public List<ClassTime> Time { get; set; }
+        public ClassTime Time { get; set; }
         
         /// <summary>
         /// 이수학점
@@ -53,15 +53,21 @@ namespace Tita
         public ClassInfo()
         {
             _id = instanceCount++;
-            Time = new List<ClassTime>();
+            Time = new ClassTime();
             
         }
 
-        public ClassInfo(string name, int division, List<ClassTime> time) : this()
+        public ClassInfo(string name, int division, ClassTime time) : this()
         {
             Name = name;
             Division = division;
             Time = time;
+        }
+
+        public ClassInfo(string name, int division, ClassTime time, string professor, int credit) : this(name, division, time)
+        {
+            Professor = professor;
+            Credit = credit;
         }
     }
 }

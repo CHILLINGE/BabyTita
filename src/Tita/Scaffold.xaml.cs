@@ -22,6 +22,13 @@ namespace Tita
         public Scaffold()
         {
             InitializeComponent();
+            Sample.Info = TestData.GetClassInfos()[0];
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
