@@ -10,30 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Tita
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// Scaffold.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Scaffold : Window
     {
-        public MainWindow()
+        public Scaffold()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Scaffold win = new Scaffold();
-            win.Show();
         }
     }
 }
