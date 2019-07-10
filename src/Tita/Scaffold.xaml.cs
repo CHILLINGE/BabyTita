@@ -28,7 +28,15 @@ namespace Tita
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            ClassInfoControl cc = new ClassInfoControl();
+            cc.VerticalAlignment = VerticalAlignment.Top;
+            cc.HorizontalAlignment = HorizontalAlignment.Left;
 
+            maingrid.Children.Add(cc);
+
+            classlist.ClassDatalist = TestData.GetClassInfos();
+            classlist.Update();
         }
+
     }
 }

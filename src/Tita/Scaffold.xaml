@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="Scaffold" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="maingrid">
-        <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="36,76,0,0"/>
+        <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,91,0,0"/>
+        <ListBox HorizontalAlignment="Left" Height="151" Margin="60,258,0,0" VerticalAlignment="Top" Width="138">
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+            <local:ClassInfoControl HorizontalAlignment="Stretch"/>
+        </ListBox>
+        <local:ClassListControl x:Name="classlist" HorizontalAlignment="Left" Height="306" Margin="352,55,0,0" VerticalAlignment="Top" Width="290"/>
+
     </Grid>
 </Window>
