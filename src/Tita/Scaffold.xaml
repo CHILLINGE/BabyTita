@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Scaffold" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="maingrid">
-        <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="36,76,0,0"/>
+        <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="36,76,0,0" Loaded="Sample_Loaded"/>
+        <local:ClassGroupControl x:Name="aa" HorizontalAlignment="Left" Margin="492,63,0,0" VerticalAlignment="Top" Width="249" />
     </Grid>
 </Window>

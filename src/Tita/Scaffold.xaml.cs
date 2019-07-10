@@ -28,7 +28,19 @@ namespace Tita
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Sample.Info = TestData.GetClassInfos()[0];
+            ClassGroup group = new ClassGroup();
+            ClassInfoPlus info = new ClassInfoPlus(Sample.Info);
+            group.AddGroup(info);
 
+            aa.Group = group;
+            aa.BasketUpdate();
+            
+        }
+
+        private void Sample_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
