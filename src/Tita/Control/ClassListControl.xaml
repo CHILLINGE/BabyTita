@@ -10,8 +10,8 @@
 
         <ScrollViewer>
             <StackPanel x:Name="MainScroll">
-            </StackPanel>
 
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </UserControl>
