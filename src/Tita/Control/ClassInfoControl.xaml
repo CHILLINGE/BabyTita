@@ -33,7 +33,7 @@
                    Margin="10,0,0,0" />-->
         </StackPanel>
         <Slider x:Name="preferenceSlider" Grid.Row="2" Orientation="Horizontal" Margin="8,0,0,0" HorizontalAlignment="Right"
-                Width="100" Maximum="4">
+                Width="100" Maximum="4" ValueChanged="preferenceSlider_ValueChanged">
             
         </Slider>
     </Grid>

@@ -121,8 +121,7 @@ namespace Tita
             InitializeComponent();
 
             infoPlus = null;
-
-            UpdateInfoPlusChanged();
+            
         }
 
         public ClassInfoControl(ClassInfo info) : this()
@@ -131,6 +130,12 @@ namespace Tita
             Info = info;
             UpdateInfoChanged();
 
+        }
+
+        public ClassInfoControl(ClassInfoPlus info) : this(info.Info)
+        {
+            infoPlus = info;
+            UpdateInfoPlusChanged();
         }
 
 
@@ -156,5 +161,9 @@ namespace Tita
             }
         }
 
+        private void preferenceSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }
