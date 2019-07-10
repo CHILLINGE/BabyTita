@@ -86,6 +86,7 @@ namespace Tita
         {
             InitializeComponent();
             ListBackup = null;
+            BackUpDictionary = new Dictionary<int, int>();
 
 
         }
