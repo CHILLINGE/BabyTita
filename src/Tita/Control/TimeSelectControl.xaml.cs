@@ -10,28 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tita
+namespace Tita.Control
 {
     /// <summary>
-    /// Scaffold.xaml에 대한 상호 작용 논리
+    /// TimeSelectControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class Scaffold : Window
+    public partial class TimeSelectControl : UserControl
     {
-        public Scaffold()
+        public TimeSelectControl()
         {
             InitializeComponent();
-            Sample.Info = TestData.GetClassInfos()[0];
-            
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void ClassInfoInputControl_Loaded(object sender, RoutedEventArgs e)
+        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
 
         }

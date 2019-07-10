@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Tita"
         mc:Ignorable="d"
         Title="Scaffold" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid x:Name="maingrid">
-        <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="36,76,0,0"/>
+    <Grid x:Name="maingrid" Margin="0,0,3.6,13">
+        <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" Margin="36,76,0,0" HorizontalAlignment="Left" Width="198"/>
+        <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="453,65,0,0" VerticalAlignment="Top" Width="296"/>
     </Grid>
 </Window>

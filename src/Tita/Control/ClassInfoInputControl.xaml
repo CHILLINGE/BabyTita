@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Tita.ClassInfoInputControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tita"
+             mc:Ignorable="d" Height="124.024" Width="303.902">
+    <Grid>
+        <TextBox x:Name="name"  Height="23" Margin="10,20,8.5,0" TextWrapping="Wrap" Text="과목명" VerticalAlignment="Top"/>
+        <TextBox x:Name ="division" Height="23" Margin="10,50,0,0" TextWrapping="Wrap" Text="분반" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" />
+        <TextBox x:Name ="professor" Height="23" Margin="9,82,8.8,0" TextWrapping="Wrap" Text="교수명" VerticalAlignment="Top"/>
+        <ComboBox  x:Name="credit" Margin="167,50,8.8,0" VerticalAlignment="Top" IsEditable="True">
+            <ComboBoxItem Content="학점"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+        </ComboBox>
+
+
+    </Grid>
+</UserControl>

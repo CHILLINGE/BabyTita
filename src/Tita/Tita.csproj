@@ -59,6 +59,12 @@
     <Compile Include="Control\ClassInfoControl.xaml.cs">
       <DependentUpon>ClassInfoControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\ClassInfoInputControl.xaml.cs">
+      <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\TimeSelectControl.xaml.cs">
+      <DependentUpon>TimeSelectControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\ClassTime.cs" />
     <Compile Include="Scaffold.xaml.cs">
       <DependentUpon>Scaffold.xaml</DependentUpon>
@@ -68,7 +74,16 @@
     </Compile>
     <Compile Include="Test\TestData.cs" />
     <Compile Include="Util\PrefixSuffixConverter.cs" />
+    <Compile Include="Util\ValueException.cs" />
     <Page Include="Control\ClassInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ClassInfoInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\TimeSelectControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
