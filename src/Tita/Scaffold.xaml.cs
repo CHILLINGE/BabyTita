@@ -33,8 +33,6 @@ namespace Tita
             ClassInfoPlus info = new ClassInfoPlus(Sample.Info);
             group.AddGroup(info);
 
-            aa.Group = group;
-            aa.BasketUpdate();
             
         }
 
