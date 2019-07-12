@@ -45,5 +45,10 @@ namespace Tita
         {
 
         }
+
+        private void TimeSelectControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
