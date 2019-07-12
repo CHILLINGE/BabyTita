@@ -40,6 +40,11 @@ namespace Tita
         public int Credit { get; set; }
 
         /// <summary>
+        /// 이수학년
+        /// </summary>
+        public int Grade { get; set; }
+
+        /// <summary>
         /// 교수
         /// </summary>
         public string Professor { get; set; }
@@ -49,6 +54,10 @@ namespace Tita
         /// </summary>
         public string Major { get; set; }
 
+        /// <summary>
+        /// 기타사항
+        /// </summary>
+        public string Etc { get; set; }
 
         public ClassInfo()
         {
