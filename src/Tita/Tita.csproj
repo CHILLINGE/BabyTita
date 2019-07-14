@@ -71,6 +71,7 @@
     <Compile Include="Control\TimeSelectControl.xaml.cs">
       <DependentUpon>TimeSelectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\ClassInfoList.cs" />
     <Compile Include="Core\ClassTime.cs" />
     <Compile Include="Data\DataFile.cs" />
     <Compile Include="Data\DataManager.cs" />

@@ -67,10 +67,9 @@ namespace Tita
         /// 파일에서 ClassInfo 들을 파싱해서 읽어온다.
         /// </summary>
         /// <returns>ClassInfo의 리스트</returns>
-        public List<ClassInfo> LoadClassInfo()
+        public ClassInfoList LoadClassInfo()
         {
-            List<ClassInfo> result = new List<ClassInfo>();
-
+            ClassInfoList result = new ClassInfoList();
             // Need more
 
             return result;
