@@ -6,14 +6,12 @@
         xmlns:local="clr-namespace:Tita"
         x:Class="Tita.Scaffold"
         mc:Ignorable="d"
-        Title="Scaffold" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Scaffold" Height="1000" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="maingrid" Margin="0,0,3.6,13">
         <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" Margin="36,76,0,0" HorizontalAlignment="Left" Width="198"/>
-        <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="453,65,0,0" VerticalAlignment="Top" Width="296"/>
-        <local:ClassInfoControl HorizontalAlignment="Left" Height="51" Margin="197,206,0,0" VerticalAlignment="Top" Width="192"/>
         <!--<local:ClassInfoListControl x:Name="Mainlist" HorizontalAlignment="Left" Height="148" Margin="453,228,0,0" VerticalAlignment="Top" Width="264"/>-->
-            <Button x:Name="MainlistUpdate" Content="Button" HorizontalAlignment="Left" Height="52" Margin="178,314,0,0" VerticalAlignment="Top" Width="79" Click="MainlistUpdate_Click"/>
-            <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="436,0,0,0" VerticalAlignment="Top" Width="296"/>
-
+        <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="436,0,0,0" VerticalAlignment="Top" Width="296"/>
+        <local:ClassInfoListControl x:Name="classList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400, 200,0,0" Height="458" Width="262" />
+        <Button x:Name="classListupdate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,200,0,0" Height="50" Width="79" Click="ClassListupdate_Click"/>
     </Grid>
 </Window>
