@@ -96,10 +96,10 @@ namespace Tita
         }
 
         /// <summary>
-        /// ClassInfo의 리스트를 해당 db에 저장한다.
+        /// 직접입력받은 ClassInfo의 리스트를 해당 db에 저장한다.
         /// </summary>
         /// <param name="classes">ClassInfo의 리스트</param>
-        public void SaveClassInfo(List<ClassInfo> classes)
+        public void SaveClassInfo(ClassInfoList classes)
         {
             // Need more
         }

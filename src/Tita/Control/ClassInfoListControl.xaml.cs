@@ -22,18 +22,17 @@ namespace Tita
     {
 
         public ClassInfoList ClassDatalist { get; set; }
-       
 
-        public ClassInfoListControl()
+        public void UpDate()
         {
-            InitializeComponent();
-            
-            foreach(KeyValuePair<string, List<ClassInfo>> item in ClassDatalist.Groups)
+            foreach (KeyValuePair<string, List<ClassInfo>> item in ClassDatalist.Groups)
             {
                 ClassInfoGroupControl child = new ClassInfoGroupControl();
 
+
                 child.GroupName = item.Key;
                 child.ClassDatalist = ClassDatalist.Groups[item.Key];
+                child.Update();
 
                 child.VerticalAlignment = VerticalAlignment.Top;
                 child.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -41,6 +40,10 @@ namespace Tita
 
                 MainScroll.Children.Add(child);
             }
+        }
+        public ClassInfoListControl()
+        {
+            InitializeComponent();
         }
 
 
