@@ -87,6 +87,9 @@
     <Compile Include="ScheduleControl.xaml.cs">
       <DependentUpon>ScheduleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Test\DropDownTest.xaml.cs">
+      <DependentUpon>DropDownTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Test\TestData.cs" />
     <Compile Include="Test\TestFunctions.cs" />
     <Compile Include="Util\PrefixSuffixConverter.cs" />
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ScheduleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\DropDownTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
