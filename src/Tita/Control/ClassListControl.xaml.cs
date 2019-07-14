@@ -29,30 +29,24 @@ namespace Tita
             //같은 list 주소를 나타낼때
             if (ListBackup == ClassDatalist)
             {
-                //삽입, 삭제된 과목이 없는지 확인. BackUpDictionary 이용
-                int index;
-                for (int i = 0; i < ClassDatalist.Count; i++)
+                //과목 직접 추가
+               if (MainScroll.Children.Count < ClassDatalist.Count) 
                 {
-                    BackUpDictionary.TryGetValue(ClassDatalist[i].ID, out index);
-                    if (index == 0) // 해당 과목을 삽입해야함
-                    {
-                        ClassInfoControl child = new ClassInfoControl();
-                        child.Info = ClassDatalist[i];
-                        child.VerticalAlignment = VerticalAlignment.Top;
-                        child.HorizontalAlignment = HorizontalAlignment.Left;
-                        MainScroll.Children.Insert(i, child);
+                    ClassInfoControl child = new ClassInfoControl();
+                    child.Info = ClassDatalist[ClassDatalist.Count()];
+                    child.VerticalAlignment = VerticalAlignment.Top;
+                    child.HorizontalAlignment = HorizontalAlignment.Stretch;
+                    child.Margin = new Thickness(5);
 
-                        BackUpDictionary.Add(ClassDatalist[i].ID, i);
-                    }
-                    else // 해당과목이 있음
+                    MainScroll.Children.Add(child);
+                }
+               //직접 추가한 과목 삭제
+               else
+                {
+                    for (int i= MainScroll.Children.Count;i<0;i++)
                     {
-                        if (index == i) continue; //기존 위치에 존재
-                        else //위치가 변경됨
-                        {
-                            MainScroll.Children.Insert(i, MainScroll.Children[index]);
-                            MainScroll.Children.RemoveAt(index);
-                            BackUpDictionary[ClassDatalist[i].ID] = i;
-                        }
+                        BackUpDictionary.f(ClassDatalist[i].ID, i);
+                        if (ClassDatalist[i].ID != )
                     }
                 }
             }
