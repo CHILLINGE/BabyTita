@@ -56,5 +56,13 @@ namespace Tita
         {
             MessageBox.Show("Event!");
         }
+
+        private void ClassListupdate_Click(object sender, RoutedEventArgs e)
+        {
+            DataFile file = new DataFile("subjects.xml");
+            classList.ClassDatalist = file.LoadClassInfo();
+
+            classList.UpDate();
+        }
     }
 }
