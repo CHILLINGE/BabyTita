@@ -45,6 +45,53 @@ namespace Tita
             return total / periodSpan + 1;
         }
 
+        public static string ConvertDay(DayOfWeek day)
+        {
+            switch (day)
+            {
+                case DayOfWeek.Sunday:
+                    return "일";
+                case DayOfWeek.Monday:
+                    return "월";
+                case DayOfWeek.Tuesday:
+                    return "화";
+                case DayOfWeek.Wednesday:
+                    return "수";
+                case DayOfWeek.Thursday:
+                    return "목";
+                case DayOfWeek.Friday:
+                    return "금";
+                case DayOfWeek.Saturday:
+                    return "토";
+                default:
+                    break;
+            }
+            return "???";
+        }
+
+        public static DayOfWeek ConvertDayBack(string day)
+        {
+            switch (day)
+            {
+                case "월":
+                    return DayOfWeek.Monday;
+                case "화":
+                    return DayOfWeek.Tuesday;
+                case "수":
+                    return DayOfWeek.Wednesday;
+                case "목":
+                    return DayOfWeek.Thursday;
+                case "금":
+                    return DayOfWeek.Friday;
+                case "토":
+                    return DayOfWeek.Saturday;
+                case "일":
+                    return DayOfWeek.Sunday;
+            }
+
+            throw new InvalidCastException("Not a valid day of week string.");
+        }
+
 
         /// <summary>
         /// 과목의 시작 시각
@@ -135,29 +182,7 @@ namespace Tita
 
 
 
-        private string ConvertDay(DayOfWeek day)
-        {
-            switch (day)
-            {
-                case DayOfWeek.Sunday:
-                    return "일";
-                case DayOfWeek.Monday:
-                    return "월";
-                case DayOfWeek.Tuesday:
-                    return "화";
-                case DayOfWeek.Wednesday:
-                    return "수";
-                case DayOfWeek.Thursday:
-                    return "목";
-                case DayOfWeek.Friday:
-                    return "금";
-                case DayOfWeek.Saturday:
-                    return "토";
-                default:
-                    break;
-            }
-            return "???";
-        }
+        
 
     }
 }

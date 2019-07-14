@@ -78,5 +78,10 @@ namespace Tita
             Professor = professor;
             Credit = credit;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1}반 ({2})", Name, Division, Professor);
+        }
     }
 }
