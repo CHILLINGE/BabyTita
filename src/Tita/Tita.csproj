@@ -90,6 +90,9 @@
     <Compile Include="Test\DropDownTest.xaml.cs">
       <DependentUpon>DropDownTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Test\smalljTest.xaml.cs">
+      <DependentUpon>smalljTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Test\TestData.cs" />
     <Compile Include="Test\TestFunctions.cs" />
     <Compile Include="Util\PrefixSuffixConverter.cs" />
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ScheduleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\smalljTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

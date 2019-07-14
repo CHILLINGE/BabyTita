@@ -9,14 +9,18 @@
     <UserControl.Resources>
         <Style TargetType="{x:Type local:ClassGroupControl}">
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="0,30,0,30"/>
+            <Setter Property="Margin" Value="500,20,20,70"/>
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Button x:Name="groupboxadd" VerticalAlignment="Top" Height="20" HorizontalAlignment="Right" Width="20" Margin="0,0,35,40" Click="AddButtonClicked"/>
-        <ScrollViewer Margin="0,40,0,0">
-            <Grid x:Name="groupbox">
+        <Border BorderThickness="3" BorderBrush="Black">
+            <Grid>
+                <Button x:Name="groupboxadd" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right" Width="40" Margin="0,0,35,40" Click="AddButtonClicked"/>
+                <ScrollViewer Margin="0,40,0,0" >
+                    <StackPanel x:Name="groupbox">
+                    </StackPanel>
+                </ScrollViewer>
             </Grid>
-        </ScrollViewer>
+        </Border>
     </Grid>
 </UserControl>

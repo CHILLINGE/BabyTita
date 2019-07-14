@@ -8,8 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
     <Grid x:Name="basket">
-        <TextBlock x:Name="subjectname" Text="중핵!" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <StackPanel x:Name="basketstack"  Margin="0,30,0,0" >
+        <TextBlock x:Name="subjectname" Text="컴퓨터정보공학부" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Border BorderBrush="#FFEE4F4F" BorderThickness="2" Margin="0,30,0,0">
+            <StackPanel x:Name="basketstack" >
         </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

@@ -35,5 +35,11 @@ namespace Tita
             Scaffold win = new Scaffold();
             win.Show();
         }
+
+        private void smalljb_Click(object sender, RoutedEventArgs e)
+        {
+            smalljTest s = new smalljTest();
+            s.Show();
+        }
     }
 }
