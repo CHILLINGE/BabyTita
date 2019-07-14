@@ -12,7 +12,7 @@
         <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="453,65,0,0" VerticalAlignment="Top" Width="296"/>
         <local:ClassInfoControl HorizontalAlignment="Left" Height="51" Margin="197,206,0,0" VerticalAlignment="Top" Width="192"/>
         <!--<local:ClassInfoListControl x:Name="Mainlist" HorizontalAlignment="Left" Height="148" Margin="453,228,0,0" VerticalAlignment="Top" Width="264"/>-->
-            <Button x:Name="MainlistUpdate" Content="Button" HorizontalAlignment="Left" Height="52" Margin="310,324,0,0" VerticalAlignment="Top" Width="79" Click="MainlistUpdate_Click"/>
+            <Button x:Name="MainlistUpdate" Content="Button" HorizontalAlignment="Left" Height="52" Margin="178,314,0,0" VerticalAlignment="Top" Width="79" Click="MainlistUpdate_Click"/>
             <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="436,0,0,0" VerticalAlignment="Top" Width="296"/>
 
     </Grid>
