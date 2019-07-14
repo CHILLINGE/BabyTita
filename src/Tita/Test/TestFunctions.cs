@@ -10,7 +10,7 @@ namespace Tita
     {
         public static void xmlparsetest()
         {
-            DataFile file = new DataFile(@"C:\Users\geon0\Documents\programing\Repository\Tita\src\Tita\bin\Debug\subjects.xml");
+            DataFile file = new DataFile("subjects.xml");
             ClassInfoList lst = file.LoadClassInfo();
             Console.WriteLine(lst.Groups);
         }
