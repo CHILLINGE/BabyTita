@@ -44,5 +44,10 @@ namespace Tita
             Mainlist.ClassDatalist.RemoveAt(0);
             Mainlist.Update();
         }
+
+        private void TimeSelectControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

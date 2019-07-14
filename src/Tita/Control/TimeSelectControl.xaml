@@ -4,15 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita.Control"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid HorizontalAlignment="Left" Height="430" Margin="0,10,0,0" VerticalAlignment="Top" Width="790">
+             mc:Ignorable="d" Height="395.71" Width="762.6" Background="White">
+    <UserControl.Resources>
+        <Style x:Key="CaptionStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter  Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#8C8C8C"/>
+        </Style>
+        <Style x:Key="TimeStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter  Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#8C8C8C"/>
+        </Style>
+        <Style x:Key="PeriodStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter  Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Foreground" Value="#EAEAEA"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="0,0,-0.6,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -25,8 +46,84 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            
-
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TextBlock Text="월" Style="{StaticResource CaptionStyle}" Grid.Column="1" Grid.Row="0"/>
+        <TextBlock Text="화" Style="{StaticResource CaptionStyle}" Grid.Column="2" Grid.Row="0"/>
+        <TextBlock Text="수" Style="{StaticResource CaptionStyle}" Grid.Column="3" Grid.Row="0"/>
+        <TextBlock Text="목" Style="{StaticResource CaptionStyle}" Grid.Column="4" Grid.Row="0"/>
+        <TextBlock Text="금" Style="{StaticResource CaptionStyle}" Grid.Column="5" Grid.Row="0"/>
+
+        <TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="2"/>
+        <TextBlock Text="3" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="3"/>
+        <TextBlock Text="4" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="4"/>
+        <TextBlock Text="5" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="5"/>
+        <TextBlock Text="6" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="6"/>
+        <TextBlock Text="7" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="7"/>
+        <TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="8"/>
+        <TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="9"/>
+        <TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="10"/>
+
+        <TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="1"/>
+        <TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="2"/>
+        <TextBlock Text="3" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="3"/>
+        <TextBlock Text="4" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="4"/>
+        <TextBlock Text="5" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="5"/>
+        <TextBlock Text="6" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="6"/>
+        <TextBlock Text="7" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="7"/>
+        <TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="8"/>
+        <TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="9"/>
+        <TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="10"/>
+
+        <TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="1"/>
+        <TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="2"/>
+        <TextBlock Text="3" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="3"/>
+        <TextBlock Text="4" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="4"/>
+        <TextBlock Text="5" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="5"/>
+        <TextBlock Text="6" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="6"/>
+        <TextBlock Text="7" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="7"/>
+        <TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="8"/>
+        <TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="9"/>
+        <TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="10"/>
+
+        <TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="1"/>
+        <TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="2"/>
+        <TextBlock Text="3" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="3"/>
+        <TextBlock Text="4" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="4"/>
+        <TextBlock Text="5" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="5"/>
+        <TextBlock Text="6" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="6"/>
+        <TextBlock Text="7" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="7"/>
+        <TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="8"/>
+        <TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="9"/>
+        <TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="10"/>
+
+        <TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="1"/>
+        <TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="2"/>
+        <TextBlock Text="3" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="3"/>
+        <TextBlock Text="4" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="4"/>
+        <TextBlock Text="5" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="5"/>
+        <TextBlock Text="6" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="6"/>
+        <TextBlock Text="7" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="7"/>
+        <TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="8"/>
+        <TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="9"/>
+        <TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="10"/>
+
+        <TextBlock Grid.Row="1" Text="9am" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="2" Text="10am" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="3" Text="11am" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="4" Text="12pm" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="5" Text="1pm" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="6" Text="2pm" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="7" Text="3pm" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="8" Text="4pm" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="9" Text="5pm" Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="10" Text="6pm" Style="{StaticResource TimeStyle}" />
+        
+        <Rectangle Grid.RowSpan="11" Stroke="#EAEAEA" Grid.ColumnSpan="6" Margin="0,0,0.2,0"/>
+        <Rectangle Stroke="#EAEAEA" Grid.ColumnSpan="6" Grid.Row="0"/>
+        <Rectangle Stroke="#EAEAEA" Grid.Column="0" Grid.RowSpan="11"/>
+        <Rectangle Stroke="#EAEAEA" Grid.Column="2" Grid.RowSpan="11"/>
+        <Rectangle Stroke="#EAEAEA" Grid.Column="4" Grid.RowSpan="11"/>
     </Grid>
 </UserControl>
