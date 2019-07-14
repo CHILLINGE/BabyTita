@@ -8,8 +8,20 @@ namespace Tita
 {
     public static class TestData
     {
-        public static List<ClassInfo> GetClassInfos()
+        public static List<ClassInfo> GetClassInfos(int datatype = 0)
         {
+            switch (datatype)
+            {
+                case 1:
+                    return new List<ClassInfo>{
+                    new ClassInfo("객체지향패러다임", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 3)), "오재원", 3),
+                    new ClassInfo("웹프로그래밍", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Wednesday, 1, 2), new ClassTimeItem(DayOfWeek.Tuesday, 1, 1)), "김의찬", 3),
+                    };
+
+                default:
+
+                    break;
+            }
             return new List<ClassInfo>() {
                 new ClassInfo("창의소프트웨어설계", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 3)), "오재원", 3),
                 new ClassInfo("웹프로그래밍", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Wednesday, 1, 2), new ClassTimeItem(DayOfWeek.Tuesday, 1, 1)), "김의찬", 3),

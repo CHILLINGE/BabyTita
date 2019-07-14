@@ -35,15 +35,21 @@ namespace Tita
             ClassInfoPlus info = new ClassInfoPlus(Sample.Info);
             group.AddGroup(info);
 
-            
-        }
+            //Mainlist.ClassDatalist = TestData.GetClassInfos();
+            //Mainlist.Update();
 
-        private void Sample_Loaded(object sender, RoutedEventArgs e)
+
+        }
+        private void MainlistUpdate_Click(object sender, RoutedEventArgs e)
         {
-            
+            //Mainlist.ClassDatalist = TestData.GetClassInfos(1);
+            //Mainlist.ClassDatalist.RemoveAt(0);
+            //Mainlist.Update();
+
+            TestFunctions.xmlparsetest();
         }
 
-        private void ClassInfoInputControl_Loaded(object sender, RoutedEventArgs e)
+        private void TimeSelectControl_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

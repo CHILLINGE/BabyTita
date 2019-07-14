@@ -65,8 +65,11 @@
     <Compile Include="Control\ClassInfoControl.xaml.cs">
       <DependentUpon>ClassInfoControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\ClassListControl.xaml.cs">
-      <DependentUpon>ClassListControl.xaml</DependentUpon>
+    <Compile Include="Control\ClassInfoGroupControl.xaml.cs">
+      <DependentUpon>ClassInfoGroupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ClassInfoListControl.xaml.cs">
+      <DependentUpon>ClassInfoListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\ClassInfoInputControl.xaml.cs">
       <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
@@ -74,7 +77,10 @@
     <Compile Include="Control\TimeSelectControl.xaml.cs">
       <DependentUpon>TimeSelectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\ClassInfoList.cs" />
     <Compile Include="Core\ClassTime.cs" />
+    <Compile Include="Data\DataFile.cs" />
+    <Compile Include="Data\DataManager.cs" />
     <Compile Include="Scaffold.xaml.cs">
       <DependentUpon>Scaffold.xaml</DependentUpon>
     </Compile>
@@ -82,6 +88,7 @@
       <DependentUpon>ScheduleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Test\TestData.cs" />
+    <Compile Include="Test\TestFunctions.cs" />
     <Compile Include="Util\PrefixSuffixConverter.cs" />
     <Compile Include="Util\ValueException.cs" />
     <Page Include="Control\ClassGroupBoxControl.xaml">
@@ -96,6 +103,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Control\ClassInfoGroupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\ClassInfoInputControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,7 +115,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\ClassListControl.xaml">
+    <Page Include="Control\ClassInfoListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
