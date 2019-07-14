@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace Tita
 {
     /// <summary>
-    /// TimeSelectControl.xaml에 대한 상호 작용 논리
+    /// ClassInfoGroupControl.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class TimeSelectControl : UserControl
+    public partial class ClassInfoGroupControl : UserControl
     {
-        public TimeSelectControl()
+        public ClassInfoGroupControl()
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

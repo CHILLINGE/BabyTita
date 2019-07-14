@@ -62,8 +62,11 @@
     <Compile Include="Control\ClassInfoControl.xaml.cs">
       <DependentUpon>ClassInfoControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\ClassListControl.xaml.cs">
-      <DependentUpon>ClassListControl.xaml</DependentUpon>
+    <Compile Include="Control\ClassInfoGroupControl.xaml.cs">
+      <DependentUpon>ClassInfoGroupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ClassInfoListControl.xaml.cs">
+      <DependentUpon>ClassInfoListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\ClassInfoInputControl.xaml.cs">
       <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
@@ -92,6 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Control\ClassInfoGroupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\ClassInfoInputControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\ClassListControl.xaml">
+    <Page Include="Control\ClassInfoListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
