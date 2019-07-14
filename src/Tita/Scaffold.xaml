@@ -9,5 +9,6 @@
     <Grid x:Name="maingrid" Margin="0,0,3.6,13">
         <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" Margin="36,76,0,0" HorizontalAlignment="Left" Width="198"/>
         <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="453,65,0,0" VerticalAlignment="Top" Width="296"/>
+        <local:ClassGroupBoxControl x:Name="box" Margin="49,10,401,10" ></local:ClassGroupBoxControl>
     </Grid>
 </Window>

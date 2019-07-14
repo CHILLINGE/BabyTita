@@ -23,6 +23,8 @@ namespace Tita
         {
             InitializeComponent();
             Sample.Info = TestData.GetClassInfos()[0];
+
+            box.ElementAdd += ElementAdded;
             
         }
 
@@ -44,6 +46,11 @@ namespace Tita
         private void ClassInfoInputControl_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ElementAdded(object sender, EventArgs e) 
+        {
+            MessageBox.Show("Event!");
         }
     }
 }
