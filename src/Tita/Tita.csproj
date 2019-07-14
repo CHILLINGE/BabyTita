@@ -85,6 +85,7 @@
       <DependentUpon>ScheduleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Test\TestData.cs" />
+    <Compile Include="Test\TestFunctions.cs" />
     <Compile Include="Util\PrefixSuffixConverter.cs" />
     <Compile Include="Util\ValueException.cs" />
     <Page Include="Control\ClassGroupControl.xaml">

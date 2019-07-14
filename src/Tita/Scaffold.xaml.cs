@@ -43,6 +43,8 @@ namespace Tita
             //Mainlist.ClassDatalist = TestData.GetClassInfos(1);
             //Mainlist.ClassDatalist.RemoveAt(0);
             //Mainlist.Update();
+
+            TestFunctions.xmlparsetest();
         }
 
         private void TimeSelectControl_Loaded(object sender, RoutedEventArgs e)
