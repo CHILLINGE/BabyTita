@@ -20,9 +20,29 @@ namespace Tita
     /// </summary>
     public partial class ClassInfoGroupControl : UserControl
     {
+
+        public List<ClassInfo> ClassDatalist { get; set; }
+        public string GroupName { get; set; }
+
+ 
+        public void Update()
+        {
+            for (int i = 0; i < ClassDatalist.Count; i++)
+            {
+                ClassInfoControl child = new ClassInfoControl();
+                child.Info = ClassDatalist[i];
+                child.VerticalAlignment = VerticalAlignment.Top;
+                child.HorizontalAlignment = HorizontalAlignment.Stretch;
+                child.Margin = new Thickness(5);
+
+                MainScroll.Children.Add(child);
+            }
+
+        }
         public ClassInfoGroupControl()
         {
             InitializeComponent();
+            GroupNameBox.Text = GroupName;
         }
     }
 }

@@ -22,19 +22,28 @@ namespace Tita
     {
 
         public ClassInfoList ClassDatalist { get; set; }
+       
 
-        public void Update()
+        public ClassInfoListControl()
         {
+            InitializeComponent();
+            
+            foreach(KeyValuePair<string, List<ClassInfo>> item in ClassDatalist.Groups)
+            {
+                ClassInfoGroupControl child = new ClassInfoGroupControl();
 
-            //ClassInfoControl child = new ClassInfoControl();
-            //child.Info = ClassDatalist[i];
-            //child.VerticalAlignment = VerticalAlignment.Top;
-            //child.HorizontalAlignment = HorizontalAlignment.Stretch;
-            //child.Margin = new Thickness(5);
+                child.GroupName = item.Key;
+                child.ClassDatalist = ClassDatalist.Groups[item.Key];
 
-            //MainScroll.Children.Add(child);
+                child.VerticalAlignment = VerticalAlignment.Top;
+                child.HorizontalAlignment = HorizontalAlignment.Stretch;
+                child.Margin = new Thickness(5);
 
+                MainScroll.Children.Add(child);
+            }
         }
-   
+
+
+
     }
 }
