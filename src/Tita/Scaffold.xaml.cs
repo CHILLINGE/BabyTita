@@ -24,8 +24,6 @@ namespace Tita
             InitializeComponent();
             Sample.Info = TestData.GetClassInfos()[0];
 
-            box.ElementAdd += ElementAdded;
-            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
