@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="smalljTest" Height="450" Width="800" Loaded="Small_Loaded">
     <Grid x:Name="main">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="DragSubject" Grid.Column="0" Background="Beige"
+                    PreviewMouseLeftButtonDown="List_MouseLeftButtonDown" PreviewMouseMove="List_MouseMove" >
+
+
+        </StackPanel>
+
+        <StackPanel x:Name="DropSubject" Grid.Column="1"
+            Background="Bisque" Drop="Data_Drop" DragEnter="Data_DragEnter">
+
+        </StackPanel>
     </Grid>
 </Window>

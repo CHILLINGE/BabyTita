@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita" DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
-             d:DesignWidth="300" Background="#FFCDCDCD" BorderThickness="1" BorderBrush="#FF7F7F7F">
+             d:DesignWidth="300" Background="#FFCDCDCD" BorderThickness="1" BorderBrush="#FF7F7F7F" AllowDrop="True">
     <Grid Margin="5">
         
         <Grid.RowDefinitions>

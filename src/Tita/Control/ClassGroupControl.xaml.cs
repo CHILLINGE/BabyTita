@@ -28,7 +28,7 @@ namespace Tita
         public ClassGroup Group { get; set; }
 
         /// <summary>
-        /// 그룹에 새롭게 과목을 추가,삭제할 때마다 부르는 클래스
+        /// 새로운 그룹 추가
         /// </summary>
         /// <param name="group"></param>
         public ClassGroupControl(ClassGroup group) : this()
@@ -38,7 +38,7 @@ namespace Tita
         }
 
         /// <summary>
-        /// 그룹 안에 있는 값들을 출력하는 함수
+        /// 그룹에 새롭게 과목을 추가,삭제할 때마다 부르는 클래스
         /// </summary>
         /// <param name="group"></param>
         public void BasketUpdate()
