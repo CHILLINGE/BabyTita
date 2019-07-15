@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -168,9 +167,41 @@ namespace Tita
         }
 
 
+        #region DragDrop
 
+        private Point startPoint;
 
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
 
+            startPoint = e.GetPosition(null);
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if (AllowDrop == false)
+            {
+                return;
+            }
+
+            Point nowPoint = e.GetPosition(null);
+            Vector coor = startPoint - nowPoint;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(coor.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(coor.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                DataObject dragData = new DataObject();
+                dragData.SetData(nameof(ClassInfo), info);
+                //dragData.SetData("Object", this);
+                DragDrop.DoDragDrop(this, dragData, DragDropEffects.Move | DragDropEffects.Copy);
+
+            }
+        }
+        #endregion
 
     }
 }
