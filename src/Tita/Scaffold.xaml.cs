@@ -67,8 +67,8 @@ namespace Tita
 
         private void Schedule_Click(object sender, RoutedEventArgs e)
         {
-            MainSchedule.ClassData = TestData.GetClassInfoPlus();
-            MainSchedule.UpDate();
+            //MainSchedule.ClassData = TestData.GetClassInfoPlus();
+            //MainSchedule.UpDate();
         }
     }
 }
