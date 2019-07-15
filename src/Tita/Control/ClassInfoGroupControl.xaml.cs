@@ -27,7 +27,7 @@ namespace Tita
  
         public void Update()
         {
-            GroupNameBox.Text = GroupName;
+            GroupNameBox.Header = GroupName;
             for (int i = 0; i < ClassDatalist.Count; i++)
             {
                 ClassInfoControl child = new ClassInfoControl();

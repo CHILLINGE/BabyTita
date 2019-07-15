@@ -36,6 +36,7 @@ namespace Tita
 
                 child.VerticalAlignment = VerticalAlignment.Top;
                 child.HorizontalAlignment = HorizontalAlignment.Stretch;
+                child.MaxHeight = 500;
                 child.Margin = new Thickness(5);
 
                 MainScroll.Children.Add(child);
