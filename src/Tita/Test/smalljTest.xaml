@@ -11,14 +11,13 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="DragSubject" Grid.Column="0" Background="Beige"
-                    PreviewMouseLeftButtonDown="List_MouseLeftButtonDown" PreviewMouseMove="List_MouseMove" >
-
+        <StackPanel x:Name="DragSubject" Grid.Column="0" Background="Beige" 
+                    AllowDrop="True">
 
         </StackPanel>
 
-        <StackPanel x:Name="DropSubject" Grid.Column="1"
-            Background="Bisque" Drop="Data_Drop" DragEnter="Data_DragEnter">
+        <StackPanel x:Name="DropSubject" Grid.Column="1" Background="Bisque" 
+                    AllowDrop="True" DragOver="DragSubject_DragOver" Drop="Data_Drop">
 
         </StackPanel>
     </Grid>

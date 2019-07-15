@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,69 +58,30 @@ namespace Tita
             DragSubject.Children.Add(new ClassInfoControl(info));
         }
 
-        private void List_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void DragSubject_DragOver(object sender, DragEventArgs e)
         {
-            startPoint = e.GetPosition(null);           
-        }
-
-        private void List_MouseMove(object sender, MouseEventArgs e)
-        {
-            Point nowPoint = e.GetPosition(null);
-            Vector coor = startPoint - nowPoint;
-
-            if(e.LeftButton == MouseButtonState.Pressed && 
-                Math.Abs(coor.X) > SystemParameters.MinimumHorizontalDragDistance ||
-                Math.Abs(coor.Y) > SystemParameters.MinimumVerticalDragDistance)
+            if(e.Data.GetDataPresent(nameof(ClassInfo)))
             {
-                StackPanel list = sender as StackPanel;
-                ClassInfoControl dragItem = FindAnchestor<ClassInfoControl>((DependencyObject)e.OriginalSource);
-                if (dragItem == null) return;
-
-                ClassInfo info = dragItem.Info;
-
-                DataObject dragData = new DataObject();
-                dragData.SetData("SubjectInfo", info);
-                dragData.SetData("Object", this);
-                DragDrop.DoDragDrop(this, dragData, DragDropEffects.Move | DragDropEffects.Copy);
+                e.Effects = DragDropEffects.Move;
             }
-
         }
 
-        private static T FindAnchestor<T> (DependencyObject current)
-            where T : DependencyObject
-        {
-            while(current != null)
-            {
-                if(current is T)
-                {
-                    return current as T;
-                }
-                current = VisualTreeHelper.GetParent(current);
-            }
-            return null;
-        }
-
-        private void MouseCursurFeedback()
-        {
-
-        }
-        
         private void Data_Drop(object sender, DragEventArgs e)
         {
-            if(e.Data.GetDataPresent("SubjectInfo"))
+            if(e.Handled == false)
             {
-                ClassInfo dragItem = e.Data.GetData("SubjectInfo") as ClassInfo;
-                StackPanel Dropsubject = sender as StackPanel;
-                ClassInfoControl item = new ClassInfoControl(dragItem);
-                Dropsubject.Children.Add(item);
-            }
-        }
+                StackPanel panel = sender as StackPanel;
+                ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
 
-        private void Data_DragEnter(object sender, DragEventArgs e)
-        {
-            if(!e.Data.GetDataPresent("SubjectInfo") || sender == e.Source)
-            {
-                e.Effects = DragDropEffects.None;
+                if (panel != null && curinfo != null)
+                {
+
+                    ClassInfoControl curcontrol = new ClassInfoControl(curinfo);
+                    curcontrol.AllowDrop = false;
+                    panel.Children.Add(curcontrol);
+                    e.Effects = DragDropEffects.Move;
+                }
+
             }
         }
     }

@@ -36,5 +36,6 @@
                 Width="100" Maximum="4" ValueChanged="preferenceSlider_ValueChanged">
             
         </Slider>
+        <local:ClassGroupControl HorizontalAlignment="Left" Height="70" Margin="312,340.2,-124.4,-392.6" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </UserControl>
