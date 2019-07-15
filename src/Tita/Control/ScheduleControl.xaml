@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita"
-             mc:Ignorable="d" Height="395.71" Width="762.6" Background="White">
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style x:Key="CaptionStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -13,7 +14,7 @@
             <Setter Property="Foreground" Value="#FF727272"/>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -35,22 +36,23 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
         <TextBlock Text="월" Style="{StaticResource CaptionStyle}" Grid.Column="1" Grid.Row="0"/>
         <TextBlock Text="화" Style="{StaticResource CaptionStyle}" Grid.Column="2" Grid.Row="0"/>
         <TextBlock Text="수" Style="{StaticResource CaptionStyle}" Grid.Column="3" Grid.Row="0"/>
         <TextBlock Text="목" Style="{StaticResource CaptionStyle}" Grid.Column="4" Grid.Row="0"/>
         <TextBlock Text="금" Style="{StaticResource CaptionStyle}" Grid.Column="5" Grid.Row="0"/>
 
-        <TextBlock Text="9:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="1"/>
-        <TextBlock Text="10:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="2"/>
-        <TextBlock Text="11:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="3"/>
-        <TextBlock Text="12:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="4"/>
-        <TextBlock Text="1:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="5"/>
-        <TextBlock Text="2:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="6"/>
-        <TextBlock Text="3:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="7"/>
-        <TextBlock Text="4:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="8"/>
-        <TextBlock Text="5:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="9"/>
-        <TextBlock Text="6:00" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="10"/>
+        <TextBlock Text="9am" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock Text="10am" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="2"/>
+        <TextBlock Text="11am" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="3"/>
+        <TextBlock Text="12pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="4"/>
+        <TextBlock Text="1pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="5"/>
+        <TextBlock Text="2pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="6"/>
+        <TextBlock Text="3pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="7"/>
+        <TextBlock Text="4pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="8"/>
+        <TextBlock Text="5pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="9"/>
+        <TextBlock Text="6pm" Style="{StaticResource CaptionStyle}" Grid.Column="0" Grid.Row="10"/>
 
     </Grid>
 </UserControl>

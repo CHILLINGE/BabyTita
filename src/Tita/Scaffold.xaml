@@ -9,9 +9,10 @@
         Title="Scaffold" Height="1000" Width="800" Loaded="Window_Loaded">
     <Grid x:Name="maingrid" Margin="0,0,3.6,13">
         <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" Margin="36,76,0,0" HorizontalAlignment="Left" Width="198"/>
-        <!--<local:ClassInfoListControl x:Name="Mainlist" HorizontalAlignment="Left" Height="148" Margin="453,228,0,0" VerticalAlignment="Top" Width="264"/>-->
         <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="436,0,0,0" VerticalAlignment="Top" Width="296"/>
-        <local:ClassInfoListControl x:Name="classList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400, 200,0,0" Height="458" Width="262" />
-        <Button x:Name="classListupdate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,200,0,0" Height="50" Width="79" Click="ClassListupdate_Click"/>
+        <local:ClassInfoListControl x:Name="classList" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400, 200,0,0" Height="458" Width="262" Background="#FFF5FFFF" />
+        <Button x:Name="classListupdate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="677,200,0,0" Height="50" Width="79" Click="ClassListupdate_Click"/>
+        <local:ScheduleControl x:Name="MainSchedule" HorizontalAlignment="Left" Height="332" Margin="0,251,0,0" VerticalAlignment="Top" Width="385"/>
+        <Button x:Name="Schedule" Content="Button" HorizontalAlignment="Left" Height="34" Margin="19,216,0,0" VerticalAlignment="Top" Width="95" Click="Schedule_Click"/>
     </Grid>
 </Window>
