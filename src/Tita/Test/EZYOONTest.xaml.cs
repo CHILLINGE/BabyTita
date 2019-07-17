@@ -44,11 +44,6 @@ namespace Tita
             TestFunctions.xmlparsetest();
         }
 
-        private void TimeSelectControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ElementAdded(object sender, EventArgs e)
         {
             MessageBox.Show("Event!");
@@ -64,8 +59,8 @@ namespace Tita
 
         private void Schedule_Click(object sender, RoutedEventArgs e)
         {
-            MainSchedule.ClassData = TestData.GetClassInfoPlus();
-            MainSchedule.UpDate();
+            ResultSchedule.ClassData = TestData.GetClassInfoPlus();
+            ResultSchedule.UpDate();
         }
     }
 }
