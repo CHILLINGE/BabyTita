@@ -74,6 +74,12 @@
     <Compile Include="Control\ClassInfoInputControl.xaml.cs">
       <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\ScheduleBlockControl.xaml.cs">
+      <DependentUpon>ScheduleBlockControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ScheduleControl.xaml.cs">
+      <DependentUpon>ScheduleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\TimeSelectControl.xaml.cs">
       <DependentUpon>TimeSelectControl.xaml</DependentUpon>
     </Compile>
@@ -84,11 +90,11 @@
     <Compile Include="Scaffold.xaml.cs">
       <DependentUpon>Scaffold.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleControl.xaml.cs">
-      <DependentUpon>ScheduleControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Test\DropDownTest.xaml.cs">
       <DependentUpon>DropDownTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\EZYOONTest.xaml.cs">
+      <DependentUpon>EZYOONTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Test\smalljTest.xaml.cs">
       <DependentUpon>smalljTest.xaml</DependentUpon>
@@ -114,6 +120,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Control\ClassInfoInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ScheduleBlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ScheduleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ScheduleControl.xaml">
+    <Page Include="Test\EZYOONTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

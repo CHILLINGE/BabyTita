@@ -41,5 +41,11 @@ namespace Tita
             smalljTest s = new smalljTest();
             s.Show();
         }
+
+        private void EZYOONb_Click(object sender, RoutedEventArgs e)
+        {
+            EZYOONTest a = new EZYOONTest();
+            a.Show();
+        }
     }
 }
