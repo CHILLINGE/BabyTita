@@ -23,6 +23,8 @@ namespace Tita
         public ClassGroupControl()
         {
             InitializeComponent();
+            editbutton.Visibility = Visibility.Hidden;
+            editname.Visibility = Visibility.Hidden;
         }
 
         public ClassGroup Group { get; set; }
@@ -53,6 +55,31 @@ namespace Tita
                     basketstack.Children.Add(groupitem);
                 }
             }
+        }
+
+        
+        private void penClick(object sender, RoutedEventArgs e)
+        {
+            groupname.Visibility = Visibility.Hidden;
+            penb.Visibility = Visibility.Hidden;
+            editbutton.Visibility = Visibility.Visible;
+            editname.Visibility = Visibility.Visible;
+
+            String name = groupname.Text;
+            editname.Text = name;
+        }
+
+        private void editClick(object sender, RoutedEventArgs e)
+        {
+            String name = editname.Text;
+            groupname.Text = name;
+
+            groupname.Visibility = Visibility.Visible;
+            penb.Visibility = Visibility.Visible;
+            editbutton.Visibility = Visibility.Hidden;
+            editname.Visibility = Visibility.Hidden;
+
+            //위에 바꼈음을 알려주는 이벤트 코드 추가
         }
     }
 }

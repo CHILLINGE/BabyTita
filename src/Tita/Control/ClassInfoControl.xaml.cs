@@ -160,6 +160,17 @@ namespace Tita
                 preferenceSlider.Visibility = Visibility.Collapsed;
             }
         }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (HasInfoPlus)
+            {
+                preferenceSlider.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                preferenceSlider.Visibility = Visibility.Collapsed;
+            }
+        }
 
         private void preferenceSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
