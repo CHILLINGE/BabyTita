@@ -51,7 +51,8 @@ namespace Tita
 
             ClassGroupBoxControl gbox = new ClassGroupBoxControl(group);
             main.Children.Add(gbox);
-            
+            gbox.HorizontalAlignment = HorizontalAlignment.Left;
+            gbox.Margin = new Thickness(500, 0, 0, 0);
 
 
             ClassInfo info = new ClassInfo("객체지향패러다임", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 3)), "오재원", 3);
