@@ -74,6 +74,9 @@
     <Compile Include="Control\ClassInfoInputControl.xaml.cs">
       <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\ScheduleControl.xaml.cs">
+      <DependentUpon>ScheduleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\TimeSelectControl.xaml.cs">
       <DependentUpon>TimeSelectControl.xaml</DependentUpon>
     </Compile>
@@ -83,9 +86,6 @@
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Scaffold.xaml.cs">
       <DependentUpon>Scaffold.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ScheduleControl.xaml.cs">
-      <DependentUpon>ScheduleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Test\DropDownTest.xaml.cs">
       <DependentUpon>DropDownTest.xaml</DependentUpon>
@@ -117,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Control\ScheduleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\TimeSelectControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,10 +148,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Scaffold.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ScheduleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
