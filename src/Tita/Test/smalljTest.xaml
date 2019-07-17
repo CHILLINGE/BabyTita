@@ -7,17 +7,13 @@
         mc:Ignorable="d"
         Title="smalljTest" Height="450" Width="800" Loaded="Small_Loaded">
     <Grid x:Name="main">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <StackPanel x:Name="DragSubject" Grid.Column="0" Background="Beige" 
-                    AllowDrop="True">
+        <StackPanel x:Name="DragSubject" Background="Beige" 
+                    AllowDrop="True" HorizontalAlignment="Left" Width="400" VerticalAlignment="Top" Height="200">
 
         </StackPanel>
 
-        <StackPanel x:Name="DropSubject" Grid.Column="1" Background="Bisque" 
-                    AllowDrop="True" DragOver="DragSubject_DragOver" Drop="Data_Drop">
+        <StackPanel x:Name="DropSubject" Background="Bisque" 
+                    AllowDrop="True" DragOver="DragSubject_DragOver" Drop="Data_Drop" HorizontalAlignment="Left" Width="400" VerticalAlignment="Top" Height="200" Margin="0,200,0,0">
 
         </StackPanel>
     </Grid>

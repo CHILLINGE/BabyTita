@@ -93,6 +93,9 @@
     <Compile Include="Test\DropDownTest.xaml.cs">
       <DependentUpon>DropDownTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Test\EZYOONTest.xaml.cs">
+      <DependentUpon>EZYOONTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Test\smalljTest.xaml.cs">
       <DependentUpon>smalljTest.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Scaffold.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\EZYOONTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
