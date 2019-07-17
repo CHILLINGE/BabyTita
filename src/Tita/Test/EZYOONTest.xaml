@@ -1,0 +1,16 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tita"
+        xmlns:Tita="clr-namespace:Tita" x:Class="Tita.EZYOONTest"
+        mc:Ignorable="d"
+        Title="EZYOONTest" Height="1000" Width="800">
+    <Grid x:Name="maingrid" Margin="0,0,3.6,13">
+        <Tita:ClassInfoListControl x:Name="classList" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="489,204,0,0" Height="458" Width="262" Background="#FFF5FFFF" />
+        <Button x:Name="classListupdate" Content="classList Update" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="489,132,0,0" Height="50" Width="262" Click="ClassListupdate_Click"/>
+        <Tita:ScheduleControl x:Name="MainSchedule" HorizontalAlignment="Left" Height="332" Margin="37,204,0,0" VerticalAlignment="Top" Width="385"/>
+        <Button x:Name="Schedule" Content="Schedule Update" HorizontalAlignment="Left" Height="50" Margin="37,132,0,0" VerticalAlignment="Top" Width="385" Click="Schedule_Click"/>
+    </Grid>
+</Window>
