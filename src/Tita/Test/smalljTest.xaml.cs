@@ -29,7 +29,7 @@ namespace Tita
 
         private void Small_Loaded(object sender, RoutedEventArgs e)
         {
-            /*
+            
             DataFile file = new DataFile("subjects.xml");
             ClassInfoList lst = file.LoadClassInfo();
             Console.WriteLine(lst.Groups);
@@ -51,7 +51,8 @@ namespace Tita
 
             ClassGroupBoxControl gbox = new ClassGroupBoxControl(group);
             main.Children.Add(gbox);
-            */
+            gbox.HorizontalAlignment = HorizontalAlignment.Left;
+            gbox.Margin = new Thickness(500, 0, 0, 0);
 
 
             ClassInfo info = new ClassInfo("객체지향패러다임", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 3)), "오재원", 3);
@@ -72,11 +73,11 @@ namespace Tita
             {
                 StackPanel panel = sender as StackPanel;
                 ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
-
+                ClassInfoPlus infoplus = new ClassInfoPlus(curinfo);
                 if (panel != null && curinfo != null)
                 {
-
-                    ClassInfoControl curcontrol = new ClassInfoControl(curinfo);
+                    
+                    ClassInfoControl curcontrol = new ClassInfoControl(infoplus);
                     curcontrol.AllowDrop = false;
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;

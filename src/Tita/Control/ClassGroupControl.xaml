@@ -8,10 +8,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
     <Grid x:Name="basket">
-        <TextBlock x:Name="subjectname" Text="컴퓨터정보공학부" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        
+        <Grid VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="groupname" Grid.Column="0" Text="컴퓨터정보공학부" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <Button x:Name="penb" Grid.Column="1" Content="Pen" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="30" Click="penClick"/>
+            <TextBox x:Name="editname" Grid.Column="0"  />
+            <Button x:Name="editbutton" Grid.Column="1" Content="확인" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="30" Click="editClick"/>
+        </Grid>
+        
         <Border BorderBrush="#FFEE4F4F" BorderThickness="2" Margin="0,30,0,0">
             <StackPanel x:Name="basketstack" >
-        </StackPanel>
+            </StackPanel>
         </Border>
+        
     </Grid>
 </UserControl>

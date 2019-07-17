@@ -109,7 +109,7 @@
 		<TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="9"/>
 		<TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="10"/>
 
-		<TextBlock Grid.Row="1" Text="9am" Style="{StaticResource TimeStyle}" />
+		<TextBlock Grid.Row="1" Text="9am"  Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="2" Text="10am" Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="3" Text="11am" Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="4" Text="12pm" Style="{StaticResource TimeStyle}" />

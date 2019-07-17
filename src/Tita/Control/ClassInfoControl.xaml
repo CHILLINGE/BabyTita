@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita" DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
-             d:DesignWidth="300" Background="#FFCDCDCD" BorderThickness="1" BorderBrush="#FF7F7F7F" AllowDrop="True">
+             d:DesignWidth="300" Background="#FFE7F8FF" BorderThickness="0" BorderBrush="#FFCACACA" AllowDrop="True" Loaded="UserControl_Loaded">
     <Grid Margin="5">
         
         <Grid.RowDefinitions>
@@ -33,9 +33,8 @@
                    Margin="10,0,0,0" />-->
         </StackPanel>
         <Slider x:Name="preferenceSlider" Grid.Row="2" Orientation="Horizontal" Margin="8,0,0,0" HorizontalAlignment="Right"
-                Width="100" Maximum="4" ValueChanged="preferenceSlider_ValueChanged">
-            
+                Width="100" Maximum="4" ValueChanged="preferenceSlider_ValueChanged" >
+
         </Slider>
-        <local:ClassGroupControl HorizontalAlignment="Left" Height="70" Margin="312,340.2,-124.4,-392.6" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </UserControl>

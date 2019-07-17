@@ -24,48 +24,55 @@ namespace Tita
         public TimeSelectControl()
         {
             InitializeComponent();
-            for (int i = 0; i <= 5; i++)
+
+            for (int i = 1; i <= 5; i++)
             {
-                for (int j = 0; j <= 10; j++)
+                for (int j = 1; j <= 10; j++)
                 {
                     ColorPart colpart = new ColorPart();
                     Grid.SetColumn(colpart, i);
-                    Grid.SetRow(colpart,j);
-
-                    colpart.MouseLeftButtonDown += Colpart_MouseLeftButtonDown;
-                    colpart.MouseRightButtonDown += Colpart_MouseRightButtonDown;
-
+                    Grid.SetRow(colpart, j);
+                    timetable.Children.Add(colpart);
                 };
             }
         }
-
-        private void Colpart_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        public class ColorPart : Border
         {
-            click(MouseButton.Left);   
+            static Brush col = new SolidColorBrush(Color.FromRgb(0xF5, 0xDA, 0x81));
+            static Brush rmcol = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
 
-        }
-        private void Colpart_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            click(MouseButton.Right);
-        }
-
-        private void click(MouseButton btn)
-        {
-            if(btn == MouseButton.Left)
+            public ColorPart() : base()
             {
-                double x = Mouse.GetPosition(timetable).X;
-                double y = Mouse.GetPosition(timetable).Y;
-
+                this.Background = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
             }
-            else
+
+            protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
             {
-
+                base.OnMouseLeftButtonDown(e);
+                if (e.ButtonState == e.LeftButton)
+                {
+                    this.Background = col;
+                   
+                }
             }
-                    
-        }
-        private class ColorPart : Border
-        {
-            
+            protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
+            {
+                base.OnMouseRightButtonDown(e);
+                if (e.ButtonState == e.RightButton) {
+                    this.Background = rmcol;
+                  
+                }
+            }
+            //protected override void OnMouseEnter(MouseEventArgs e)
+            //{
+            //    base.OnMouseEnter(e);
+            //    if (MouseButtonState ==  e.LeftButton) this.Background = col;
+            //}
+
+
+
+
+
         }
 
     }
