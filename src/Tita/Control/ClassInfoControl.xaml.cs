@@ -20,7 +20,6 @@ namespace Tita
     /// </summary>
     public partial class ClassInfoControl : UserControl
     {
-
         private ClassInfo info;
         private ClassInfoPlus infoPlus;
 

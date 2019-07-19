@@ -22,19 +22,29 @@ namespace Tita
         public EZYOONTest()
         {
             InitializeComponent();
+
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Sample.Info = TestData.GetClassInfos()[0];
-            //ClassGroup group = new ClassGroup();
-            //ClassInfoPlus info = new ClassInfoPlus(Sample.Info);
-            //group.AddGroup(info);
-
-            //Mainlist.ClassDatalist = TestData.GetClassInfos();
-            //Mainlist.Update();
-
+            classList.SelectSubject += ClassList_SelectSubject;
 
         }
+
+        private void ClassList_SelectSubject(object sender, SelectSubjectEventArgs info)
+        {
+            ClassInfoListControl control = (ClassInfoListControl)sender;
+            if (info.IsMouseEnter)
+            {
+                ClassTimePreview.ClassData.Add(info.Info);
+                ClassTimePreview.UpDate();
+            }
+            else
+            {
+                ClassTimePreview.ClassData.Clear();
+                ClassTimePreview.UpDate();
+            }
+        }
+
         private void MainlistUpdate_Click(object sender, RoutedEventArgs e)
         {
             //Mainlist.ClassDatalist = TestData.GetClassInfos(1);
@@ -59,7 +69,7 @@ namespace Tita
 
         private void Schedule_Click(object sender, RoutedEventArgs e)
         {
-            ResultSchedule.ClassData = TestData.GetClassInfoPlus();
+            ResultSchedule.ClassData = TestData.GetClassInfos();
             ResultSchedule.UpDate();
         }
     }

@@ -20,18 +20,18 @@ namespace Tita
     /// </summary>
     public partial class ScheduleControl : UserControl
     {
-        public List<ClassInfoPlus> ClassData { get; set; }
+        public List<ClassInfo> ClassData { get; set; }
 
         public void UpDate()
         {
             for (int i = 0; i < ClassData.Count; i++)
             {
-                foreach (var item in ClassData[i].Info.Time.Items)
+                foreach (var item in ClassData[i].Time.Items)
                 {
 
                     ScheduleBlockControl classblock = new ScheduleBlockControl();
-                    classblock.ClassName = ClassData[i].Info.Name;
-                    classblock.Professor = ClassData[i].Info.Professor;
+                    classblock.ClassName = ClassData[i].Name;
+                    classblock.Professor = ClassData[i].Professor;
                     classblock.UpDate();
 
 
@@ -65,6 +65,8 @@ namespace Tita
         public ScheduleControl()
         {
             InitializeComponent();
+
+            ClassData = new List<ClassInfo>();
         }
     }
 }
