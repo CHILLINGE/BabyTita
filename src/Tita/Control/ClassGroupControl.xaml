@@ -13,11 +13,44 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="groupname" Grid.Column="0" Text="컴퓨터정보공학부" VerticalAlignment="Top" HorizontalAlignment="Left" />
-            <Button x:Name="penb" Grid.Column="1" Content="Pen" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="30" Click="penClick"/>
+            <Button x:Name="penb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" Click="penClick" Background="#FFB7DDE8" BorderBrush="{x:Null}">
+                <Button.Content>
+                    <Viewbox Margin="3">
+                        <Path Data="M30.206005,0L30.206005,1.1990057C30.206005,2.2390144 30.122021,11.448002 27.224009,14.362004 27.06904,14.51801 26.659006,14.929022 24.332039,15.29801 24.836006,15.969 24.911018,16.53202 24.586006,17.040015 24.539009,17.110023 23.661995,18.407996 22.044014,19.604011 18.895025,21.930001 11.363037,24.049996 11.044006,24.139016L10.506042,22.213021C10.580994,22.192025 18.002018,20.103003 20.855047,17.995002 21.676031,17.388007 22.268013,16.749 22.601021,16.347022 22.343025,16.069007 21.907051,15.677008 21.495001,15.362005L19.476995,13.819005 22.00605,13.573003C23.523018,13.424016 25.393015,13.123998 25.856028,12.899999 27.496042,11.153995 28.047007,5.7529926 28.174997,2.6019904 21.737005,5.6860065 8.4370103,23.323007 3.5499834,30.312999L3.5079349,30.283597 3.263338,30.353394C0.77048695,31.086869,-1.1920929E-07,32.000003,0,32.000003L1.951778,29.195512 1.9110057,29.167003C3.8790243,26.351022,21.362005,1.6159979,29.02705,0.21499636z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
             <TextBox x:Name="editname" Grid.Column="0"  />
-            <Button x:Name="editbutton" Grid.Column="1" Content="확인" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="30" Click="editClick"/>
+            <Button x:Name="editbutton" Background="#FFB7DDE8" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" Click="editClick" BorderBrush="{x:Null}">
+                <Button.Content>
+                    <Viewbox Margin="3">
+                        <Path Data="M27.903015,0L32,4.0970465 12.369019,23.728029 11.685974,24.520998 0,14.441042 3.7819824,10.054994 11.330017,16.567019z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="deletebutton" Content="d" Background="#FFB7DDE8" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="23" Click="deleteClick" BorderBrush="{x:Null}"/>
         </Grid>
         
         <Border BorderBrush="#FFEE4F4F" BorderThickness="2" Margin="0,30,0,0">

@@ -20,6 +20,7 @@ namespace Tita
     /// </summary>
     public partial class ClassGroupBoxControl : UserControl
     {
+        public event EventHandler<AddEventArgs> EditGroupName;
         public event EventHandler ElementAdd;
 
         public ClassGroup root { get; }
@@ -41,9 +42,11 @@ namespace Tita
 
         public void Update(ClassGroup group)
         {
+
             foreach (ClassGroup g in group.Children)
             {
                 ClassGroupControl GControl = new ClassGroupControl(g);
+                GControl.EditGroupName += EditGroupNameSender;
                 groupbox.Children.Add(GControl);
             }
         }
@@ -51,7 +54,15 @@ namespace Tita
         public void GroupControlAdd(ClassGroup group)
         {
             root.AddGroup(group);
-            Update(root);
+            //위로 추가 됬음을 알림
+            ClassGroupControl groupControl = new ClassGroupControl(group);
+            groupbox.Children.Add(groupControl);
+        }
+
+        public void GroupControlDelete()
+        {
+            //위로 삭제 됬음을 알림
+            //groupbox.Children.Remove();
         }
 
         /// <summary>
@@ -67,5 +78,11 @@ namespace Tita
             }
            
         }
+
+        private void EditGroupNameSender(Object sender, AddEventArgs argevent)
+        {
+            EditGroupName?.Invoke(this, argevent);
+        }
+
     }
 }
