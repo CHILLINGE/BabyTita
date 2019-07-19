@@ -21,6 +21,15 @@ namespace Tita
     public partial class ClassInfoListControl : UserControl
     {
 
+        //public event EventHandler MouseHoverEvent;
+        //private ClassInfoPlus data;
+        //public  void DoMouseHover()
+        //{
+        //    if (MouseHoverEvent != null)
+        //        this.data = ;
+        //        MouseHoverEvent(this, new EventArgs(this.data));
+        //}
+
         public ClassInfoList ClassDatalist { get; set; }
 
         public void UpDate()

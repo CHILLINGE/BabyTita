@@ -22,6 +22,7 @@ namespace Tita
     {
         public event EventHandler ElementAdd;
 
+        public ClassGroup root { get; }
 
         public ClassGroupBoxControl()
         {
@@ -34,11 +35,23 @@ namespace Tita
         /// <param name="group"></param>
         public ClassGroupBoxControl(ClassGroup group) : this()
         {
+            root = group;
+            Update(root);
+        }
+
+        public void Update(ClassGroup group)
+        {
             foreach (ClassGroup g in group.Children)
             {
                 ClassGroupControl GControl = new ClassGroupControl(g);
                 groupbox.Children.Add(GControl);
             }
+        }
+
+        public void GroupControlAdd(ClassGroup group)
+        {
+            root.AddGroup(group);
+            Update(root);
         }
 
         /// <summary>
