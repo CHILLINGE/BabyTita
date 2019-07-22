@@ -18,38 +18,72 @@ namespace Tita
     /// <summary>
     /// TimeSelectControl.xaml에 대한 상호 작용 논리
     /// </summary>
- 
+
     public partial class TimeSelectControl : UserControl
     {
-
+        ColorPart colpart = new ColorPart();
         public TimeSelectControl()
         {
             InitializeComponent();
+
 
             for (int i = 1; i <= 5; i++)
             {
                 for (int j = 1; j <= 10; j++)
                 {
-                    ColorPart colpart = new ColorPart();
+
                     Grid.SetColumn(colpart, i);
                     Grid.SetRow(colpart, j);
                     timetable.Children.Add(colpart);
+
                 };
             }
-            for(int i=1; i<=5; i++)
-            {
-                for(int j=1; j<=10; j++)
-                {
-                    if(this.Background != null)
-                    {
-                        
-                    }
-                }
-            }
+
+
         }
+        //public ClassTime GetClassTime()
+        //{
+        //    for (int i = 1; i <= 5; i++)
+        //    {
+        //        for (int j = 1; j <= 10; j++)
+        //        {
+        //            if (this.Background != null)
+        //            {
+
+        //                int item_col = Grid.GetColumn(colpart);
+        //                int item_row = Grid.GetRow(colpart);
+        //                if (item_col == 1)
+        //                {
+        //                    switch (item_row)
+        //                    {
+        //                        case 1:
+        //                            return new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 2));
+        //                            break;
+        //                    }
+        //                }
+        //                else if (item_col == 2)
+        //                {
+
+        //                }
+        //                else if (item_col == 3)
+        //                {
+
+        //                }
+        //                else if (item_col == 4)
+        //                {
+
+        //                }
+        //                else if (item_col == 5)
+        //                {
+
+        //                }
+        //            }
+        //        }
+               
+        //    }
         public class ColorPart : Border
         {
-            static Brush col = new SolidColorBrush(Color.FromArgb(80,0xa9, 0xd0, 0xf5));
+            static Brush col = new SolidColorBrush(Color.FromArgb(80, 0xa9, 0xd0, 0xf5));
             static Brush rmcol = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
             static Brush pre = new SolidColorBrush(Color.FromArgb(20, 0xa9, 0xd0, 0xf5));
             public ColorPart() : base()
@@ -68,9 +102,10 @@ namespace Tita
             protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
             {
                 base.OnMouseRightButtonDown(e);
-                if (e.ButtonState == e.RightButton) {
+                if (e.ButtonState == e.RightButton)
+                {
                     this.Background = rmcol;
-                  
+
                 }
             }
             protected override void OnMouseMove(MouseEventArgs e)
