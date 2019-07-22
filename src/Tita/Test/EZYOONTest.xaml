@@ -6,13 +6,12 @@
         xmlns:local="clr-namespace:Tita"
         xmlns:Tita="clr-namespace:Tita" x:Class="Tita.EZYOONTest" Loaded="Window_Loaded"
         mc:Ignorable="d"
-        Title="EZYOONTest" Height="1000" Width="800">
+        Title="EZYOONTest" Height="1100" Width="1000">
     <Grid x:Name="maingrid" Margin="0,0,3.6,13">
-        <Tita:ClassInfoListControl x:Name="classList" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="489,204,0,0" Height="458" Width="262" Background="#FFF5FFFF" />
-        <Button x:Name="classListupdate" Content="classList Update" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="489,132,0,0" Height="50" Width="262" Click="ClassListupdate_Click"/>
+        <Tita:ClassInfoListControl x:Name="classList" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="561,204,0,0" Height="554" Width="390" Background="#FFF5FFFF" />
+        <Button x:Name="classListupdate" Content="classList Update" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="561,132,0,0" Height="50" Width="390" Click="ClassListupdate_Click"/>
         <Tita:ScheduleControl x:Name="ResultSchedule" HorizontalAlignment="Left" Height="332" Margin="51,624,0,0" VerticalAlignment="Top" Width="385"/>
         <Button x:Name="ResultScheduleupdate" Content="Result Schedule Update" HorizontalAlignment="Left" Height="50" Margin="51,569,0,0" VerticalAlignment="Top" Width="385" Click="Schedule_Click"/>
-        <Tita:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Left" Height="343" VerticalAlignment="Top" Width="385" Margin="51,204,0,0"/>
-        <Button x:Name="ClassTimePreviewUpdate" Content="ClassTimePreview Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="385" Margin="51,132,0,0" Height="50"/>
+        <Tita:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="474" Margin="51,135,0,0"/>
     </Grid>
 </Window>
