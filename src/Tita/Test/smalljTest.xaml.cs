@@ -91,6 +91,7 @@ namespace Tita
             }
         }
 
+        //이벤트 시 실행 함수 부분
         private void Gbox_ElementAdd(object sender, EventArgs e)
         {
             ClassGroup group = new ClassGroup();
