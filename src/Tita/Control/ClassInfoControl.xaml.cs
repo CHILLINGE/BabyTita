@@ -15,6 +15,12 @@ using System.Windows.Shapes;
 
 namespace Tita
 {
+    public class ClassRemoveArgs : EventArgs
+    {
+        public ClassInfo Info { get; set; }
+    }
+
+
     /// <summary>
     /// ClassInfoControl.xaml에 대한 상호 작용 논리
     /// </summary>
@@ -44,7 +50,8 @@ namespace Tita
             set { if (!value) { infoPlus = null; } }
         }
 
-
+        public EventHandler<ClassRemoveArgs> ClassRemove;
+        
 
 
         public string ClassName
@@ -213,7 +220,7 @@ namespace Tita
         {
             base.OnMouseMove(e);
 
-            if (!Dragable)
+            if (!Draggable)
             {
                 return;
             }
@@ -234,5 +241,11 @@ namespace Tita
         }
         #endregion
 
+        
+
+        private void Remove_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ClassRemove?.Invoke(this, new ClassRemoveArgs() { Info = this.Info });
+        }
     }
 }

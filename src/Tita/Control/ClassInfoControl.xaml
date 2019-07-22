@@ -6,35 +6,46 @@
              xmlns:local="clr-namespace:Tita" DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
              d:DesignWidth="300" Background="#FFE7F8FF" BorderThickness="0" BorderBrush="#FFCACACA" AllowDrop="True" Loaded="UserControl_Loaded">
-    <Grid Margin="5">
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+    <Grid>
 
-        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBlock Text="{Binding ClassName, FallbackValue='SubjectName'}" FontSize="14"
+        <Grid Margin="5">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal" Grid.ColumnSpan="2">
+                <TextBlock Text="{Binding ClassName, FallbackValue='SubjectName'}" FontSize="14"
                    Margin="5,0,0,0"/>
-            <TextBlock Text="{Binding ClassDivision, FallbackValue='Division', Converter={local:SuffixConverter}, ConverterParameter='분반'}" FontSize="10"
+                <TextBlock Text="{Binding ClassDivision, FallbackValue='Division', Converter={local:SuffixConverter}, ConverterParameter='분반'}" FontSize="10"
                    Margin="10,0,0,0" VerticalAlignment="Bottom"/>
-            <TextBlock Text="{Binding ClassProfessor, FallbackValue='Professor'}" FontSize="11"
+                <TextBlock Text="{Binding ClassProfessor, FallbackValue='Professor'}" FontSize="11"
                    Margin="20,0,0,0" VerticalAlignment="Bottom"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal"
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal"
                     Margin="0,5,0,0">
-            <TextBlock Text="{Binding ClassCredit, FallbackValue='Credit', Converter={local:SuffixConverter}, ConverterParameter='학점'}"  
+                <TextBlock Text="{Binding ClassCredit, FallbackValue='Credit', Converter={local:SuffixConverter}, ConverterParameter='학점'}"  
                        FontSize="11"
                    Margin="5,0,0,0" />
-            <TextBlock Text="{Binding ClassMajor, FallbackValue='Major'}" FontSize="11"
+                <TextBlock Text="{Binding ClassMajor, FallbackValue='Major'}" FontSize="11"
                    Margin="10,0,0,0" />
-            <!--<TextBlock Text="{Binding ClassTime, FallbackValue='Time'}" FontSize="13"
+                <!--<TextBlock Text="{Binding ClassTime, FallbackValue='Time'}" FontSize="13"
                    Margin="10,0,0,0" />-->
-        </StackPanel>
-        <Slider x:Name="preferenceSlider" Grid.Row="2" Orientation="Horizontal" Margin="8,0,0,0" HorizontalAlignment="Right"
+            </StackPanel>
+            <Slider x:Name="preferenceSlider" Grid.Row="2" Orientation="Horizontal" Margin="8,0,0,0" HorizontalAlignment="Right"
                 Width="100" Maximum="4" ValueChanged="preferenceSlider_ValueChanged" SmallChange="1" >
 
-        </Slider>
+            </Slider>
+        </Grid>
+
+        <Button x:Name="btn_close" Grid.Row="0" Margin="282,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="15" Height="15" Padding="2" Click="Remove_Button_Click">
+            <Viewbox>
+                <Path Data="M29.590818,0C30.206963,0 30.823227,0.23449993 31.292229,0.70349979 32.229256,1.6405001 32.229256,3.1605005 31.292229,4.1004992L19.398003,15.998498 31.292229,27.892495C32.229256,28.829499 32.229256,30.349496 31.292229,31.294496 30.354227,32.2315 28.827164,32.2315 27.890139,31.294496L15.997988,19.399499 4.1047992,31.296502C3.1677734,32.234498 1.6397347,32.234498 0.70276969,31.296502 -0.23425656,30.352502 -0.23425656,28.832498 0.70276969,27.894502L12.596934,15.998498 0.70276969,4.1024981C-0.23425656,3.1654978 -0.23425656,1.6454973 0.70276969,0.7054987 1.6397347,-0.23150158 3.1677734,-0.23150158 4.1047992,0.7054987L15.99695,12.597497 27.890139,0.70349979C28.35865,0.23449993,28.974674,0,29.590818,0z" Stretch="Uniform" Fill="#FF000000" RenderTransformOrigin="0.5,0.5"></Path>
+            </Viewbox>
+        </Button>
+
     </Grid>
 </UserControl>
