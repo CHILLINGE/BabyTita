@@ -55,16 +55,13 @@ namespace Tita
             Gbox.HorizontalAlignment = HorizontalAlignment.Left;
             Gbox.Margin = new Thickness(500, 0, 0, 0);
 
+            //그룹 추가 이벤트
             Gbox.ElementAdd += Gbox_ElementAdd;
+            //그룹 이름 수정 이벤트
+            Gbox.EditGroupName += Gbox_EditGroupName;
 
             ClassInfo info = new ClassInfo("객체지향패러다임", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 3)), "오재원", 3);
             DragSubject.Children.Add(new ClassInfoControl(info));
-        }
-
-        private void Gbox_ElementAdd(object sender, EventArgs e)
-        {
-            ClassGroup group = new ClassGroup();
-            Gbox.GroupControlAdd(group);
         }
 
         private void DragSubject_DragOver(object sender, DragEventArgs e)
@@ -92,6 +89,17 @@ namespace Tita
                 }
 
             }
+        }
+
+        private void Gbox_ElementAdd(object sender, EventArgs e)
+        {
+            ClassGroup group = new ClassGroup();
+            Gbox.GroupControlAdd(group);
+        }
+
+        private void Gbox_EditGroupName(Object sender, AddEventArgs argevent)
+        {
+            MessageBox.Show(argevent.newname);
         }
     }
 }

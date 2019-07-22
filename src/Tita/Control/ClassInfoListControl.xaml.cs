@@ -20,6 +20,8 @@ namespace Tita
     /// </summary>
     public partial class ClassInfoListControl : UserControl
     {
+        public delegate void MyEvent(object sender, SelectSubjectEventArgs info);
+        public event MyEvent SelectSubject;
 
         //public event EventHandler MouseHoverEvent;
         //private ClassInfoPlus data;
@@ -31,12 +33,12 @@ namespace Tita
         //}
 
         public ClassInfoList ClassDatalist { get; set; }
-
+        public ClassInfoGroupControl child;
         public void UpDate()
         {
             foreach (KeyValuePair<string, List<ClassInfo>> item in ClassDatalist.Groups)
             {
-                ClassInfoGroupControl child = new ClassInfoGroupControl();
+                child = new ClassInfoGroupControl();
 
 
                 child.GroupName = item.Key;
@@ -47,10 +49,25 @@ namespace Tita
                 child.HorizontalAlignment = HorizontalAlignment.Stretch;
                 child.MaxHeight = 500;
                 child.Margin = new Thickness(5);
+                child.SelectSubject += Child_SelectSubject;
 
                 MainScroll.Children.Add(child);
             }
         }
+
+        private void Child_SelectSubject(object sender, SelectSubjectEventArgs info)
+        {
+            ClassInfoGroupControl control = (ClassInfoGroupControl)sender;
+            SelectSubjectEventArgs args = new SelectSubjectEventArgs();
+            args.Info = info.Info;
+            args.IsMouseEnter = info.IsMouseEnter;
+
+            if (SelectSubject != null)
+            {
+                SelectSubject(this, args);
+            }
+        }
+
         public ClassInfoListControl()
         {
             InitializeComponent();

@@ -15,7 +15,22 @@
     <Grid>
         <Border BorderThickness="3" BorderBrush="Black">
             <Grid>
-                <Button x:Name="groupboxadd" Content="" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Width="30" Margin="0,0,35,40" Click="AddButtonClicked"/>
+                <Button x:Name="groupboxadd" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Width="30" Margin="0,0,35,40" Click="AddButtonClicked" BorderBrush="{x:Null}" Background="#FFFA9595">
+                    <Button.Content>
+                        <Viewbox Margin="4">
+                            <Path Data="M12.126984,0L19.872009,0 19.872009,12.128 32,12.128 32,19.872999 19.872009,19.872999 19.872009,31.999 12.126984,31.999 12.126984,19.872999 0,19.872999 0,12.128 12.126984,12.128z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Viewbox>
+                    </Button.Content>
+                </Button>
                 <ScrollViewer Margin="0,40,0,0" >
                     <StackPanel x:Name="groupbox">
                     </StackPanel>

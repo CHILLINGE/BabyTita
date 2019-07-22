@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tita"
-        xmlns:Tita="clr-namespace:Tita" x:Class="Tita.EZYOONTest"
+        xmlns:Tita="clr-namespace:Tita" x:Class="Tita.EZYOONTest" Loaded="Window_Loaded"
         mc:Ignorable="d"
         Title="EZYOONTest" Height="1000" Width="800">
     <Grid x:Name="maingrid" Margin="0,0,3.6,13">

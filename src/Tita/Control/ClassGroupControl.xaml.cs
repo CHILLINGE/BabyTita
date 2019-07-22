@@ -15,11 +15,20 @@ using System.Windows.Shapes;
 
 namespace Tita
 {
+    public class AddEventArgs : EventArgs
+    {
+        public string newname { get; set; }
+    }
+
+
     /// <summary>
     /// ClassGroupControl.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class ClassGroupControl : UserControl
     {
+        public delegate void mydel(object sender, AddEventArgs e);
+        public event mydel EditGroupName;
+
         public ClassGroupControl()
         {
             InitializeComponent();
@@ -71,8 +80,16 @@ namespace Tita
 
         private void editClick(object sender, RoutedEventArgs e)
         {
-            String name = editname.Text;
-            groupname.Text = name;
+            AddEventArgs argevent = new AddEventArgs();
+            argevent.newname = editname.Text;
+
+            if(EditGroupName != null)
+            {
+                EditGroupName(this, argevent);
+            }
+            //참고 EditGroupName?.Invoke(this, argevent); (?.은 앞의 변수가 null이면 무시)
+
+            groupname.Text = argevent.newname;
 
             groupname.Visibility = Visibility.Visible;
             penb.Visibility = Visibility.Visible;
