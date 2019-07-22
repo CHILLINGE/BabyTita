@@ -40,8 +40,7 @@ namespace Tita
             }
             else
             {
-                ClassTimePreview.ClassData.Clear();
-                ClassTimePreview.UpDate();
+                ClassTimePreview.Remove();
             }
         }
 
