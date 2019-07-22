@@ -46,6 +46,9 @@ namespace Tita
         }
 
 
+        
+
+
         /// <summary>
         /// 유효한 db파일인지 체크
         /// </summary>
@@ -53,25 +56,44 @@ namespace Tita
         {
             get
             {
-                if (!Info.Exists)
+                try
+                {
+                    if (!Info.Exists)
+                    {
+                        return false;
+                    }
+
+                    XmlDocument xdoc = GetXmlDocument();
+
+                    if (xdoc.FirstChild.Name != "subjectdb")
+                    {
+                        return false;
+                    }
+
+                    if (xdoc.FirstChild["version"].InnerText != "1.0.0")
+                    {
+                        return false;
+                    }
+                }
+                catch
                 {
                     return false;
                 }
-
-                // Need more
+                
 
                 return true;
             }
         }
 
 
-        /// <summary>
-        /// 파일에서 ClassInfo 들을 파싱해서 읽어온다.
-        /// </summary>
-        /// <returns>ClassInfo의 리스트</returns>
-        public ClassInfoList LoadClassInfo()
+
+        //XmlDocument _docCache = null;
+        private XmlDocument GetXmlDocument()
         {
-            
+            //if (_docCache != null)
+            //{
+            //    return _docCache;
+            //}
 
             string xmldata = "";
             using (var stream = new StreamReader(Info.OpenRead()))
@@ -81,6 +103,21 @@ namespace Tita
 
             XmlDocument xdoc = new XmlDocument();
             xdoc.LoadXml(xmldata);
+
+            return xdoc;
+        }
+
+
+
+        /// <summary>
+        /// 파일에서 ClassInfo 들을 파싱해서 읽어온다.
+        /// </summary>
+        /// <returns>ClassInfo의 리스트</returns>
+        public ClassInfoList LoadClassInfo()
+        {
+
+            XmlDocument xdoc = GetXmlDocument();
+            
 
             var root = xdoc.SelectSingleNode("subjectdb");
 
@@ -101,8 +138,11 @@ namespace Tita
         /// <param name="classes">ClassInfo의 리스트</param>
         public void SaveClassInfo(ClassInfoList classes)
         {
-            // Need more
+            XmlDocument savedDoc;
         }
+
+
+        
 
 
         private ClassInfoList ParseData(XmlNode xdoc)

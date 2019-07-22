@@ -38,7 +38,7 @@ namespace Tita
 
             DirectoryInfo di = new DirectoryInfo(FolderPath);
 
-            FileInfo[] files = di.GetFiles("*.classdb");
+            FileInfo[] files = di.GetFiles("*.xml");
 
             foreach (var file in files)
             {
@@ -59,7 +59,7 @@ namespace Tita
         /// <returns></returns>
         public DataFile CreateDataFile(string dbname, string school, string when, string etc="")
         {
-            string rpath = Path.Combine(FolderPath, dbname + ".classdb");
+            string rpath = Path.Combine(FolderPath, dbname + ".xml");
 
             if (File.Exists(rpath))
             {

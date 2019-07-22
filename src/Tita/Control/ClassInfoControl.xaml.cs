@@ -173,7 +173,10 @@ namespace Tita
 
         private void preferenceSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            if (HasInfoPlus)
+            {
+                infoPlus.Preference = (int)preferenceSlider.Value;
+            }
         }
 
 
