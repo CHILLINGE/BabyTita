@@ -15,23 +15,31 @@ using System.Windows.Shapes;
 
 namespace Tita
 {
-    public class AddEventArgs : EventArgs
+    public class EditEventArgs : EventArgs
     {
         public string newname { get; set; }
     }
 
+    public class ChangeEventArgs : EventArgs
+    {
+        public ClassGroup rootGroup;
+        public ClassInfo changeInfo;
+    }
 
     /// <summary>
     /// ClassGroupControl.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class ClassGroupControl : UserControl
     {
-        public delegate void mydel(object sender, AddEventArgs e);
+        public delegate void mydel(object sender, EditEventArgs e);
         public event mydel EditGroupName;
+        public event EventHandler<ChangeEventArgs> ChangeMember;
 
         public ClassGroupControl()
         {
             InitializeComponent();
+            Group = new ClassGroup();
+
             editbutton.Visibility = Visibility.Hidden;
             editname.Visibility = Visibility.Hidden;
         }
@@ -49,7 +57,7 @@ namespace Tita
         }
 
         /// <summary>
-        /// 그룹에 새롭게 과목을 추가,삭제할 때마다 부르는 클래스
+        /// 그룹 최초 생성할 때 부르는 클래스
         /// </summary>
         /// <param name="group"></param>
         public void BasketUpdate()
@@ -79,6 +87,8 @@ namespace Tita
             {
                 StackPanel panel = sender as StackPanel;
                 ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
+                if (Subject_Add(curinfo)) return;
+                Group.Children.Add(new ClassInfoPlus(curinfo));
                 ClassInfoPlus infoplus = new ClassInfoPlus(curinfo);
                 if (panel != null && curinfo != null)
                 {
@@ -92,6 +102,23 @@ namespace Tita
             }
         }
 
+        /// <summary>
+        /// 새로운 과목이 들어오면 그룹에 접근해서 해당과목이 존재하는지 확인해주고 없을 경우 추가하는 이벤트를 위로 보내줌
+        /// </summary>
+        /// <param name="Info"></param>
+        private bool Subject_Add(ClassInfo Info)
+        {
+            foreach(IGroupable g in Group.Children)
+            {
+                ClassInfoPlus g_plus = g as ClassInfoPlus;
+                if (Info == g) return true;
+            }
+            ChangeEventArgs changeargs = new ChangeEventArgs();
+            changeargs.rootGroup = Group;
+            changeargs.changeInfo = Info;
+            ChangeMember?.Invoke(this,changeargs);
+            return false;
+        }
 
 
         private void penClick(object sender, RoutedEventArgs e)
@@ -107,7 +134,7 @@ namespace Tita
 
         private void editClick(object sender, RoutedEventArgs e)
         {
-            AddEventArgs argevent = new AddEventArgs();
+            EditEventArgs argevent = new EditEventArgs();
             argevent.newname = editname.Text;
 
             if(EditGroupName != null)

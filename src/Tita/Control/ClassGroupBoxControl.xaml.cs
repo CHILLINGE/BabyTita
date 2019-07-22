@@ -20,7 +20,7 @@ namespace Tita
     /// </summary>
     public partial class ClassGroupBoxControl : UserControl
     {
-        public event EventHandler<AddEventArgs> EditGroupName;
+        public event EventHandler<EditEventArgs> EditGroupName;
         public event EventHandler ElementAdd;
 
         public ClassGroup root { get; }
@@ -42,7 +42,6 @@ namespace Tita
 
         public void Update(ClassGroup group)
         {
-
             foreach (ClassGroup g in group.Children)
             {
                 ClassGroupControl GControl = new ClassGroupControl(g);
@@ -79,7 +78,7 @@ namespace Tita
            
         }
 
-        private void EditGroupNameSender(Object sender, AddEventArgs argevent)
+        private void EditGroupNameSender(Object sender, EditEventArgs argevent)
         {
             EditGroupName?.Invoke(this, argevent);
         }
