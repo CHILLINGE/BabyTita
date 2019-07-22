@@ -87,13 +87,13 @@ namespace Tita
 
 
 
-        XmlDocument _docCache = null;
+        //XmlDocument _docCache = null;
         private XmlDocument GetXmlDocument()
         {
-            if (_docCache != null)
-            {
-                return _docCache;
-            }
+            //if (_docCache != null)
+            //{
+            //    return _docCache;
+            //}
 
             string xmldata = "";
             using (var stream = new StreamReader(Info.OpenRead()))
@@ -138,7 +138,7 @@ namespace Tita
         /// <param name="classes">ClassInfo의 리스트</param>
         public void SaveClassInfo(ClassInfoList classes)
         {
-            // Need more
+            XmlDocument savedDoc;
         }
 
 
