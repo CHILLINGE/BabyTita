@@ -184,6 +184,24 @@ namespace Tita
 
         private Point startPoint;
 
+
+
+
+
+        public bool Draggable
+        {
+            get { return (bool)GetValue(DraggableProperty); }
+            set { SetValue(DraggableProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Draggable.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DraggableProperty =
+            DependencyProperty.Register("Draggable", typeof(bool), typeof(ClassInfoControl), new PropertyMetadata(true));
+
+
+
+
+
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
@@ -195,7 +213,7 @@ namespace Tita
         {
             base.OnMouseMove(e);
 
-            if (AllowDrop == false)
+            if (!Dragable)
             {
                 return;
             }
