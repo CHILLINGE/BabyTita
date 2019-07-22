@@ -98,5 +98,10 @@ namespace Tita
 
             //위에 바꼈음을 알려주는 이벤트 코드 추가
         }
+
+        private void deleteClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

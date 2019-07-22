@@ -21,7 +21,7 @@ namespace Tita
     public partial class ScheduleControl : UserControl
     {
         public List<ClassInfo> ClassData { get; set; }
-
+        private List <ScheduleBlockControl> ScheduleBlockControls { get; set; }
         public void UpDate()
         {
             for (int i = 0; i < ClassData.Count; i++)
@@ -58,7 +58,17 @@ namespace Tita
                     }
                     //classblock.Background = Brushes.Aqua;
                     MainGrid.Children.Add(classblock);
+                    ScheduleBlockControls.Add(classblock);
                 }
+            }
+        }
+        public void Remove()
+        {
+            ClassData.Clear();
+            UpDate();
+            foreach (ScheduleBlockControl i in ScheduleBlockControls)
+            {
+                MainGrid.Children.Remove(i);
             }
         }
 
@@ -67,6 +77,7 @@ namespace Tita
             InitializeComponent();
 
             ClassData = new List<ClassInfo>();
+            ScheduleBlockControls = new List<ScheduleBlockControl>();
         }
     }
 }
