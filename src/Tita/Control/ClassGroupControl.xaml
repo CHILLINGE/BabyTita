@@ -7,6 +7,12 @@
              xmlns:Tita="clr-namespace:Tita" x:Class="Tita.ClassGroupControl"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type local:ClassInfoControl}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="basket">
         
         <Grid VerticalAlignment="Top">
@@ -15,7 +21,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="groupname" Grid.Column="0" Text="컴퓨터정보공학부" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <TextBlock x:Name="groupname" Grid.Column="0" Text="새그룹" VerticalAlignment="Top" HorizontalAlignment="Left" />
             <Button x:Name="penb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" Click="penClick" Background="#FFB7DDE8" BorderBrush="{x:Null}">
                 <Button.Content>
                     <Viewbox Margin="3">
@@ -54,7 +60,7 @@
         </Grid>
         
         <Border BorderBrush="#FFEE4F4F" BorderThickness="2" Margin="0,30,0,0">
-            <StackPanel x:Name="basketstack" >
+            <StackPanel x:Name="basketstack" MinHeight="100" DragOver="DragSubject_DragOver" Drop="Data_Drop" Background="White" AllowDrop="True">
             </StackPanel>
         </Border>
         

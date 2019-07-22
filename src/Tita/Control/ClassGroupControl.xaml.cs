@@ -60,13 +60,40 @@ namespace Tita
                 else
                 {
                     ClassInfoControl groupitem = new ClassInfoControl((ClassInfoPlus)item);
-                    groupitem.Margin = new Thickness(0,0,0,10);
                     basketstack.Children.Add(groupitem);
                 }
             }
         }
 
-        
+        private void DragSubject_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(nameof(ClassInfo)))
+            {
+                e.Effects = DragDropEffects.Move;
+            }
+        }
+
+        private void Data_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Handled == false)
+            {
+                StackPanel panel = sender as StackPanel;
+                ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
+                ClassInfoPlus infoplus = new ClassInfoPlus(curinfo);
+                if (panel != null && curinfo != null)
+                {
+
+                    ClassInfoControl curcontrol = new ClassInfoControl(infoplus);
+                    curcontrol.AllowDrop = false;
+                    panel.Children.Add(curcontrol);
+                    e.Effects = DragDropEffects.Move;
+                }
+
+            }
+        }
+
+
+
         private void penClick(object sender, RoutedEventArgs e)
         {
             groupname.Visibility = Visibility.Hidden;
