@@ -15,6 +15,12 @@ using System.Windows.Shapes;
 
 namespace Tita
 {
+    public class ClassRemoveArgs : EventArgs
+    {
+        public ClassInfo Info { get; set; }
+    }
+
+
     /// <summary>
     /// ClassInfoControl.xaml에 대한 상호 작용 논리
     /// </summary>
@@ -44,7 +50,8 @@ namespace Tita
             set { if (!value) { infoPlus = null; } }
         }
 
-
+        public EventHandler<ClassRemoveArgs> ClassRemove;
+        
 
 
         public string ClassName
@@ -184,6 +191,24 @@ namespace Tita
 
         private Point startPoint;
 
+
+
+
+
+        public bool Draggable
+        {
+            get { return (bool)GetValue(DraggableProperty); }
+            set { SetValue(DraggableProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Draggable.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DraggableProperty =
+            DependencyProperty.Register("Draggable", typeof(bool), typeof(ClassInfoControl), new PropertyMetadata(true));
+
+
+
+
+
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
@@ -195,7 +220,7 @@ namespace Tita
         {
             base.OnMouseMove(e);
 
-            if (AllowDrop == false)
+            if (!Draggable)
             {
                 return;
             }
@@ -216,5 +241,11 @@ namespace Tita
         }
         #endregion
 
+        
+
+        private void Remove_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ClassRemove?.Invoke(this, new ClassRemoveArgs() { Info = this.Info });
+        }
     }
 }

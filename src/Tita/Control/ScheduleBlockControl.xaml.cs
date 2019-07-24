@@ -25,7 +25,7 @@ namespace Tita
 
         public void UpDate()
         {
-            classblock.Text = ClassName + "\n" + Professor;
+            classblock.Text = ClassName + "\n"+Professor;
         }
         public ScheduleBlockControl()
         {

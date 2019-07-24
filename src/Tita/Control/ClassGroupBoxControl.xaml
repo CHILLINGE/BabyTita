@@ -31,8 +31,8 @@
                         </Viewbox>
                     </Button.Content>
                 </Button>
-                <ScrollViewer Margin="0,40,0,0" >
-                    <StackPanel x:Name="groupbox">
+                <ScrollViewer Margin="0,40,0,0" MinHeight="100">
+                    <StackPanel x:Name="groupbox" MinHeight="100">
                     </StackPanel>
                 </ScrollViewer>
             </Grid>

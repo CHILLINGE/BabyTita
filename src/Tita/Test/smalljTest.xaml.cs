@@ -32,28 +32,34 @@ namespace Tita
         {
             
             DataFile file = new DataFile("subjects.xml");
-            ClassInfoList lst = file.LoadClassInfo();
-            Console.WriteLine(lst.Groups);
-            ClassGroup gone = new ClassGroup();
-            ClassGroup gtwo = new ClassGroup();
-            ClassGroup group = new ClassGroup();
+            Gbox = new ClassGroupBoxControl(new ClassGroup());
+            Gbox.GroupControlAdd(new ClassGroup());
 
-            foreach(ClassInfo i in lst.Groups["컴퓨터정보공학부"])
-            {
-                gone.AddGroup(new ClassInfoPlus(i));
-            }
-            foreach (ClassInfo i in lst.Groups["자교"])
-            {
-                gtwo.AddGroup(new ClassInfoPlus(i));
-            }
+            
+            //ClassInfoList lst = file.LoadClassInfo();
+            //Console.WriteLine(lst.Groups);
+            //ClassGroup gone = new ClassGroup();
+            //ClassGroup gtwo = new ClassGroup();
+            //ClassGroup group = new ClassGroup();
 
-            group.AddGroup(gone);
-            group.AddGroup(gtwo);
+            //foreach(ClassInfo i in lst.Groups["컴퓨터정보공학부"])
+            //{
+            //    gone.AddGroup(new ClassInfoPlus(i));
+            //}
+            //foreach (ClassInfo i in lst.Groups["자교"])
+            //{
+            //    gtwo.AddGroup(new ClassInfoPlus(i));
+            //}
+            
 
-            Gbox = new ClassGroupBoxControl(group);
+            //group.AddGroup(gone);
+            //group.AddGroup(gtwo);
+
+            //Gbox = new ClassGroupBoxControl(group);
             main.Children.Add(Gbox);
             Gbox.HorizontalAlignment = HorizontalAlignment.Left;
             Gbox.Margin = new Thickness(500, 0, 0, 0);
+            
 
             //그룹 추가 이벤트
             Gbox.ElementAdd += Gbox_ElementAdd;
@@ -98,7 +104,7 @@ namespace Tita
             Gbox.GroupControlAdd(group);
         }
 
-        private void Gbox_EditGroupName(Object sender, AddEventArgs argevent)
+        private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)
         {
             MessageBox.Show(argevent.newname);
         }
