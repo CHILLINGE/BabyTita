@@ -21,7 +21,8 @@ namespace Tita
 
     public partial class TimeSelectControl : UserControl
     {
-        ColorPart colpart = new ColorPart();
+        
+
         public TimeSelectControl()
         {
             InitializeComponent();
@@ -31,61 +32,54 @@ namespace Tita
             {
                 for (int j = 1; j <= 10; j++)
                 {
-
+                    ColorPart colpart = new ColorPart();
                     Grid.SetColumn(colpart, i);
                     Grid.SetRow(colpart, j);
+                    colpart.stC = i;
+                    colpart.stR = j;
                     timetable.Children.Add(colpart);
 
                 };
             }
-
-
         }
-        //public ClassTime GetClassTime()
-        //{
-        //    for (int i = 1; i <= 5; i++)
-        //    {
-        //        for (int j = 1; j <= 10; j++)
-        //        {
-        //            if (this.Background != null)
-        //            {
+        /*
+        public ClassTime GetClassTime()
+        {
+            int start_c = colpart.stC;
+            int start_r = colpart.stR;
+            int end_r = colpart.endR;
+            if (start_c == 1)
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Monday, start_r, end_r));
+            
+            else if (start_c == 2)
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Tuesday, start_r, end_r));
 
-        //                int item_col = Grid.GetColumn(colpart);
-        //                int item_row = Grid.GetRow(colpart);
-        //                if (item_col == 1)
-        //                {
-        //                    switch (item_row)
-        //                    {
-        //                        case 1:
-        //                            return new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 2));
-        //                            break;
-        //                    }
-        //                }
-        //                else if (item_col == 2)
-        //                {
+            else if (start_c == 3)
+            
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Wednesday, start_r, end_r));
+            
+            else if (start_c == 4)
+            
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Thursday, start_r, end_r));
 
-        //                }
-        //                else if (item_col == 3)
-        //                {
+            
+            else if (start_c == 5)
+            
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Friday, start_r, end_r));
 
-        //                }
-        //                else if (item_col == 4)
-        //                {
+            return null;
+        }
+        */
 
-        //                }
-        //                else if (item_col == 5)
-        //                {
-
-        //                }
-        //            }
-        //        }
-               
-        //    }
         public class ColorPart : Border
         {
             static Brush col = new SolidColorBrush(Color.FromArgb(80, 0xa9, 0xd0, 0xf5));
             static Brush rmcol = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
             static Brush pre = new SolidColorBrush(Color.FromArgb(20, 0xa9, 0xd0, 0xf5));
+
+            public int stC { get; set; }
+            public int stR { get; set; }
+            public int endR { get; set; }
             public ColorPart() : base()
             {
                 this.Background = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
@@ -97,6 +91,9 @@ namespace Tita
                 if (e.ButtonState == e.LeftButton)
                 {
                     this.Background = col;
+
+                    stC = Grid.GetColumn(this);
+                    stR = Grid.GetRow(this);
                 }
             }
             protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
@@ -111,9 +108,14 @@ namespace Tita
             protected override void OnMouseMove(MouseEventArgs e)
             {
                 base.OnMouseMove(e);
-                if (e.LeftButton == MouseButtonState.Pressed) this.Background = col;
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.Background = col;
+                }
+                
                 else if (e.RightButton == MouseButtonState.Pressed) this.Background = rmcol;
             }
+
             //protected override void OnMouseEnter(MouseEventArgs e)
             //{
             //   Brush save = this.Background;
