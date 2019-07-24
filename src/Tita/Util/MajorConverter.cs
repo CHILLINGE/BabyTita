@@ -9,18 +9,22 @@ using System.Windows.Markup;
 
 namespace Tita
 {
-    public class SuffixConverter : MarkupExtension, IValueConverter
+    public class MajorConverter : MarkupExtension, IValueConverter
     {
-        
+
 
         object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (string.IsNullOrWhiteSpace(value.ToString()))
+            if (targetType != typeof(int))
+            {
+                return "";
+            }
+            if ((int)value == 0)
             {
                 return "";
             }
             return value.ToString() + parameter.ToString();
-            
+
         }
 
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
