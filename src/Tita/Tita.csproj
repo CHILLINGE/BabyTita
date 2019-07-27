@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Core\ClassInfoList.cs" />
     <Compile Include="Core\ClassTime.cs" />
+    <Compile Include="Core\IClassSelector.cs" />
     <Compile Include="Data\DataFile.cs" />
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Scaffold.xaml.cs">
