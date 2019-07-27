@@ -33,7 +33,7 @@ namespace Tita
             
             DataFile file = new DataFile("subjects.xml");
             Gbox = new ClassGroupBoxControl(new ClassGroup());
-            Gbox.GroupControlAdd(new ClassGroup());
+            Gbox.GControlAdd(new ClassGroup());
 
             
             //ClassInfoList lst = file.LoadClassInfo();
@@ -101,7 +101,7 @@ namespace Tita
         private void Gbox_ElementAdd(object sender, EventArgs e)
         {
             ClassGroup group = new ClassGroup();
-            Gbox.GroupControlAdd(group);
+            Gbox.GControlAdd(group);
         }
 
         private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)

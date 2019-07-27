@@ -20,10 +20,18 @@ namespace Tita
         public string newname { get; set; }
     }
 
-    public class ChangeEventArgs : EventArgs
+    public class ClassChangeGroupEventArgs : EventArgs
     {
-        public ClassGroup rootGroup;
-        public ClassInfo changeInfo;
+        public ClassGroup rootGroup { get; set; }
+        public ClassInfo changeInfo { get; set; }
+        public int add_delete {get; set;}
+    }
+
+    public class ClassChangeMemberEventArgs : EventArgs
+    {
+        public ClassGroup rootGroup { get; set; }
+        public ClassInfo changeInfo { get; set; }
+        public int add_delete {get; set;}
     }
 
     /// <summary>
@@ -33,7 +41,9 @@ namespace Tita
     {
         public delegate void mydel(object sender, EditEventArgs e);
         public event mydel EditGroupName;
-        public event EventHandler<ChangeEventArgs> ChangeMember;
+        public event EventHandler<ClassRemoveArgs> ClassRemove;
+        public event EventHandler<ClassChangeGroupEventArgs> ChangeGroup;
+        public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
 
         public ClassGroupControl()
         {
@@ -68,6 +78,7 @@ namespace Tita
                 else
                 {
                     ClassInfoControl groupitem = new ClassInfoControl((ClassInfoPlus)item);
+                    groupitem.ClassRemove += ClassRemoveMember;
                     basketstack.Children.Add(groupitem);
                 }
             }
@@ -95,6 +106,7 @@ namespace Tita
 
                     ClassInfoControl curcontrol = new ClassInfoControl(infoplus);
                     curcontrol.AllowDrop = false;
+                    curcontrol.ClassRemove += ClassRemoveMember;
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
                 }
@@ -103,7 +115,7 @@ namespace Tita
         }
 
         /// <summary>
-        /// 새로운 과목이 들어오면 그룹에 접근해서 해당과목이 존재하는지 확인해주고 없을 경우 추가하는 이벤트를 위로 보내줌
+        /// 새로운 과목이 들어오면 그룹에 접근해서 해당과목이 존재하는지 확인해주고 없을 경우 추가하는 이벤트를 위로 보내줌, 추가 : 1
         /// </summary>
         /// <param name="Info"></param>
         private bool Subject_Add(ClassInfo Info)
@@ -111,12 +123,13 @@ namespace Tita
             foreach(IGroupable g in Group.Children)
             {
                 ClassInfoPlus g_plus = g as ClassInfoPlus;
-                if (Info == g) return true;
+                if (Info == g_plus.Info) return true;
             }
-            ChangeEventArgs changeargs = new ChangeEventArgs();
+            ClassChangeMemberEventArgs changeargs = new ClassChangeMemberEventArgs();
             changeargs.rootGroup = Group;
             changeargs.changeInfo = Info;
-            ChangeMember?.Invoke(this,changeargs);
+            changeargs.add_delete = 1;
+            ChangeMember?.Invoke(this,changeargs);  //info가 추가 되었을 때 추가 : 1
             return false;
         }
 
@@ -149,13 +162,34 @@ namespace Tita
             penb.Visibility = Visibility.Visible;
             editbutton.Visibility = Visibility.Hidden;
             editname.Visibility = Visibility.Hidden;
-
-            //위에 바꼈음을 알려주는 이벤트 코드 추가
         }
 
+        /// <summary>
+        /// 그룹이 삭제 되었을 때 삭제 : 0
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteClick(object sender, RoutedEventArgs e)
         {
+            ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
+            changeargs.rootGroup = Group;
+            changeargs.add_delete = 0;
+            ChangeGroup?.Invoke(this, changeargs);
+        }
 
+        /// <summary>
+        /// member 삭제되었을 때 삭제 : 0
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="re"></param>
+        private void ClassRemoveMember(Object sender, ClassRemoveArgs re)
+        {
+            basketstack.Children.Remove(sender as ClassInfoControl);
+            ClassChangeMemberEventArgs changeargs = new ClassChangeMemberEventArgs();
+            changeargs.rootGroup = Group;
+            changeargs.changeInfo = re.Info;
+            changeargs.add_delete = 0;
+            ChangeMember?.Invoke(this, changeargs);
         }
     }
 }
