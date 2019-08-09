@@ -20,11 +20,9 @@ namespace Tita
         public string newname { get; set; }
     }
 
-    public class ClassChangeGroupEventArgs : EventArgs
+    public class ClassGroupRemoveArgs : EventArgs
     {
         public ClassGroup rootGroup { get; set; }
-        public ClassInfo changeInfo { get; set; }
-        public int add_delete {get; set;}
     }
 
     public class ClassChangeMemberEventArgs : EventArgs
@@ -41,8 +39,8 @@ namespace Tita
     {
         public delegate void mydel(object sender, EditEventArgs e);
         public event mydel EditGroupName;
-        public event EventHandler<ClassRemoveArgs> ClassRemove;
-        public event EventHandler<ClassChangeGroupEventArgs> ChangeGroup;
+        //public event EventHandler<ClassRemoveArgs> ClassRemove;
+        public event EventHandler<ClassGroupRemoveArgs> ClassGroupRemove;
         public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
 
         public ClassGroupControl()
@@ -171,10 +169,14 @@ namespace Tita
         /// <param name="e"></param>
         private void deleteClick(object sender, RoutedEventArgs e)
         {
+            ClassGroupRemove?.Invoke(this, new ClassGroupRemoveArgs() { rootGroup = this.Group});
+
+            /*
             ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
             changeargs.rootGroup = Group;
             changeargs.add_delete = 0;
             ChangeGroup?.Invoke(this, changeargs);
+            */
         }
 
         /// <summary>
@@ -184,7 +186,7 @@ namespace Tita
         /// <param name="re"></param>
         private void ClassRemoveMember(Object sender, ClassRemoveArgs re)
         {
-            basketstack.Children.Remove(sender as ClassInfoControl);
+            basketstack.Children.Remove(sender as ClassInfoControl);  //상위클래스에서 처리해주어야 할 일
             ClassChangeMemberEventArgs changeargs = new ClassChangeMemberEventArgs();
             changeargs.rootGroup = Group;
             changeargs.changeInfo = re.Info;

@@ -27,13 +27,15 @@ namespace Tita
 
         private Point startPoint;
         public ClassGroupBoxControl Gbox { get; set; }
+        public event EventHandler<ClassChangeGroupEventArgs> ChangeGroup;
+        public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
 
         private void Small_Loaded(object sender, RoutedEventArgs e)
         {
             
             DataFile file = new DataFile("subjects.xml");
             Gbox = new ClassGroupBoxControl(new ClassGroup());
-            Gbox.GControlAdd(new ClassGroup());
+            //Gbox.GC(new ClassGroup());
 
             
             //ClassInfoList lst = file.LoadClassInfo();
@@ -59,12 +61,14 @@ namespace Tita
             main.Children.Add(Gbox);
             Gbox.HorizontalAlignment = HorizontalAlignment.Left;
             Gbox.Margin = new Thickness(500, 0, 0, 0);
-            
 
-            //그룹 추가 이벤트
-            Gbox.ElementAdd += Gbox_ElementAdd;
+
+            //그룹 추가삭제 이벤트
+            Gbox.ChangeGroup += Gbox_ChangeGroup;
             //그룹 이름 수정 이벤트
             Gbox.EditGroupName += Gbox_EditGroupName;
+            //그룹 멤버 추가삭제 이벤트
+            Gbox.ChangeMember += Gbox_ChangeMember;
 
             ClassInfo info = new ClassInfo("객체지향패러다임", 0, new ClassTime(new ClassTimeItem(DayOfWeek.Monday, 1, 3)), "오재원", 3);
             DragSubject.Children.Add(new ClassInfoControl(info));
@@ -98,15 +102,21 @@ namespace Tita
         }
 
         //이벤트 시 실행 함수 부분
-        private void Gbox_ElementAdd(object sender, EventArgs e)
-        {
-            ClassGroup group = new ClassGroup();
-            Gbox.GControlAdd(group);
-        }
 
         private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)
         {
             MessageBox.Show(argevent.newname);
+        }
+
+        private void Gbox_ChangeGroup(Object sender, ClassChangeGroupEventArgs change)
+        {
+            if (change.add_delete == 1) ;
+            else;
+        }
+
+        private void Gbox_ChangeMember(Object sender, ClassChangeMemberEventArgs change)
+        {
+            if(change.add_delete == 1) ;
         }
     }
 }

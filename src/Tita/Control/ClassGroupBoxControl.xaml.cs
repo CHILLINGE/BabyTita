@@ -15,9 +15,16 @@ using System.Windows.Shapes;
 
 namespace Tita
 {
+    public class ClassChangeGroupEventArgs : EventArgs
+    {
+        public ClassGroup rootGroup { get; set; }
+        public int add_delete { get; set; }
+    }
+
     /// <summary>
     /// ClassGroupBoxControl.xaml에 대한 상호 작용 논리
     /// </summary>
+    /// 
     public partial class ClassGroupBoxControl : UserControl
     {
         public event EventHandler<EditEventArgs> EditGroupName;
@@ -29,6 +36,7 @@ namespace Tita
 
         public ClassGroupBoxControl()
         {
+            root = new ClassGroup();
             InitializeComponent();
         }
 
@@ -48,10 +56,15 @@ namespace Tita
             {
                 ClassGroupControl GControl = new ClassGroupControl(g);
                 GControl.EditGroupName += EditGroupNameSender;
-                GControl.ChangeGroup += ADChangeGroup;
+                GControl.ClassGroupRemove += Groupdelete;
                 GControl.ChangeMember += ADChangeMember;
                 groupbox.Children.Add(GControl);
             }
+        }
+
+        private void EditGroupNameSender(Object sender, EditEventArgs argevent)
+        {
+            EditGroupName?.Invoke(this, argevent);
         }
 
         /// <summary>
@@ -65,53 +78,22 @@ namespace Tita
             {
                 ElementAdd(this, new EventArgs());
             }
-           
+            ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
+            changeargs.rootGroup = new ClassGroup();
+            changeargs.add_delete = 1;
+            ChangeGroup?.Invoke(this, changeargs);  //info가 추가 되었을 때 추가 : 1
+            var GC = new ClassGroupControl(changeargs.rootGroup);
+            GC.ClassGroupRemove += Groupdelete;
+            groupbox.Children.Add(GC); //상위클래스에서 실제그룹 추가해줌
         }
 
-        private void EditGroupNameSender(Object sender, EditEventArgs argevent)
+        private void Groupdelete(Object sender, ClassGroupRemoveArgs group)
         {
-            EditGroupName?.Invoke(this, argevent);
-        }
-
-        /// <summary>
-        ///그룹 추가 삭제
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="group"></param>
-        public void ADChangeGroup(Object sender, ClassChangeGroupEventArgs group)
-        {
-            if (group.add_delete == 0) GroupControlDelete(sender, group);
-            else GroupControlAdd(sender, group);
-        }
-
-        public void GroupControlAdd(Object sender, ClassChangeGroupEventArgs group)
-        {
-            root.AddGroup(group.rootGroup);
-            //위로 추가 됬음을 알림
-            ChangeGroup?.Invoke(this, group);
-            ClassGroupControl groupControl = new ClassGroupControl(group.rootGroup);
-            groupbox.Children.Add(groupControl);
-        }
-
-        public void GroupControlDelete(Object sender, ClassChangeGroupEventArgs group)
-        {
-            //위로 삭제 됬음을 알림
-            ChangeGroup?.Invoke(this, group);
-            groupbox.Children.Remove(sender as ClassGroupControl);
-        }
-
-        public void GControlAdd(ClassGroup group)
-        {
-            root.AddGroup(group);
-            //위로 추가 됬음을 알림
-            ClassGroupControl groupControl = new ClassGroupControl(group);
-            groupbox.Children.Add(groupControl);
-        }
-
-        public void GroupControlDelete()
-        {
-            //위로 삭제 됬음을 알림
-            //groupbox.Children.Remove();
+            ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
+            changeargs.rootGroup = group.rootGroup;
+            changeargs.add_delete = 0;
+            ChangeGroup?.Invoke(this, changeargs);
+            groupbox.Children.Remove(sender as ClassGroupControl);  //상위클래스에서 실제그룹 삭제
         }
 
         /// <summary>
@@ -119,7 +101,7 @@ namespace Tita
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="mem"></param>
-        public void ADChangeMember(Object sender, ClassChangeMemberEventArgs mem)
+        private void ADChangeMember(Object sender, ClassChangeMemberEventArgs mem)
         {
             ChangeMember?.Invoke(this, mem);
         }
