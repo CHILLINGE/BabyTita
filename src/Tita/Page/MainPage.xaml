@@ -10,5 +10,6 @@
 
     <Grid>
         <TextBlock Text="This is main page" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Content="Go to group build page" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,21,0,0" Click="Button_Click"/>
     </Grid>
 </UserControl>

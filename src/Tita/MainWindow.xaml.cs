@@ -28,6 +28,7 @@ namespace Tita
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             mainHost.RegisterPage("main", new MainPage());
+            mainHost.RegisterPage("groupbuild", new GroupBuildPage());
 
             mainHost.ChangePage("main");
         }

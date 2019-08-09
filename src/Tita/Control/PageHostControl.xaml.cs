@@ -31,7 +31,11 @@ namespace Tita
 
         }
 
-
+        /// <summary>
+        /// 새로운 페이지를 등록한다. 페이지는 INavigable을 구현하는 WPF 컨트롤이어야 한다.
+        /// </summary>
+        /// <param name="endpoint">페이지가 가질 endpoint</param>
+        /// <param name="page">대상 페이지</param>
         public void RegisterPage(string endpoint, INavigable page)
         {
             if (!(page is FrameworkElement))
@@ -45,6 +49,13 @@ namespace Tita
             mainHost.Children.Add(page as FrameworkElement);
         }
 
+
+        /// <summary>
+        /// 해당 endpoint의 페이지를 표시한다.
+        /// </summary>
+        /// <param name="endpoint">페이지의 endpoint</param>
+        /// <param name="data">페이지에 전달할 데이터</param>
+        /// <returns></returns>
         public bool ChangePage(string endpoint, object data = null)
         {
             if (Pages.ContainsKey(endpoint))

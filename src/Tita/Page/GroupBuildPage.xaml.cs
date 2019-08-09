@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Tita
 {
     /// <summary>
-    /// MainPage.xaml에 대한 상호 작용 논리
+    /// GroupBuildPage.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainPage : UserControl, INavigable
+    public partial class GroupBuildPage : UserControl, INavigable
     {
-        public MainPage()
+        public GroupBuildPage()
         {
             InitializeComponent();
         }
@@ -34,7 +34,7 @@ namespace Tita
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OnNavigate(this, new NavigateEventArgs("groupbuild"));
+            OnNavigate(this, new NavigateEventArgs("main"));
         }
     }
 }
