@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -74,6 +75,9 @@
     <Compile Include="Control\ClassInfoInputControl.xaml.cs">
       <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\PageHostControl.xaml.cs">
+      <DependentUpon>PageHostControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\ScheduleBlockControl.xaml.cs">
       <DependentUpon>ScheduleBlockControl.xaml</DependentUpon>
     </Compile>
@@ -83,11 +87,20 @@
     <Compile Include="Control\TimeSelectControl.xaml.cs">
       <DependentUpon>TimeSelectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\BruteForceClassSelector.cs" />
     <Compile Include="Core\ClassInfoList.cs" />
     <Compile Include="Core\ClassTime.cs" />
     <Compile Include="Core\IClassSelector.cs" />
     <Compile Include="Data\DataFile.cs" />
     <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Page\GroupBuildPage.xaml.cs">
+      <DependentUpon>GroupBuildPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\INavigable.cs" />
+    <Compile Include="Page\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\NavigateEventArgs.cs" />
     <Compile Include="Scaffold.xaml.cs">
       <DependentUpon>Scaffold.xaml</DependentUpon>
     </Compile>
@@ -125,6 +138,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Control\PageHostControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\ScheduleBlockControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +176,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Page\GroupBuildPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scaffold.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
