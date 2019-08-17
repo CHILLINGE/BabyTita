@@ -59,7 +59,7 @@ namespace Tita
 
             //Gbox = new ClassGroupBoxControl(group);
             main.Children.Add(Gbox);
-            Gbox.HorizontalAlignment = HorizontalAlignment.Left;
+            Gbox.HorizontalAlignment = HorizontalAlignment.Stretch;
             Gbox.Margin = new Thickness(500, 0, 0, 0);
 
 
@@ -116,7 +116,8 @@ namespace Tita
 
         private void Gbox_ChangeMember(Object sender, ClassChangeMemberEventArgs change)
         {
-            if(change.add_delete == 1) ;
+            if (change.add_delete == 1) ;
+            else;
         }
     }
 }

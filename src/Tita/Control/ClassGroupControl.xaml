@@ -56,11 +56,15 @@
                 </Button.Content>
             </Button>
 
-            <Button x:Name="deletebutton" Content="d" Background="#FFB7DDE8" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="23" Click="deleteClick" BorderBrush="{x:Null}"/>
+            <Button x:Name="deletebutton" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="15" Click="deleteClick" BorderBrush="{x:Null}">
+                <Viewbox Margin="1">
+                    <Path Data="M29.590818,0C30.206963,0 30.823227,0.23449993 31.292229,0.70349979 32.229256,1.6405001 32.229256,3.1605005 31.292229,4.1004992L19.398003,15.998498 31.292229,27.892495C32.229256,28.829499 32.229256,30.349496 31.292229,31.294496 30.354227,32.2315 28.827164,32.2315 27.890139,31.294496L15.997988,19.399499 4.1047992,31.296502C3.1677734,32.234498 1.6397347,32.234498 0.70276969,31.296502 -0.23425656,30.352502 -0.23425656,28.832498 0.70276969,27.894502L12.596934,15.998498 0.70276969,4.1024981C-0.23425656,3.1654978 -0.23425656,1.6454973 0.70276969,0.7054987 1.6397347,-0.23150158 3.1677734,-0.23150158 4.1047992,0.7054987L15.99695,12.597497 27.890139,0.70349979C28.35865,0.23449993,28.974674,0,29.590818,0z" Stretch="Uniform" Fill="#FF000000" RenderTransformOrigin="0.5,0.5"></Path>
+                </Viewbox>
+            </Button>
         </Grid>
         
         <Border BorderBrush="#FFEE4F4F" BorderThickness="2" Margin="0,30,0,0">
-            <StackPanel x:Name="basketstack" MinHeight="100" DragOver="DragSubject_DragOver" Drop="Data_Drop" Background="White" AllowDrop="True">
+            <StackPanel x:Name="basketstack" MinHeight="100"  DragOver="DragSubject_DragOver" Drop="Data_Drop" Background="White" AllowDrop="True">
             </StackPanel>
         </Border>
         
