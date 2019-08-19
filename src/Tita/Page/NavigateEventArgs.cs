@@ -21,5 +21,10 @@ namespace Tita
         {
             TargetEndpoint = targetEndpoint;
         }
+
+        public NavigateEventArgs(string targetEndpoint, object data) : this(targetEndpoint)
+        {
+            Data = data;
+        }
     }
 }
