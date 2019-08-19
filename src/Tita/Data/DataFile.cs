@@ -136,9 +136,50 @@ namespace Tita
         /// 직접입력받은 ClassInfo의 리스트를 해당 db에 저장한다.
         /// </summary>
         /// <param name="classes">ClassInfo의 리스트</param>
-        public void SaveClassInfo(ClassInfoList classes)
+        public void SaveClassInfo(ClassInfoList classes, string filename)
         {
-            XmlDocument savedDoc;
+            XmlDocument xdoc = new XmlDocument();
+
+
+            xdoc.InsertBefore(xdoc.CreateXmlDeclaration("1.0", "UTF-8", null), xdoc.DocumentElement);
+
+            var root = xdoc.CreateElement("subjectdb");
+            xdoc.AppendChild(root);
+
+            var version = xdoc.CreateElement("version");
+            version.InnerText = "1.0.0";
+            root.AppendChild(version);
+
+            var school = xdoc.CreateElement("school");
+            school.InnerText = School;
+            root.AppendChild(school);
+
+            var when = xdoc.CreateElement("when");
+            when.InnerText = When;
+            root.AppendChild(when);
+
+            var data = xdoc.CreateElement("data");
+            root.AppendChild(data);
+
+            foreach (var i in classes.Groups)
+            {
+                var group = xdoc.CreateElement("group");
+                group.SetAttribute("name", i.Key);
+
+                foreach (var j in i.Value)
+                {
+                    var subject = xdoc.CreateElement("subject");
+                    //var name = xdoc.CreateElement("")
+                }
+
+                data.AppendChild(group);
+            }
+
+
+
+
+            xdoc.Save(filename);
+
         }
 
 
