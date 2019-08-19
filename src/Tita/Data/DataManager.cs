@@ -71,7 +71,7 @@ namespace Tita
             cur.When = when;
             cur.Etc = etc;
 
-            cur.SaveClassInfo(new ClassInfoList());
+            cur.SaveClassInfo(new ClassInfoList(), "");
 
             return cur;
         }

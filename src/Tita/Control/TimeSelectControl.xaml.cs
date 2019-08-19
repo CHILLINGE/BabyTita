@@ -22,11 +22,9 @@ namespace Tita
     public partial class TimeSelectControl : UserControl
     {
         
-
         public TimeSelectControl()
         {
             InitializeComponent();
-
 
             for (int i = 1; i <= 5; i++)
             {
@@ -35,7 +33,7 @@ namespace Tita
                     ColorPart colpart = new ColorPart();
                     Grid.SetColumn(colpart, i);
                     Grid.SetRow(colpart, j);
-                    colpart.stC = i;
+                    colpart.stC= i;
                     colpart.stR = j;
                     timetable.Children.Add(colpart);
 
@@ -45,9 +43,14 @@ namespace Tita
         /*
         public ClassTime GetClassTime()
         {
-            int start_c = colpart.stC;
-            int start_r = colpart.stR;
-            int end_r = colpart.endR;
+            bool selflag = false;
+            for(int i=1; i<=5; i++)
+            {
+                for(int j=1; j<=10; j++)
+                {
+                    if()
+                }
+            }
             if (start_c == 1)
                 return new ClassTime(new ClassTimeItem(DayOfWeek.Monday, start_r, end_r));
             
@@ -70,7 +73,6 @@ namespace Tita
             return null;
         }
         */
-
         public class ColorPart : Border
         {
             static Brush col = new SolidColorBrush(Color.FromArgb(80, 0xa9, 0xd0, 0xf5));
@@ -91,9 +93,6 @@ namespace Tita
                 if (e.ButtonState == e.LeftButton)
                 {
                     this.Background = col;
-
-                    stC = Grid.GetColumn(this);
-                    stR = Grid.GetRow(this);
                 }
             }
             protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
@@ -112,21 +111,8 @@ namespace Tita
                 {
                     this.Background = col;
                 }
-                
                 else if (e.RightButton == MouseButtonState.Pressed) this.Background = rmcol;
             }
-
-            //protected override void OnMouseEnter(MouseEventArgs e)
-            //{
-            //   Brush save = this.Background;
-            //   base.OnMouseEnter(e);
-            //   this.Background = pre;
-            //}
-            //protected override void OnMouseLeave(MouseEventArgs e)
-            //{
-            //   base.OnMouseLeave(e);
-            //   this.Background = ;
-            //}
 
 
 
