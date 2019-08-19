@@ -14,7 +14,6 @@
 
         <StackPanel x:Name="DropSubject" Background="Bisque" 
                     AllowDrop="True" DragOver="DragSubject_DragOver" Drop="Data_Drop" HorizontalAlignment="Left" Width="400" VerticalAlignment="Top" Height="200" Margin="0,200,0,0">
-
         </StackPanel>
     </Grid>
 </Window>

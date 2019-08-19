@@ -62,6 +62,8 @@ namespace Tita
         {
             this.Group = group;
             BasketUpdate();
+            subjectpicknum.Items.Add(0);
+            subjectpicknum.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -107,6 +109,7 @@ namespace Tita
                     curcontrol.ClassRemove += ClassRemoveMember;
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
+                    subjectpicknum.Items.Add(panel.Children.Count);
                 }
 
             }
@@ -170,7 +173,7 @@ namespace Tita
         private void deleteClick(object sender, RoutedEventArgs e)
         {
             ClassGroupRemove?.Invoke(this, new ClassGroupRemoveArgs() { rootGroup = this.Group});
-
+            subjectpicknum.Items.RemoveAt(basketstack.Children.Count + 1);
             /*
             ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
             changeargs.rootGroup = Group;
