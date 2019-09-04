@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Algorithm\BruteForceClassSelector.cs" />
     <Compile Include="Control\ClassGroupBoxControl.xaml.cs">
       <DependentUpon>ClassGroupBoxControl.xaml</DependentUpon>
     </Compile>
@@ -87,7 +88,6 @@
     <Compile Include="Control\TimeSelectControl.xaml.cs">
       <DependentUpon>TimeSelectControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\BruteForceClassSelector.cs" />
     <Compile Include="Core\ClassInfoList.cs" />
     <Compile Include="Core\ClassTime.cs" />
     <Compile Include="Core\IClassSelector.cs" />
@@ -234,8 +234,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Algorithm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
