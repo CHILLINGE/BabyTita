@@ -36,5 +36,25 @@ namespace Tita
         {
             OnNavigate(this, new NavigateEventArgs("main"));
         }
+
+        private void ClassTimePreview_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClassList_SelectSubject(object sender, SelectSubjectEventArgs info)
+        {
+            ClassInfoListControl control = (ClassInfoListControl)sender;
+            if (info.IsMouseEnter)
+            {
+                ClassTimePreview.ClassData.Add(info.Info);
+                ClassTimePreview.UpDate();
+            }
+            else
+            {
+                ClassTimePreview.Remove();
+            }
+        }
+
     }
 }

@@ -5,9 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
-        <TextBlock Text="This is group build page" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button Content="Go back to main" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,21,0,0" Click="Button_Click"/>
-    </Grid>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30,30,30,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch"  Grid.Column="0" />
+            <local:ClassInfoListControl x:Name="classList"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
+
+        </Grid>
+        
+        <Button Content="Go back to main" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Click"/>
+        <Button Content="Go to next page" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        </Grid>
 </UserControl>
