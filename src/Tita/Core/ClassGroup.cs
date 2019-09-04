@@ -42,7 +42,7 @@ namespace Tita
 
         public int CountChildren()
         {
-            return Children.Count();
+            return Children.Count;
         }
     }
 }
