@@ -25,6 +25,29 @@ namespace Tita
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataFile file = new DataFile("subjects.xml");
+            classList.ClassDatalist = file.LoadClassInfo();
+
+            classList.UpDate();
+            classList.SelectSubject += ClassList_SelectSubject;
+
+        }
+        private void ClassList_SelectSubject(object sender, SelectSubjectEventArgs info)
+        {
+            ClassInfoListControl control = (ClassInfoListControl)sender;
+            if (info.IsMouseEnter)
+            {
+                ClassTimePreview.ClassData.Add(info.Info);
+                ClassTimePreview.UpDate();
+            }
+            else
+            {
+                ClassTimePreview.Remove();
+            }
+        }
+
         public event EventHandler<NavigateEventArgs> OnNavigate;
 
         public void Navigated(string fromEndpoint, object data)
@@ -42,19 +65,7 @@ namespace Tita
 
         }
 
-        private void ClassList_SelectSubject(object sender, SelectSubjectEventArgs info)
-        {
-            ClassInfoListControl control = (ClassInfoListControl)sender;
-            if (info.IsMouseEnter)
-            {
-                ClassTimePreview.ClassData.Add(info.Info);
-                ClassTimePreview.UpDate();
-            }
-            else
-            {
-                ClassTimePreview.Remove();
-            }
-        }
+ 
 
     }
 }

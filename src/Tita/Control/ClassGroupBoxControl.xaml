@@ -13,9 +13,9 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Border BorderThickness="3" BorderBrush="Black">
+        <Border Background="White">
             <Grid>
-                <Button x:Name="groupboxadd" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Width="30" Margin="0,0,35,40" Click="AddButtonClicked" BorderBrush="{x:Null}" Background="#FFFA9595">
+                <Button x:Name="groupboxadd" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Width="30" Margin="0,0,15,40" Click="AddButtonClicked" BorderBrush="{x:Null}">
                     <Button.Content>
                         <Viewbox Margin="4">
                             <Path Data="M12.126984,0L19.872009,0 19.872009,12.128 32,12.128 32,19.872999 19.872009,19.872999 19.872009,31.999 12.126984,31.999 12.126984,19.872999 0,19.872999 0,12.128 12.126984,12.128z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
@@ -31,7 +31,7 @@
                         </Viewbox>
                     </Button.Content>
                 </Button>
-                <ScrollViewer Margin="0,40,0,0" MinHeight="100">
+                <ScrollViewer Margin="0,40,0,0" MinHeight="100" BorderThickness="2" BorderBrush="#FFD1D1D1">
                     <StackPanel x:Name="groupbox" MinHeight="100">
                     </StackPanel>
                 </ScrollViewer>
