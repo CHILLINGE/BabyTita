@@ -20,6 +20,9 @@ namespace Tita
     /// </summary>
     public partial class GroupBuildPage : UserControl, INavigable
     {
+        public ClassGroup root { get; private set; }
+
+
         public GroupBuildPage()
         {
             InitializeComponent();
@@ -32,6 +35,13 @@ namespace Tita
 
             classList.UpDate();
             classList.SelectSubject += ClassList_SelectSubject;
+
+            //그룹 추가삭제 이벤트
+            Gbox.ChangeGroup += Gbox_ChangeGroup;
+            //그룹 이름 수정 이벤트
+            Gbox.EditGroupName += Gbox_EditGroupName;
+            //그룹 멤버 추가삭제 이벤트
+            Gbox.ChangeMember += Gbox_ChangeMember;
 
         }
         private void ClassList_SelectSubject(object sender, SelectSubjectEventArgs info)
@@ -65,7 +75,36 @@ namespace Tita
 
         }
 
- 
+
+
+        private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)
+        {
+            
+        }
+
+        private void Gbox_ChangeGroup(Object sender, ClassChangeGroupEventArgs change)
+        {
+            if (change.add_delete == 1)
+            {
+                //root.Children.Add(change.rootGroup);
+            }
+            else
+            {
+               // root.Children.Remove(change.rootGroup);
+            }
+        }
+
+        private void Gbox_ChangeMember(Object sender, ClassChangeMemberEventArgs change)
+        {
+            if (change.add_delete == 1)
+            {
+                //add case
+                //change.rootGroup.
+            }
+            else;
+        }
+
+
 
     }
 }

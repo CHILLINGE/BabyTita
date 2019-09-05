@@ -20,6 +20,6 @@
 
         <Button Content="Go back to main" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Click"/>
         <Button Content="Go to next page" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-        <local:ClassGroupBoxControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="362" Margin="808,30,0,0"/>
+        <local:ClassGroupBoxControl x:Name="Gbox"  HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="362" Margin="808,30,0,0"/>
     </Grid>
 </UserControl>
