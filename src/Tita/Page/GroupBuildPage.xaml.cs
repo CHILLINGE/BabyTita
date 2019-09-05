@@ -36,6 +36,8 @@ namespace Tita
             classList.UpDate();
             classList.SelectSubject += ClassList_SelectSubject;
 
+            root = new ClassGroup();
+
             //그룹 추가삭제 이벤트
             Gbox.ChangeGroup += Gbox_ChangeGroup;
             //그룹 이름 수정 이벤트
@@ -86,11 +88,11 @@ namespace Tita
         {
             if (change.add_delete == 1)
             {
-                //root.Children.Add(change.rootGroup);
+                root.Children.Add(change.rootGroup);
             }
             else
             {
-               // root.Children.Remove(change.rootGroup);
+                root.Children.Remove(change.rootGroup);
             }
         }
 
@@ -98,13 +100,13 @@ namespace Tita
         {
             if (change.add_delete == 1)
             {
-                //add case
-                //change.rootGroup.
+                //add
+                change.rootGroup.Children.Add((IGroupable)change.changeInfo);
             }
-            else;
+            else
+            {
+                change.rootGroup.Children.Remove((IGroupable)change.changeInfo);
+            }
         }
-
-
-
     }
 }
