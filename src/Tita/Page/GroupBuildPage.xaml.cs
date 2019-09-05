@@ -86,11 +86,11 @@ namespace Tita
         {
             if (change.add_delete == 1)
             {
-                //root.Children.Add(change.rootGroup);
+                root.Children.Add(change.rootGroup);
             }
             else
             {
-               // root.Children.Remove(change.rootGroup);
+               root.Children.Remove(change.rootGroup);
             }
         }
 
