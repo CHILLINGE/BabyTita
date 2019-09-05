@@ -13,64 +13,67 @@
             <Setter Property="Margin" Value="10,5,10,5"/>
         </Style>
     </UserControl.Resources>
-    <Grid x:Name="basket">
-        
-        <Grid VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock x:Name="groupname" Grid.Column="0" Text="새그룹" VerticalAlignment="Top" HorizontalAlignment="Left" />
-            <Button x:Name="penb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" Click="penClick" Background="#FFB7DDE8" BorderBrush="{x:Null}">
-                <Button.Content>
-                    <Viewbox Margin="3">
-                        <Path Data="M30.206005,0L30.206005,1.1990057C30.206005,2.2390144 30.122021,11.448002 27.224009,14.362004 27.06904,14.51801 26.659006,14.929022 24.332039,15.29801 24.836006,15.969 24.911018,16.53202 24.586006,17.040015 24.539009,17.110023 23.661995,18.407996 22.044014,19.604011 18.895025,21.930001 11.363037,24.049996 11.044006,24.139016L10.506042,22.213021C10.580994,22.192025 18.002018,20.103003 20.855047,17.995002 21.676031,17.388007 22.268013,16.749 22.601021,16.347022 22.343025,16.069007 21.907051,15.677008 21.495001,15.362005L19.476995,13.819005 22.00605,13.573003C23.523018,13.424016 25.393015,13.123998 25.856028,12.899999 27.496042,11.153995 28.047007,5.7529926 28.174997,2.6019904 21.737005,5.6860065 8.4370103,23.323007 3.5499834,30.312999L3.5079349,30.283597 3.263338,30.353394C0.77048695,31.086869,-1.1920929E-07,32.000003,0,32.000003L1.951778,29.195512 1.9110057,29.167003C3.8790243,26.351022,21.362005,1.6159979,29.02705,0.21499636z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Path.RenderTransform>
-                                <TransformGroup>
-                                    <TransformGroup.Children>
-                                        <RotateTransform Angle="0" />
-                                        <ScaleTransform ScaleX="1" ScaleY="1" />
-                                    </TransformGroup.Children>
-                                </TransformGroup>
-                            </Path.RenderTransform>
-                        </Path>
-                    </Viewbox>
-                </Button.Content>
-            </Button>
-            <TextBox x:Name="editname" Grid.Column="0"  />
-            <Button x:Name="editbutton"  Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="23" Click="editClick" BorderBrush="{x:Null}">
-                <Button.Content>
-                    <Viewbox Margin="3">
-                        <Path Data="M27.903015,0L32,4.0970465 12.369019,23.728029 11.685974,24.520998 0,14.441042 3.7819824,10.054994 11.330017,16.567019z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Path.RenderTransform>
-                                <TransformGroup>
-                                    <TransformGroup.Children>
-                                        <RotateTransform Angle="0" />
-                                        <ScaleTransform ScaleX="1" ScaleY="1" />
-                                    </TransformGroup.Children>
-                                </TransformGroup>
-                            </Path.RenderTransform>
-                        </Path>
-                    </Viewbox>
-                </Button.Content>
-            </Button>
+    <Grid >
+        <Button x:Name="deletebutton" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="15" Click="deleteClick" BorderBrush="{x:Null}">
+            <Viewbox Margin="1">
+                <Path Data="M29.590818,0C30.206963,0 30.823227,0.23449993 31.292229,0.70349979 32.229256,1.6405001 32.229256,3.1605005 31.292229,4.1004992L19.398003,15.998498 31.292229,27.892495C32.229256,28.829499 32.229256,30.349496 31.292229,31.294496 30.354227,32.2315 28.827164,32.2315 27.890139,31.294496L15.997988,19.399499 4.1047992,31.296502C3.1677734,32.234498 1.6397347,32.234498 0.70276969,31.296502 -0.23425656,30.352502 -0.23425656,28.832498 0.70276969,27.894502L12.596934,15.998498 0.70276969,4.1024981C-0.23425656,3.1654978 -0.23425656,1.6454973 0.70276969,0.7054987 1.6397347,-0.23150158 3.1677734,-0.23150158 4.1047992,0.7054987L15.99695,12.597497 27.890139,0.70349979C28.35865,0.23449993,28.974674,0,29.590818,0z" Stretch="Uniform" Fill="#FF000000" RenderTransformOrigin="0.5,0.5"></Path>
+            </Viewbox>
+        </Button>
+        <Grid x:Name="basket" Margin="0,20,0,0">
+            <Border BorderBrush="Black" BorderThickness="2">
+                <Grid VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="groupname" Grid.Column="0" Text="새그룹" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0" />
+                    <Button x:Name="penb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="23" Click="penClick" Background="#FFB7DDE8" BorderBrush="{x:Null}">
+                        <Button.Content>
+                            <Viewbox Margin="3">
+                                <Path Data="M30.206005,0L30.206005,1.1990057C30.206005,2.2390144 30.122021,11.448002 27.224009,14.362004 27.06904,14.51801 26.659006,14.929022 24.332039,15.29801 24.836006,15.969 24.911018,16.53202 24.586006,17.040015 24.539009,17.110023 23.661995,18.407996 22.044014,19.604011 18.895025,21.930001 11.363037,24.049996 11.044006,24.139016L10.506042,22.213021C10.580994,22.192025 18.002018,20.103003 20.855047,17.995002 21.676031,17.388007 22.268013,16.749 22.601021,16.347022 22.343025,16.069007 21.907051,15.677008 21.495001,15.362005L19.476995,13.819005 22.00605,13.573003C23.523018,13.424016 25.393015,13.123998 25.856028,12.899999 27.496042,11.153995 28.047007,5.7529926 28.174997,2.6019904 21.737005,5.6860065 8.4370103,23.323007 3.5499834,30.312999L3.5079349,30.283597 3.263338,30.353394C0.77048695,31.086869,-1.1920929E-07,32.000003,0,32.000003L1.951778,29.195512 1.9110057,29.167003C3.8790243,26.351022,21.362005,1.6159979,29.02705,0.21499636z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Viewbox>
+                        </Button.Content>
+                    </Button>
+                    <TextBox x:Name="editname" Grid.Column="0" Margin="10,5,0,0"  />
+                    <Button x:Name="editbutton"  Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="23" Click="editClick" BorderBrush="{x:Null}">
+                        <Button.Content>
+                            <Viewbox Margin="3">
+                                <Path Data="M27.903015,0L32,4.0970465 12.369019,23.728029 11.685974,24.520998 0,14.441042 3.7819824,10.054994 11.330017,16.567019z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Viewbox>
+                        </Button.Content>
+                    </Button>
 
-            <ComboBox x:Name="subjectpicknum" Grid.Column="1" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="40">
-                
-            </ComboBox>
+                    <ComboBox x:Name="subjectpicknum" Grid.Column="1" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top" Width="40">
 
-            <Button x:Name="deletebutton" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="15" Click="deleteClick" BorderBrush="{x:Null}">
-                <Viewbox Margin="1">
-                    <Path Data="M29.590818,0C30.206963,0 30.823227,0.23449993 31.292229,0.70349979 32.229256,1.6405001 32.229256,3.1605005 31.292229,4.1004992L19.398003,15.998498 31.292229,27.892495C32.229256,28.829499 32.229256,30.349496 31.292229,31.294496 30.354227,32.2315 28.827164,32.2315 27.890139,31.294496L15.997988,19.399499 4.1047992,31.296502C3.1677734,32.234498 1.6397347,32.234498 0.70276969,31.296502 -0.23425656,30.352502 -0.23425656,28.832498 0.70276969,27.894502L12.596934,15.998498 0.70276969,4.1024981C-0.23425656,3.1654978 -0.23425656,1.6454973 0.70276969,0.7054987 1.6397347,-0.23150158 3.1677734,-0.23150158 4.1047992,0.7054987L15.99695,12.597497 27.890139,0.70349979C28.35865,0.23449993,28.974674,0,29.590818,0z" Stretch="Uniform" Fill="#FF000000" RenderTransformOrigin="0.5,0.5"></Path>
-                </Viewbox>
-            </Button>
+                    </ComboBox>
+
+                </Grid>
+
+
+            </Border>
+            <Border BorderBrush="#FFA0A0A0" BorderThickness="1" Margin="10,30,10,10">
+                <StackPanel x:Name="basketstack" MinHeight="100"  DragOver="DragSubject_DragOver" Drop="Data_Drop" Background="White" AllowDrop="True">
+                </StackPanel>
+            </Border>
         </Grid>
-
-        <Border BorderBrush="#FFA0A0A0" BorderThickness="1" Margin="0,30,0,0">
-            <StackPanel x:Name="basketstack" MinHeight="100"  DragOver="DragSubject_DragOver" Drop="Data_Drop" Background="White" AllowDrop="True">
-            </StackPanel>
-        </Border>
-
     </Grid>
 </UserControl>
