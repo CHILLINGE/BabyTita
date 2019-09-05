@@ -84,6 +84,7 @@ namespace Tita
             ChangeGroup?.Invoke(this, changeargs);  //info가 추가 되었을 때 추가 : 1
             var GC = new ClassGroupControl(changeargs.rootGroup);
             GC.ClassGroupRemove += Groupdelete;
+            GC.ChangeMember += ADChangeMember;
             groupbox.Children.Add(GC); //상위클래스에서 실제그룹 추가해줌
         }
 
