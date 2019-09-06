@@ -58,6 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Algorithm\BruteForceClassSelector.cs" />
+    <Compile Include="Algorithm\TimeMap.cs" />
     <Compile Include="Control\ClassGroupBoxControl.xaml.cs">
       <DependentUpon>ClassGroupBoxControl.xaml</DependentUpon>
     </Compile>

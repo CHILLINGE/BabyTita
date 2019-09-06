@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Tita.Algorithm;
 
 namespace Tita
 {
@@ -22,6 +23,23 @@ namespace Tita
         public DropDownTest()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataFile file = new DataFile("subjects.xml");
+            var infos = file.LoadClassInfo();
+
+            ClassGroup root = new ClassGroup();
+            var group = new ClassGroup();
+            foreach (var i in infos.Groups["컴퓨터정보공학부"])
+            {
+                group.AddGroup(new ClassInfoPlus(i, group));
+            }
+            root.AddGroup(group);
+
+            BruteForceClassSelector algo = new BruteForceClassSelector();
+            algo.Calculate(root);
         }
     }
 }

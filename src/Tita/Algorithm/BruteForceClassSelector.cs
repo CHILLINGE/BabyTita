@@ -10,15 +10,24 @@ namespace Tita.Algorithm
     {
         public List<ScheduleTable> Calculate(ClassGroup groupRoot)
         {
-            root = groupRoot;
+            int countTotal = 0;
+            foreach (ClassGroup i in groupRoot.Children)
+            {
+                
+            }
+
+            var root = PreProcess(groupRoot);
+
+
+
+            Func(root);
 
             return null;
         }
 
-        private ClassGroup root;
         private List<ScheduleTable> resultTable;
 
-        private void Func(IGroupable group)
+        private void Func(ClassGroup group)
         {
             
         }
@@ -28,33 +37,50 @@ namespace Tita.Algorithm
 
         }
 
-        private void PreProcess(ClassGroup ori)
+        private ClassGroup PreProcess(ClassGroup ori)
         {
             ClassGroup subgroup = new ClassGroup();
-            root = new ClassGroup();
+            ClassGroup root = new ClassGroup();
 
-            ori.Children.Sort();
-
-
-
-            for (int i = 0; i < ori.Children.Count - 1; i++)
+            foreach (ClassGroup child in ori.Children)
             {
-                
-                if ((ori.Children[i] as ClassInfoPlus)?.Info.Name 
-                    == (ori.Children[i + 1] as ClassInfoPlus)?.Info.Name)
+                child.Children.Sort((a, b) => {
+                    return string.Compare((a as ClassInfoPlus).Info.Name, (b as ClassInfoPlus).Info.Name);
+                });
+            } 
+
+            string namelast = "";
+            int i = 0;
+            foreach (ClassGroup group in ori.Children)
+            {
+                while (i < group.CountChildren())
                 {
-                    if ((ori.Children[i] as ClassInfoPlus)?.Info.Division 
-                        != (ori.Children[i + 1] as ClassInfoPlus)?.Info.Division)
+                    var cur = group.Children[i] as ClassInfoPlus;
+
+                    if (cur.Info.Name != namelast)
                     {
-                        subgroup.Children.Add(ori.Children[i]);
-                        continue;
+                        if (subgroup.CountChildren() > 0)
+                        {
+                            root.AddGroup(subgroup);
+                            subgroup = new ClassGroup();
+                        }
+
                     }
+
+                    subgroup.AddGroup(group.Children[i]);
+                    namelast = cur.Info.Name;
+                    i++;
                 }
 
-                root.Children.Add(subgroup);
-                subgroup = new ClassGroup();
-
+                if (subgroup.CountChildren() > 0)
+                {
+                    root.AddGroup(subgroup);
+                }
             }
+
+            return root;
+            
+            
         }
     }
 }
