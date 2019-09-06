@@ -9,10 +9,12 @@ namespace Tita
     public class ClassGroup : IGroupable
     {
         public List<IGroupable> Children { get; }
+        public int SelectCount { get; set; }
 
         public ClassGroup()
         {
             Children = new List<IGroupable>();
+            SelectCount = 1;
 
         }
 
