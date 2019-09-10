@@ -105,6 +105,7 @@ namespace Tita
             }
             else
             {
+                //delete
                 change.rootGroup.Children.Remove((IGroupable)change.changeInfo);
             }
         }

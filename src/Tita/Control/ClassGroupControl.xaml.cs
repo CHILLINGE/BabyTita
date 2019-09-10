@@ -28,7 +28,7 @@ namespace Tita
     public class ClassChangeMemberEventArgs : EventArgs
     {
         public ClassGroup rootGroup { get; set; }
-        public ClassInfo changeInfo { get; set; }
+        public ClassInfoPlus changeInfo { get; set; }
         public int add_delete {get; set;}
     }
 
@@ -98,13 +98,14 @@ namespace Tita
             {
                 StackPanel panel = sender as StackPanel;
                 ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
-                if (Subject_Add(curinfo)) return;
-                Group.Children.Add(new ClassInfoPlus(curinfo));
                 ClassInfoPlus infoplus = new ClassInfoPlus(curinfo);
+                if (Subject_Add(infoplus)) return;
+                
+                //Group.Children.Add(infoplus);
                 if (panel != null && curinfo != null)
                 {
 
-                    ClassInfoControl curcontrol = new ClassInfoControl(infoplus);
+                    ClassInfoControl curcontrol = new ClassInfoControl(infoplus); 
                     curcontrol.AllowDrop = false;
                     curcontrol.ClassRemove += ClassRemoveMember;
                     panel.Children.Add(curcontrol);
@@ -119,12 +120,12 @@ namespace Tita
         /// 새로운 과목이 들어오면 그룹에 접근해서 해당과목이 존재하는지 확인해주고 없을 경우 추가하는 이벤트를 위로 보내줌, 추가 : 1
         /// </summary>
         /// <param name="Info"></param>
-        private bool Subject_Add(ClassInfo Info)
+        private bool Subject_Add(ClassInfoPlus Info)
         {
             foreach(IGroupable g in Group.Children)
             {
                 ClassInfoPlus g_plus = g as ClassInfoPlus;
-                if (Info == g_plus.Info) return true;
+                if (Info.Info == g_plus.Info) return true;
             }
             ClassChangeMemberEventArgs changeargs = new ClassChangeMemberEventArgs();
             changeargs.rootGroup = Group;
