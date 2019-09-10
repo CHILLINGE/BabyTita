@@ -13,5 +13,6 @@
         <Tita:ScheduleControl x:Name="ResultSchedule" HorizontalAlignment="Left" Height="332" Margin="51,624,0,0" VerticalAlignment="Top" Width="385"/>
         <Button x:Name="ResultScheduleupdate" Content="Result Schedule Update" HorizontalAlignment="Left" Height="50" Margin="51,569,0,0" VerticalAlignment="Top" Width="385" Click="Schedule_Click"/>
         <Tita:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="474" Margin="51,135,0,0"/>
+        <Tita:MiniSchedule x:Name="MiniminiSchedule" HorizontalAlignment="Left" Height="120" Margin="561,807,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
