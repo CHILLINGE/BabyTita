@@ -77,6 +77,9 @@
     <Compile Include="Control\ClassInfoInputControl.xaml.cs">
       <DependentUpon>ClassInfoInputControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\MiniSchedule.xaml.cs">
+      <DependentUpon>MiniSchedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\PageHostControl.xaml.cs">
       <DependentUpon>PageHostControl.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Control\ClassInfoInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\MiniSchedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
