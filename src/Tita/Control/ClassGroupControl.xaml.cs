@@ -97,7 +97,8 @@ namespace Tita
         {
             if (e.Handled == false)
             {
-                StackPanel panel = sender as StackPanel;
+                //StackPanel panel = sender as StackPanel;
+                var panel = basketstack;
                 ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
                 ClassInfoPlus infoplus = new ClassInfoPlus(curinfo);
                 if (Subject_Add(infoplus)) return;
@@ -107,7 +108,9 @@ namespace Tita
                 {
 
                     ClassInfoControl curcontrol = new ClassInfoControl(infoplus); 
-                    curcontrol.AllowDrop = false;
+                    curcontrol.AllowDrop = true;
+                    curcontrol.DragOver += DragSubject_DragOver;
+                    curcontrol.Drop += Data_Drop;
                     curcontrol.ClassRemove += ClassRemoveMember;
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
