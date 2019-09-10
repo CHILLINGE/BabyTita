@@ -48,9 +48,9 @@ namespace Tita
             InitializeComponent();
             Group = new ClassGroup();
 
-            CheckPinClassGroupControl();
             editbutton.Visibility = Visibility.Hidden;
             editname.Visibility = Visibility.Hidden;
+            CheckPinClassGroupControl();
         }
 
         public ClassGroup Group { get; set; }
@@ -93,8 +93,11 @@ namespace Tita
         {
             if (Questionbutton == true)
             {
+                groupname.Text = "고정그룹";
                 deletebutton.Visibility = Visibility.Hidden;
                 question.Visibility = Visibility.Visible;
+                penb.Visibility = Visibility.Hidden;
+                subjectpicknum.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -133,6 +136,7 @@ namespace Tita
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
                     subjectpicknum.Items.Add(panel.Children.Count);
+                    if (Questionbutton == true) Group.SelectCount = panel.Children.Count;
                 }
 
             }
@@ -221,6 +225,11 @@ namespace Tita
         private void question_Click(object sender, RoutedEventArgs e)
         {
             if (Questionbutton == true) MessageBox.Show("이 상자에 넣는 과목은 꼭 뽑아줍니다~"); 
+        }
+
+        private void UserSelection(object sender, SelectionChangedEventArgs e)
+        {
+            if(subjectpicknum.SelectedItem != null) Group.SelectCount = (int)subjectpicknum.SelectedItem;
         }
     }
 }
