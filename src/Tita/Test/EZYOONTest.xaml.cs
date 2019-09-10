@@ -70,6 +70,8 @@ namespace Tita
         {
             ResultSchedule.ClassData = TestData.GetClassInfos();
             ResultSchedule.UpDate();
+            MiniminiSchedule.ClassData = TestData.GetClassInfos();
+            MiniminiSchedule.UpDate();
         }
     }
 }
