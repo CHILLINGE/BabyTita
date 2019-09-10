@@ -17,6 +17,7 @@ namespace Tita
 {
     public class EditEventArgs : EventArgs
     {
+        public ClassGroup rootgroup { get; set; }
         public string newname { get; set; }
     }
 
@@ -37,8 +38,7 @@ namespace Tita
     /// </summary>
     public partial class ClassGroupControl : UserControl
     {
-        public delegate void mydel(object sender, EditEventArgs e);
-        public event mydel EditGroupName;
+        public event EventHandler<EditEventArgs> EditGroupName;
         //public event EventHandler<ClassRemoveArgs> ClassRemove;
         public event EventHandler<ClassGroupRemoveArgs> ClassGroupRemove;
         public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
@@ -53,6 +53,7 @@ namespace Tita
         }
 
         public ClassGroup Group { get; set; }
+        public bool Questionbutton { get; set; }
 
         /// <summary>
         /// 새로운 그룹 추가
@@ -149,12 +150,10 @@ namespace Tita
         private void editClick(object sender, RoutedEventArgs e)
         {
             EditEventArgs argevent = new EditEventArgs();
+            argevent.rootgroup = Group;
             argevent.newname = editname.Text;
 
-            if(EditGroupName != null)
-            {
-                EditGroupName(this, argevent);
-            }
+            EditGroupName?.Invoke(this, argevent);
             //참고 EditGroupName?.Invoke(this, argevent); (?.은 앞의 변수가 null이면 무시)
 
             groupname.Text = argevent.newname;
@@ -195,6 +194,11 @@ namespace Tita
             changeargs.changeInfo = re.Info;
             changeargs.add_delete = 0;
             ChangeMember?.Invoke(this, changeargs);
+        }
+
+        private void question_Click(object sender, RoutedEventArgs e)
+        {
+            if (Questionbutton == true) MessageBox.Show("이 상자에 넣는 과목은 꼭 뽑아줍니다~"); 
         }
     }
 }
