@@ -13,8 +13,9 @@ namespace Tita.Algorithm
             int countTotal = 0;
             foreach (ClassGroup i in groupRoot.Children)
             {
-                
+                countTotal += i.SelectCount;
             }
+            groupRoot.SelectCount = countTotal;
 
             var root = PreProcess(groupRoot);
 
@@ -27,7 +28,7 @@ namespace Tita.Algorithm
 
         private List<ScheduleTable> resultTable;
 
-        private void Func(ClassGroup group)
+        private void Func(IGroupable node)
         {
             
         }
