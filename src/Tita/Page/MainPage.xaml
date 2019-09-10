@@ -5,11 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Tita"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" Background="White"
       >
 
     <Grid>
-        <TextBlock Text="This is main page" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button Content="Go to group build page" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,21,0,0" Click="Button_Click"/>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="200"  Width="700">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tita" FontSize="150" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,60,0,0" Text="학교" FontSize="25" Grid.Column="1" Height="30" Width="200"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,50" Text="학년" FontSize="25" Grid.Column="1" Height="30" Width="200"/>
+
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,60,0,0"  Grid.Column="2" Height="30" Width="200" FontSize="18"/>
+            <TextBox HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,50"   Grid.Column="2" Height="30" Width="200" FontSize="18"/>
+        </Grid>
+        <Button Content="Go to next Page" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click"/>
     </Grid>
 </UserControl>

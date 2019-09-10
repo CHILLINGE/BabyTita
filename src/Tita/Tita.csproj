@@ -102,6 +102,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\NavigateEventArgs.cs" />
+    <Compile Include="Page\ResultPage.xaml.cs">
+      <DependentUpon>ResultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scaffold.xaml.cs">
       <DependentUpon>Scaffold.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
     </Compile>
     <Compile Include="Test\EZYOONTest.xaml.cs">
       <DependentUpon>EZYOONTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test\MainTemplate.xaml.cs">
+      <DependentUpon>MainTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Test\smalljTest.xaml.cs">
       <DependentUpon>smalljTest.xaml</DependentUpon>
@@ -185,11 +191,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page\ResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scaffold.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Test\EZYOONTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test\MainTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

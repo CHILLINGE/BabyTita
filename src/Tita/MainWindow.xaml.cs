@@ -52,5 +52,10 @@ namespace Tita
             EZYOONTest a = new EZYOONTest();
             a.Show();
         }
+
+        private void Testb_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

@@ -4,10 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Loaded="Window_Loaded"
+             d:DesignHeight="800" d:DesignWidth="1200" Background="White">
     <Grid>
-        <TextBlock Text="This is group build page" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button Content="Go back to main" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,21,0,0" Click="Button_Click"/>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,30,30,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Grid.Column="0"  Width="450"  Height="{Binding Path=Width, ElementName=ClassTimePreview}" />
+            <local:ClassInfoListControl x:Name="classList"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
+
+        </Grid>
+
+        <Button Content="Go back to main" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Click"/>
+        <Button Content="Go to next page" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <local:ClassGroupBoxControl x:Name="Gbox"  HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="362" Margin="808,30,0,0"/>
     </Grid>
 </UserControl>
