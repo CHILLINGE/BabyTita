@@ -33,6 +33,7 @@
                 </Button>
                 <ScrollViewer Margin="0,40,0,0" MinHeight="100" BorderThickness="2" BorderBrush="#FFD1D1D1">
                     <StackPanel x:Name="groupbox" MinHeight="100">
+
                     </StackPanel>
                 </ScrollViewer>
             </Grid>

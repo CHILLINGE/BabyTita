@@ -48,6 +48,7 @@ namespace Tita
             InitializeComponent();
             Group = new ClassGroup();
 
+            CheckPinClassGroupControl();
             editbutton.Visibility = Visibility.Hidden;
             editname.Visibility = Visibility.Hidden;
         }
@@ -68,7 +69,7 @@ namespace Tita
         }
 
         /// <summary>
-        /// 그룹 최초 생성할 때 부르는 클래스
+        /// 그룹 최초 생성할 때 부르는 메서드
         /// </summary>
         /// <param name="group"></param>
         public void BasketUpdate()
@@ -82,6 +83,23 @@ namespace Tita
                     groupitem.ClassRemove += ClassRemoveMember;
                     basketstack.Children.Add(groupitem);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 고정된 과목을 뽑는 그룹인지 판단하는 메서드
+        /// </summary>
+        public void CheckPinClassGroupControl()
+        {
+            if (Questionbutton == true)
+            {
+                deletebutton.Visibility = Visibility.Hidden;
+                question.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                question.Visibility = Visibility.Hidden;
+                deletebutton.Visibility = Visibility.Visible;
             }
         }
 
