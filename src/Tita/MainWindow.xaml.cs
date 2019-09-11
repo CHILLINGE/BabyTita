@@ -35,7 +35,9 @@ namespace Tita
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Scaffold win = new Scaffold();
+            //Scaffold win = new Scaffold();
+            DropDownTest win = new DropDownTest();
+
             win.Show();
         }
 

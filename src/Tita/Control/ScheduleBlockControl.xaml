@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="400" BorderBrush="#FFC5C5C5" BorderThickness="1" Background="#FFECFEFF">
 
-        <TextBlock x:Name="classblock" HorizontalAlignment="Left" FontSize="10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="200" Width="400"/>
+        <TextBlock x:Name="classblock" HorizontalAlignment="Left" FontSize="10" TextWrapping="Wrap"  VerticalAlignment="Top" Height="200" Width="400"/>
 
 </UserControl>

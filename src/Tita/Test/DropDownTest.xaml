@@ -7,5 +7,6 @@
         mc:Ignorable="d"
         Title="DropDownTest" Height="450" Width="800">
     <Grid>
+        <Button x:Name="button" Content="Go" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>

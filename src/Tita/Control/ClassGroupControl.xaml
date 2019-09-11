@@ -19,6 +19,19 @@
                 <Path Data="M29.590818,0C30.206963,0 30.823227,0.23449993 31.292229,0.70349979 32.229256,1.6405001 32.229256,3.1605005 31.292229,4.1004992L19.398003,15.998498 31.292229,27.892495C32.229256,28.829499 32.229256,30.349496 31.292229,31.294496 30.354227,32.2315 28.827164,32.2315 27.890139,31.294496L15.997988,19.399499 4.1047992,31.296502C3.1677734,32.234498 1.6397347,32.234498 0.70276969,31.296502 -0.23425656,30.352502 -0.23425656,28.832498 0.70276969,27.894502L12.596934,15.998498 0.70276969,4.1024981C-0.23425656,3.1654978 -0.23425656,1.6454973 0.70276969,0.7054987 1.6397347,-0.23150158 3.1677734,-0.23150158 4.1047992,0.7054987L15.99695,12.597497 27.890139,0.70349979C28.35865,0.23449993,28.974674,0,29.590818,0z" Stretch="Uniform" Fill="#FF000000" RenderTransformOrigin="0.5,0.5"></Path>
             </Viewbox>
         </Button>
+        <Button x:Name="question" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Width="15" BorderBrush="{x:Null}" Click="question_Click">
+            <Path Data="M6.1720122,26.640015L12.506012,26.640015 12.506012,31.999023 6.1720122,31.999023z M6.169998,22.900024L6.1737445,22.900024 6.1720122,23.064941z M10.068994,0C13.318025,0 15.754005,0.81201172 17.703046,2.4359741 19.490037,4.0609741 20.463,6.335022 20.463,9.0949707 20.463,10.882019 19.976001,12.669006 18.839034,14.130005 17.701032,15.591003 16.402993,17.052979 14.777989,18.028015 13.967013,18.677002 13.316011,19.328003 12.992036,20.139038 12.667023,20.78894 12.505035,21.764038 12.505035,22.900024L6.1737445,22.900024 6.1758092,22.703424C6.2137826,20.916021 6.5366138,19.440285 7.1460131,18.680054 7.7950018,17.705994 8.9320286,16.567993 10.71902,15.268982 11.693022,14.45697 12.506012,13.481995 13.155,12.507996 13.805026,11.533997 14.129001,10.395996 14.129001,9.2589722 14.129001,7.9589844 13.805026,6.822998 13.155,6.1740112 12.506012,5.3619995 11.531033,5.0360107 10.232019,5.0360107 9.0949925,5.0360107 8.2829788,5.3610229 7.4720028,6.0100098 6.6599892,6.6589966 6.3339995,7.6339722 6.3339995,8.7709961L0,8.7709961 0,8.6079712C1.7478305E-07,5.8480225 0.81097621,3.7360229 2.7600165,2.2739868 4.7099722,0.81201172 6.9829882,0 10.068994,0z" Stretch="Uniform" Fill="#FF000000" Width="8" Height="8" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <TransformGroup.Children>
+                            <RotateTransform Angle="0" />
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </TransformGroup.Children>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Button>
+        
         <Grid x:Name="basket" Margin="0,20,0,0">
             <Border BorderBrush="Black" BorderThickness="2">
                 <Grid VerticalAlignment="Top">
@@ -28,6 +41,7 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="groupname" Grid.Column="0" Text="새그룹" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,5,0,0" />
+                    <TextBox x:Name="editname" Grid.Column="0" Margin="10,5,0,0"  />
                     <Button x:Name="penb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="23" Click="penClick" Background="#FFB7DDE8" BorderBrush="{x:Null}">
                         <Button.Content>
                             <Viewbox Margin="3">
@@ -44,7 +58,6 @@
                             </Viewbox>
                         </Button.Content>
                     </Button>
-                    <TextBox x:Name="editname" Grid.Column="0" Margin="10,5,0,0"  />
                     <Button x:Name="editbutton"  Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="23" Click="editClick" BorderBrush="{x:Null}">
                         <Button.Content>
                             <Viewbox Margin="3">
@@ -62,7 +75,7 @@
                         </Button.Content>
                     </Button>
 
-                    <ComboBox x:Name="subjectpicknum" Grid.Column="1" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top" Width="40">
+                    <ComboBox x:Name="subjectpicknum" Grid.Column="1" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top" Width="40" SelectionChanged="UserSelection">
 
                     </ComboBox>
 
