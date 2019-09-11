@@ -18,7 +18,7 @@ namespace Tita
     /// Scaffold.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class Scaffold : Window
-    {
+    { /*
         public Scaffold()
         {
             InitializeComponent();
@@ -69,6 +69,11 @@ namespace Tita
         {
             //MainSchedule.ClassData = TestData.GetClassInfoPlus();
             //MainSchedule.UpDate();
+        }
+        */
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            TimeSelectControl.Flag(1);
         }
     }
 }

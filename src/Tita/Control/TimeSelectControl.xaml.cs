@@ -21,7 +21,11 @@ namespace Tita
 
     public partial class TimeSelectControl : UserControl
     {
-        
+        static int flag;
+        public static void Flag(int a)
+        {
+            flag = a;
+        }
         public TimeSelectControl()
         {
             InitializeComponent();
@@ -33,7 +37,7 @@ namespace Tita
                     ColorPart colpart = new ColorPart();
                     Grid.SetColumn(colpart, i);
                     Grid.SetRow(colpart, j);
-                    colpart.stC= i;
+                    colpart.stC = i;
                     colpart.stR = j;
                     timetable.Children.Add(colpart);
 
@@ -43,38 +47,48 @@ namespace Tita
         /*
         public ClassTime GetClassTime()
         {
-            bool selflag = false;
-            for(int i=1; i<=5; i++)
+
+            if (flag == 1)
             {
-                for(int j=1; j<=10; j++)
+                int save_day = 0;
+                int save_st = 0, save_ed=0;
+                for (int i = 1; i <= 5; i++) //요일
                 {
-                    if()
+                    for (int j = 1; j <= 10; j++) //교시
+                    {
+                        ColorPart
+                        
+                        
+                    }
                 }
             }
+
             if (start_c == 1)
                 return new ClassTime(new ClassTimeItem(DayOfWeek.Monday, start_r, end_r));
-            
+
             else if (start_c == 2)
                 return new ClassTime(new ClassTimeItem(DayOfWeek.Tuesday, start_r, end_r));
 
             else if (start_c == 3)
-            
+
                 return new ClassTime(new ClassTimeItem(DayOfWeek.Wednesday, start_r, end_r));
-            
+
             else if (start_c == 4)
-            
+
                 return new ClassTime(new ClassTimeItem(DayOfWeek.Thursday, start_r, end_r));
 
-            
+
             else if (start_c == 5)
-            
+
                 return new ClassTime(new ClassTimeItem(DayOfWeek.Friday, start_r, end_r));
 
             return null;
         }
         */
+
         public class ColorPart : Border
         {
+            int[,] map = new int[10, 5];
             static Brush col = new SolidColorBrush(Color.FromArgb(80, 0xa9, 0xd0, 0xf5));
             static Brush rmcol = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
             static Brush pre = new SolidColorBrush(Color.FromArgb(20, 0xa9, 0xd0, 0xf5));
