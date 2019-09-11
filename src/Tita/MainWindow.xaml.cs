@@ -52,6 +52,11 @@ namespace Tita
             EZYOONTest a = new EZYOONTest();
             a.Show();
         }
+        private void Scaffold_Click(object sender, RoutedEventArgs e)
+        {
+            Scaffold ss = new Scaffold();
+            ss.Show();
+        }
 
         private void Testb_Click(object sender, RoutedEventArgs e)
         {

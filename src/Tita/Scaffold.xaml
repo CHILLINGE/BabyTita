@@ -14,5 +14,6 @@
         <local:ClassInfoListControl x:Name="classList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="89,358,0,0" Height="458" Width="262" />
         <Button x:Name="classListupdate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,200,0,0" Height="50" Width="79" Click="ClassListupdate_Click"/>
         <local:TimeSelectControl HorizontalAlignment="Left" Height="363" Margin="436,146,0,0" VerticalAlignment="Top" Width="296"/>
+        <Button Content="추가" Name ="Add" HorizontalAlignment="Left" Margin="558,539,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
