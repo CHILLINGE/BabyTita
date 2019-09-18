@@ -22,14 +22,12 @@ namespace Tita
     public partial class TimeSelectControl : UserControl
     {
         static int flag;
-        ColorPart[,] map = new ColorPart[6, 11];
         public static void Flag(int a)
         {
             flag = a;
         }
         public TimeSelectControl()
         {
-
             InitializeComponent();
 
             for (int i = 1; i <= 5; i++)
@@ -42,65 +40,55 @@ namespace Tita
                     colpart.stC = i;
                     colpart.stR = j;
                     timetable.Children.Add(colpart);
-                    map[i, j] = colpart;
 
                 };
             }
         }
-
+        /*
         public ClassTime GetClassTime()
         {
-            List<ClassTimeItem> items = new List<ClassTimeItem>();
+
             if (flag == 1)
             {
-
-                Brush col = new SolidColorBrush(Color.FromArgb(80, 0xa9, 0xd0, 0xf5));
-                Brush rmcol = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
                 int save_day = 0;
-                int save_st = 0, save_ed = 0;
+                int save_st = 0, save_ed=0;
                 for (int i = 1; i <= 5; i++) //요일
                 {
-                    int f = 0;
                     for (int j = 1; j <= 10; j++) //교시
                     {
-                        if (f == 0 && map[i, j].Background == col)
-                        {
-                            f = 1;
-                            save_day = i;
-                            save_st = j;
-                        }
-                        else if (f == 1 && map[i, j].Background == col)
-                            continue;
-                        else if (f == 1 && map[i, j].Background == rmcol)
-                        {
-                            save_ed = j;
-
-                            if (save_day == 1)
-                                items.Add(new ClassTimeItem(DayOfWeek.Monday, save_st, save_ed));
-
-
-                            else if (save_day == 2)
-                                items.Add(new ClassTimeItem(DayOfWeek.Tuesday, save_st, save_ed));
-
-                            else if (save_day == 3)
-                                items.Add(new ClassTimeItem(DayOfWeek.Wednesday, save_st, save_ed));
-
-                            else if (save_day == 4)
-                                items.Add(new ClassTimeItem(DayOfWeek.Thursday, save_st, save_ed));
-
-
-                            else if (save_day == 5)
-                                items.Add(new ClassTimeItem(DayOfWeek.Friday, save_st, save_ed));
-
-                        }
+                        ColorPart
+                        
+                        
                     }
                 }
             }
 
-            return new ClassTime(items);
+            if (start_c == 1)
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Monday, start_r, end_r));
+
+            else if (start_c == 2)
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Tuesday, start_r, end_r));
+
+            else if (start_c == 3)
+
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Wednesday, start_r, end_r));
+
+            else if (start_c == 4)
+
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Thursday, start_r, end_r));
+
+
+            else if (start_c == 5)
+
+                return new ClassTime(new ClassTimeItem(DayOfWeek.Friday, start_r, end_r));
+
+            return null;
         }
+        */
+
         public class ColorPart : Border
         {
+            int[,] map = new int[10, 5];
             static Brush col = new SolidColorBrush(Color.FromArgb(80, 0xa9, 0xd0, 0xf5));
             static Brush rmcol = new SolidColorBrush(Color.FromArgb(50, 0xFF, 0xFF, 0xFF));
             static Brush pre = new SolidColorBrush(Color.FromArgb(20, 0xa9, 0xd0, 0xf5));
