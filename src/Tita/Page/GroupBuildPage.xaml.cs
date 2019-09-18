@@ -72,19 +72,15 @@ namespace Tita
             OnNavigate(this, new NavigateEventArgs("main"));
         }
 
-        private void ClassTimePreview_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-
-
+        //그룸의 이름을 수정할 시
         private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)
         {
-            
+            //root
         }
 
-        private void Gbox_ChangeGroup(Object sender, ClassChangeGroupEventArgs change)
+        //그룹이 추가되거나 삭제될 시
+        private void Gbox_ChangeGroup(Object sender, ClassChangeGroupEventArgs change) 
         {
             if (change.add_delete == 1)
             {
@@ -96,6 +92,7 @@ namespace Tita
             }
         }
 
+        //그룹안에 과목이 추가되거나 삭제될 시
         private void Gbox_ChangeMember(Object sender, ClassChangeMemberEventArgs change)
         {
             if (change.add_delete == 1)
@@ -105,6 +102,7 @@ namespace Tita
             }
             else
             {
+                //delete
                 change.rootGroup.Children.Remove((IGroupable)change.changeInfo);
             }
         }

@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="Tita" Height="800" Width="1200" Loaded="Window_Loaded">
     <Grid x:Name="MainGrid">
-        <Button x:Name="button" Content="Open Scaffold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click"/>
+        <Button x:Name="button" Content="Open Algorithm" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="127" Click="Button_Click"/>
         <Button x:Name="smalljb" Content="Open smalljTest" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="127" Click="smalljb_Click"/>
         <Button x:Name="EZYOONb" Content="Open EZYOONTest" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="380,10,0,0" Click="EZYOONb_Click"/>
-        
+        <Button x:Name="Scaffold" Content="Open Scaffold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" Margin="380,10,0,0" Click="Scaffold_Click"/>
         <local:PageHostControl x:Name="mainHost" Margin="10,47,9.8,10"/>
+        
 
     </Grid>
 </Window>

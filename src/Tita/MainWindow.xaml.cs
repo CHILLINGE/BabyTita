@@ -35,7 +35,9 @@ namespace Tita
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Scaffold win = new Scaffold();
+            //Scaffold win = new Scaffold();
+            DropDownTest win = new DropDownTest();
+
             win.Show();
         }
 
@@ -49,6 +51,11 @@ namespace Tita
         {
             EZYOONTest a = new EZYOONTest();
             a.Show();
+        }
+        private void Scaffold_Click(object sender, RoutedEventArgs e)
+        {
+            Scaffold ss = new Scaffold();
+            ss.Show();
         }
 
         private void Testb_Click(object sender, RoutedEventArgs e)

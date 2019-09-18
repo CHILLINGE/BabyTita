@@ -32,12 +32,13 @@ namespace Tita
         public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
         public event EventHandler ElementAdd;
 
-        public ClassGroup root { get; }
 
         public ClassGroupBoxControl()
         {
-            root = new ClassGroup();
             InitializeComponent();
+            ClassGroup Pin = new ClassGroup();
+            Pin.AddGroup(new ClassGroup());
+            Update(Pin);
         }
 
         /// <summary>
@@ -46,8 +47,6 @@ namespace Tita
         /// <param name="group"></param>
         public ClassGroupBoxControl(ClassGroup group) : this()
         {
-            root = group;
-            Update(root);
         }
 
         public void Update(ClassGroup group)
@@ -58,6 +57,8 @@ namespace Tita
                 GControl.EditGroupName += EditGroupNameSender;
                 GControl.ClassGroupRemove += Groupdelete;
                 GControl.ChangeMember += ADChangeMember;
+                GControl.Questionbutton = true;
+                GControl.CheckPinClassGroupControl();
                 groupbox.Children.Add(GControl);
             }
         }
@@ -83,6 +84,7 @@ namespace Tita
             changeargs.add_delete = 1;
             ChangeGroup?.Invoke(this, changeargs);  //info가 추가 되었을 때 추가 : 1
             var GC = new ClassGroupControl(changeargs.rootGroup);
+            GC.EditGroupName += EditGroupNameSender;
             GC.ClassGroupRemove += Groupdelete;
             GC.ChangeMember += ADChangeMember;
             groupbox.Children.Add(GC); //상위클래스에서 실제그룹 추가해줌

@@ -17,6 +17,7 @@ namespace Tita
 {
     public class EditEventArgs : EventArgs
     {
+        public ClassGroup rootgroup { get; set; }
         public string newname { get; set; }
     }
 
@@ -28,7 +29,7 @@ namespace Tita
     public class ClassChangeMemberEventArgs : EventArgs
     {
         public ClassGroup rootGroup { get; set; }
-        public ClassInfo changeInfo { get; set; }
+        public ClassInfoPlus changeInfo { get; set; }
         public int add_delete {get; set;}
     }
 
@@ -37,8 +38,7 @@ namespace Tita
     /// </summary>
     public partial class ClassGroupControl : UserControl
     {
-        public delegate void mydel(object sender, EditEventArgs e);
-        public event mydel EditGroupName;
+        public event EventHandler<EditEventArgs> EditGroupName;
         //public event EventHandler<ClassRemoveArgs> ClassRemove;
         public event EventHandler<ClassGroupRemoveArgs> ClassGroupRemove;
         public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
@@ -50,9 +50,11 @@ namespace Tita
 
             editbutton.Visibility = Visibility.Hidden;
             editname.Visibility = Visibility.Hidden;
+            CheckPinClassGroupControl();
         }
 
         public ClassGroup Group { get; set; }
+        public bool Questionbutton { get; set; }
 
         /// <summary>
         /// 새로운 그룹 추가
@@ -67,7 +69,7 @@ namespace Tita
         }
 
         /// <summary>
-        /// 그룹 최초 생성할 때 부르는 클래스
+        /// 그룹 최초 생성할 때 부르는 메서드
         /// </summary>
         /// <param name="group"></param>
         public void BasketUpdate()
@@ -84,6 +86,26 @@ namespace Tita
             }
         }
 
+        /// <summary>
+        /// 고정된 과목을 뽑는 그룹인지 판단하는 메서드
+        /// </summary>
+        public void CheckPinClassGroupControl()
+        {
+            if (Questionbutton == true)
+            {
+                groupname.Text = "고정그룹";
+                deletebutton.Visibility = Visibility.Hidden;
+                question.Visibility = Visibility.Visible;
+                penb.Visibility = Visibility.Hidden;
+                subjectpicknum.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                question.Visibility = Visibility.Hidden;
+                deletebutton.Visibility = Visibility.Visible;
+            }
+        }
+
         private void DragSubject_DragOver(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(nameof(ClassInfo)))
@@ -96,20 +118,25 @@ namespace Tita
         {
             if (e.Handled == false)
             {
-                StackPanel panel = sender as StackPanel;
+                //StackPanel panel = sender as StackPanel;
+                var panel = basketstack;
                 ClassInfo curinfo = e.Data.GetData(nameof(ClassInfo)) as ClassInfo;
-                if (Subject_Add(curinfo)) return;
-                Group.Children.Add(new ClassInfoPlus(curinfo));
                 ClassInfoPlus infoplus = new ClassInfoPlus(curinfo);
+                if (Subject_Add(infoplus)) return;
+                
+                //Group.Children.Add(infoplus);
                 if (panel != null && curinfo != null)
                 {
 
-                    ClassInfoControl curcontrol = new ClassInfoControl(infoplus);
-                    curcontrol.AllowDrop = false;
+                    ClassInfoControl curcontrol = new ClassInfoControl(infoplus); 
+                    curcontrol.AllowDrop = true;
+                    curcontrol.DragOver += DragSubject_DragOver;
+                    curcontrol.Drop += Data_Drop;
                     curcontrol.ClassRemove += ClassRemoveMember;
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
                     subjectpicknum.Items.Add(panel.Children.Count);
+                    if (Questionbutton == true) Group.SelectCount = panel.Children.Count;
                 }
 
             }
@@ -119,12 +146,12 @@ namespace Tita
         /// 새로운 과목이 들어오면 그룹에 접근해서 해당과목이 존재하는지 확인해주고 없을 경우 추가하는 이벤트를 위로 보내줌, 추가 : 1
         /// </summary>
         /// <param name="Info"></param>
-        private bool Subject_Add(ClassInfo Info)
+        private bool Subject_Add(ClassInfoPlus Info)
         {
             foreach(IGroupable g in Group.Children)
             {
                 ClassInfoPlus g_plus = g as ClassInfoPlus;
-                if (Info == g_plus.Info) return true;
+                if (Info.Info == g_plus.Info) return true;
             }
             ClassChangeMemberEventArgs changeargs = new ClassChangeMemberEventArgs();
             changeargs.rootGroup = Group;
@@ -149,12 +176,10 @@ namespace Tita
         private void editClick(object sender, RoutedEventArgs e)
         {
             EditEventArgs argevent = new EditEventArgs();
+            argevent.rootgroup = Group;
             argevent.newname = editname.Text;
 
-            if(EditGroupName != null)
-            {
-                EditGroupName(this, argevent);
-            }
+            EditGroupName?.Invoke(this, argevent);
             //참고 EditGroupName?.Invoke(this, argevent); (?.은 앞의 변수가 null이면 무시)
 
             groupname.Text = argevent.newname;
@@ -195,6 +220,16 @@ namespace Tita
             changeargs.changeInfo = re.Info;
             changeargs.add_delete = 0;
             ChangeMember?.Invoke(this, changeargs);
+        }
+
+        private void question_Click(object sender, RoutedEventArgs e)
+        {
+            if (Questionbutton == true) MessageBox.Show("이 상자에 넣는 과목은 꼭 뽑아줍니다~"); 
+        }
+
+        private void UserSelection(object sender, SelectionChangedEventArgs e)
+        {
+            if(subjectpicknum.SelectedItem != null) Group.SelectCount = (int)subjectpicknum.SelectedItem;
         }
     }
 }

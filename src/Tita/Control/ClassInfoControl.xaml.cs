@@ -17,7 +17,7 @@ namespace Tita
 {
     public class ClassRemoveArgs : EventArgs
     {
-        public ClassInfo Info { get; set; }
+        public ClassInfoPlus Info { get; set; }
     }
 
 
@@ -245,7 +245,7 @@ namespace Tita
 
         private void Remove_Button_Click(object sender, RoutedEventArgs e)
         {
-            ClassRemove?.Invoke(this, new ClassRemoveArgs() { Info = this.Info });
+            ClassRemove?.Invoke(this, new ClassRemoveArgs() { Info = this.InfoPlus });
         }
     }
 }
