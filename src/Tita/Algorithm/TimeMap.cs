@@ -34,7 +34,7 @@ namespace Tita.Algorithm
 
         public TimeMap()
         {
-            map = new int[1440 / ClassTimeItem.periodSpan, 7];
+            map = new int[7, 1440 / ClassTimeItem.periodSpan];
             
         }
 
@@ -62,6 +62,20 @@ namespace Tita.Algorithm
                     map[(int)time.Day, i] += 1;
                 }
             }
+        }
+
+        public void Set(TimeMap timemap)
+        {
+            for (int w = 0; w < 7; w++)
+            {
+                for (int i = 0; i < 1440 / ClassTimeItem.periodSpan; i++)
+                {
+
+                    map[w, i] += timemap.map[w, i];
+                }
+            }
+            
+            
         }
 
         public void Unset(ClassTime target)

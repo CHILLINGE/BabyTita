@@ -24,10 +24,31 @@ namespace Tita.Algorithm
             var groups = CreateGroupClasses(root);
             
 
+
             return null;
         }
 
-        private List<ScheduleTable> resultTable;
+        private List<ScheduleTable> GetCombinations(List<List<ScheduleMid>> groups)
+        {
+            List<ScheduleTable> r = new List<ScheduleTable>();
+
+            foreach (var i in groups)
+            {
+                ScheduleTable schedule = new ScheduleTable();
+                TimeMap map = new TimeMap();
+                foreach (ScheduleMid j in i)
+                {
+                    if (map.IsOverlap(j.timemap))
+                    {
+                        continue;
+                    }
+                    map.Set(j.timemap);
+                }
+            }
+
+            throw new NotImplementedException();
+            return r;
+        }
 
         private List<List<ScheduleMid>> CreateGroupClasses(ClassGroup groupRoot)
         {
