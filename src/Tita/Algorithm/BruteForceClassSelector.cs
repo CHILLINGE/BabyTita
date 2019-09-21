@@ -21,21 +21,78 @@ namespace Tita.Algorithm
 
 
 
-            Func(root);
+            var groups = CreateGroupClasses(root);
+            
 
             return null;
         }
 
         private List<ScheduleTable> resultTable;
 
-        private void Func(IGroupable node)
+        private List<List<ScheduleMid>> CreateGroupClasses(ClassGroup groupRoot)
         {
-            
+            List<List<ScheduleMid>> r = new List<List<ScheduleMid>>();
+
+            foreach (ClassGroup i in groupRoot.Children)
+            {
+                cur = new ScheduleMid();
+                result = new List<ScheduleMid>();
+
+                SelectClasses(i, i.SelectCount);
+                r.Add(result);
+            }
+
+            return r;
         }
 
-        private void IsCollide()
+        private class ScheduleMid : ICloneable
         {
+            public List<ClassInfoPlus> infos { get; set; }
+            public TimeMap timemap { get; set; }
 
+            public ScheduleMid()
+            {
+                infos = new List<ClassInfoPlus>();
+                timemap = new TimeMap();
+            }
+
+            public object Clone()
+            {
+                ScheduleMid obj = new ScheduleMid();
+                obj.infos.AddRange(infos);
+
+                return obj;
+            }
+        }
+
+
+        ScheduleMid cur;
+        List<ScheduleMid> result;
+        private void SelectClasses(ClassGroup group, int cnt , int p = 0)
+        {
+            if (cnt == 0)
+            {
+                result.Add(cur.Clone() as ScheduleMid);
+                return;
+            }
+            if (p >= group.CountChildren())
+            {
+                return;
+            }
+
+            for (int i = p; i < group.CountChildren() - cnt + 1; i++)
+            {
+                foreach (ClassInfoPlus h in (group.Children[p] as ClassGroup).Children)
+                {
+                    if (!cur.timemap.IsOverlap(h.Info.Time))
+                    {
+                        cur.timemap.Set(h.Info.Time);
+                        SelectClasses(group, cnt - 1, p + 1);
+                        cur.timemap.Unset(h.Info.Time);
+                        SelectClasses(group, cnt, p + 1);
+                    }
+                }
+            }
         }
 
         private ClassGroup PreProcess(ClassGroup ori)
