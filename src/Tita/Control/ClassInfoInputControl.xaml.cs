@@ -49,15 +49,23 @@ namespace Tita
             return tmp;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-
-        }
+  
 
         public void GetFocusOnName(object sender, RoutedEventArgs e)
         {
             name.Text = "";
+        }
+        public void GetFocusOndivision(object sender, RoutedEventArgs e)
+        {
+            division.Text = "";
+        }
+        public void GetFocusOnprofessor(object sender, RoutedEventArgs e)
+        {
+            professor.Text = "";
+        }
+        public void GetFocusOncredit(object sender, RoutedEventArgs e)
+        {
+            credit.Text = "";
         }
     }
 }
