@@ -75,7 +75,7 @@
                         </Button.Content>
                     </Button>
 
-                    <ComboBox x:Name="subjectpicknum" Grid.Column="1" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top" Width="40">
+                    <ComboBox x:Name="subjectpicknum" Grid.Column="1" HorizontalAlignment="Left" Margin="40,5,0,0" VerticalAlignment="Top" Width="40" SelectionChanged="UserSelection">
 
                     </ComboBox>
 

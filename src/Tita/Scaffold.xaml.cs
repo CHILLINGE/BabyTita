@@ -70,5 +70,13 @@ namespace Tita
             //MainSchedule.ClassData = TestData.GetClassInfoPlus();
             //MainSchedule.UpDate();
         }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            
+            hello.GetClassTime();
+        }
+
+   
     }
 }

@@ -47,6 +47,7 @@
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
+            <!-- <RowDefinition Height="*"/> -->
 		</Grid.RowDefinitions>
 		<TextBlock Text="월" Style="{StaticResource CaptionStyle}" Grid.Column="1" Grid.Row="0"/>
 		<TextBlock Text="화" Style="{StaticResource CaptionStyle}" Grid.Column="2" Grid.Row="0"/>
@@ -64,6 +65,7 @@
 		<TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="8"/>
 		<TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="9"/>
 		<TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="10"/>
+       <!-- <TextBlock Text="11" Style="{StaticResource PeriodStyle}" Grid.Column="1" Grid.Row="11"/> -->
 
 		<TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="1"/>
 		<TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="2"/>
@@ -75,6 +77,7 @@
 		<TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="8"/>
 		<TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="9"/>
 		<TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="10"/>
+        <!-- <TextBlock Text="11" Style="{StaticResource PeriodStyle}" Grid.Column="2" Grid.Row="11"/> -->
 
 		<TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="1"/>
 		<TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="2"/>
@@ -86,6 +89,7 @@
 		<TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="8"/>
 		<TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="9"/>
 		<TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="10"/>
+        <!-- <TextBlock Text="11" Style="{StaticResource PeriodStyle}" Grid.Column="3" Grid.Row="11"/> -->
 
 		<TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="1"/>
 		<TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="2"/>
@@ -97,8 +101,9 @@
 		<TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="8"/>
 		<TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="9"/>
 		<TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="10"/>
+       <!-- <TextBlock Text="11" Style="{StaticResource PeriodStyle}" Grid.Column="4" Grid.Row="11"/> -->
 
-		<TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="1"/>
+        <TextBlock Text="1" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="1"/>
 		<TextBlock Text="2" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="2"/>
 		<TextBlock Text="3" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="3"/>
 		<TextBlock Text="4" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="4"/>
@@ -108,8 +113,9 @@
 		<TextBlock Text="8" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="8"/>
 		<TextBlock Text="9" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="9"/>
 		<TextBlock Text="10" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="10"/>
+       <!-- <TextBlock Text="11" Style="{StaticResource PeriodStyle}" Grid.Column="5" Grid.Row="11"/> -->
 
-		<TextBlock Grid.Row="1" Text="9am"  Style="{StaticResource TimeStyle}" />
+        <TextBlock Grid.Row="1" Text="9am"  Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="2" Text="10am" Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="3" Text="11am" Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="4" Text="12pm" Style="{StaticResource TimeStyle}" />
@@ -119,8 +125,9 @@
 		<TextBlock Grid.Row="8" Text="4pm" Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="9" Text="5pm" Style="{StaticResource TimeStyle}" />
 		<TextBlock Grid.Row="10" Text="6pm" Style="{StaticResource TimeStyle}" />
+       <!-- <TextBlock Grid.Row="11" Text="7pm" Style="{StaticResource TimeStyle}" /> -->
 
-		<Rectangle Grid.RowSpan="11" Stroke="#EAEAEA" Grid.ColumnSpan="6" Margin="0,0,0.2,0"/>
+        <Rectangle Grid.RowSpan="11" Stroke="#EAEAEA" Grid.ColumnSpan="6" Margin="0,0,0.2,0"/>
 		<Rectangle Stroke="#EAEAEA" Grid.ColumnSpan="6" Grid.Row="0"/>
 		<Rectangle Stroke="#EAEAEA" Grid.Column="0" Grid.RowSpan="11"/>
 		<Rectangle Stroke="#EAEAEA" Grid.Column="2" Grid.RowSpan="11"/>

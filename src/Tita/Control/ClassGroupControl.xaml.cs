@@ -50,6 +50,7 @@ namespace Tita
 
             editbutton.Visibility = Visibility.Hidden;
             editname.Visibility = Visibility.Hidden;
+            CheckPinClassGroupControl();
         }
 
         public ClassGroup Group { get; set; }
@@ -68,7 +69,7 @@ namespace Tita
         }
 
         /// <summary>
-        /// 그룹 최초 생성할 때 부르는 클래스
+        /// 그룹 최초 생성할 때 부르는 메서드
         /// </summary>
         /// <param name="group"></param>
         public void BasketUpdate()
@@ -82,6 +83,26 @@ namespace Tita
                     groupitem.ClassRemove += ClassRemoveMember;
                     basketstack.Children.Add(groupitem);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 고정된 과목을 뽑는 그룹인지 판단하는 메서드
+        /// </summary>
+        public void CheckPinClassGroupControl()
+        {
+            if (Questionbutton == true)
+            {
+                groupname.Text = "고정그룹";
+                deletebutton.Visibility = Visibility.Hidden;
+                question.Visibility = Visibility.Visible;
+                penb.Visibility = Visibility.Hidden;
+                subjectpicknum.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                question.Visibility = Visibility.Hidden;
+                deletebutton.Visibility = Visibility.Visible;
             }
         }
 
@@ -115,6 +136,7 @@ namespace Tita
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
                     subjectpicknum.Items.Add(panel.Children.Count);
+                    if (Questionbutton == true) Group.SelectCount = panel.Children.Count;
                 }
 
             }
@@ -203,6 +225,11 @@ namespace Tita
         private void question_Click(object sender, RoutedEventArgs e)
         {
             if (Questionbutton == true) MessageBox.Show("이 상자에 넣는 과목은 꼭 뽑아줍니다~"); 
+        }
+
+        private void UserSelection(object sender, SelectionChangedEventArgs e)
+        {
+            if(subjectpicknum.SelectedItem != null) Group.SelectCount = (int)subjectpicknum.SelectedItem;
         }
     }
 }
