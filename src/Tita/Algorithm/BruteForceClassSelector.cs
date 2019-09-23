@@ -49,7 +49,12 @@ namespace Tita.Algorithm
             throw new NotImplementedException();
             return r;
         }
-
+        
+        /// <summary>
+        /// 각 그룹별로 가능한 후보 리스트를 뽑는 함수
+        /// </summary>
+        /// <param name="groupRoot"></param>
+        /// <returns></returns>
         private List<List<ScheduleMid>> CreateGroupClasses(ClassGroup groupRoot)
         {
             List<List<ScheduleMid>> r = new List<List<ScheduleMid>>();
@@ -66,6 +71,9 @@ namespace Tita.Algorithm
             return r;
         }
 
+        /// <summary>
+        /// ClassInfoPlus의 리스트 + 시간 데이터가 저장된 TimeMap
+        /// </summary>
         private class ScheduleMid : ICloneable
         {
             public List<ClassInfoPlus> infos { get; set; }
@@ -89,6 +97,13 @@ namespace Tita.Algorithm
 
         ScheduleMid cur;
         List<ScheduleMid> result;
+
+        /// <summary>
+        /// 하나의 그룹에서 과목들의 가능한 조합들을 구하는 재귀함수
+        /// </summary>
+        /// <param name="group">구할 그룹</param>
+        /// <param name="cnt">남은 개수</param>
+        /// <param name="p">현재 위치</param>
         private void SelectClasses(ClassGroup group, int cnt , int p = 0)
         {
             if (cnt == 0)
