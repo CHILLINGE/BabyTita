@@ -54,5 +54,10 @@ namespace Tita
 
 
         }
+
+        public void GetFocusOnName(object sender, RoutedEventArgs e)
+        {
+            name.Text = "";
+        }
     }
 }

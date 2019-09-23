@@ -30,7 +30,7 @@ namespace Tita
 
             for (int i = 1; i <= 5; i++)
             {
-                for (int j = 1; j <= 11; j++)
+                for (int j = 1; j <= 10; j++)
                 {
                     ColorPart colpart = new ColorPart();
                     Grid.SetColumn(colpart, i);
@@ -57,19 +57,59 @@ namespace Tita
             for (int i = 1; i <= 5; i++) //요일
             {
                 int f = 0;
-                for (int j = 1; j <= 11; j++) //교시
+                for (int j = 1; j <= 10; j++) //교시
                 {
-                    if (f == 0 && map[i, j].isSelected==true)
+                    if (f == 0 && map[i, j].isSelected == true)
                     {
                         f = 1;
                         save_day = i;
                         save_st = j;
+                        if (j == 10)
+                        {
+                            save_ed = j;
+                            if (save_day == 1)
+                                items.Add(new ClassTimeItem(DayOfWeek.Monday, save_st, save_ed));
+
+                            else if (save_day == 2)
+                                items.Add(new ClassTimeItem(DayOfWeek.Tuesday, save_st, save_ed));
+
+                            else if (save_day == 3)
+                                items.Add(new ClassTimeItem(DayOfWeek.Wednesday, save_st, save_ed));
+
+                            else if (save_day == 4)
+                                items.Add(new ClassTimeItem(DayOfWeek.Thursday, save_st, save_ed));
+
+
+                            else if (save_day == 5)
+                                items.Add(new ClassTimeItem(DayOfWeek.Friday, save_st, save_ed));
+                        }
                     }
-                    else if (f == 1 && map[i, j].isSelected==true)
-                        continue;
-                    else if (f == 1 && map[i, j].isSelected==false)
+                    else if (f == 1 && map[i, j].isSelected == true)
                     {
-                        save_ed = j-1;
+                        if (j == 10)
+                        {
+                            save_ed = j;
+                            if (save_day == 1)
+                                items.Add(new ClassTimeItem(DayOfWeek.Monday, save_st, save_ed));
+
+                            else if (save_day == 2)
+                                items.Add(new ClassTimeItem(DayOfWeek.Tuesday, save_st, save_ed));
+
+                            else if (save_day == 3)
+                                items.Add(new ClassTimeItem(DayOfWeek.Wednesday, save_st, save_ed));
+
+                            else if (save_day == 4)
+                                items.Add(new ClassTimeItem(DayOfWeek.Thursday, save_st, save_ed));
+
+
+                            else if (save_day == 5)
+                                items.Add(new ClassTimeItem(DayOfWeek.Friday, save_st, save_ed));
+                        }
+                        else continue;
+                    }
+                    else if (f == 1 && map[i, j].isSelected == false)
+                    {
+                        save_ed = j - 1;
 
                         if (save_day == 1)
                             items.Add(new ClassTimeItem(DayOfWeek.Monday, save_st, save_ed));
