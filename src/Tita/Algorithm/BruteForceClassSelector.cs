@@ -22,32 +22,63 @@ namespace Tita.Algorithm
 
 
             var groups = CreateGroupClasses(root);
-            
 
 
-            return null;
-        }
+            getCombinationCurrent = new List<ScheduleMid>();
+            getCombinationResult = new List<List<ScheduleMid>>();
+            GetCombinations(groups);
 
-        private List<ScheduleTable> GetCombinations(List<List<ScheduleMid>> groups)
-        {
-            List<ScheduleTable> r = new List<ScheduleTable>();
-
-            foreach (var i in groups)
+            List<ScheduleTable> ret = new List<ScheduleTable>();
+            foreach (var i in getCombinationResult)
             {
-                ScheduleTable schedule = new ScheduleTable();
-                TimeMap map = new TimeMap();
-                foreach (ScheduleMid j in i)
+                var tmp = new ScheduleTable();
+                foreach (var j in i)
                 {
-                    if (map.IsOverlap(j.timemap))
+                    foreach (var k in j.infos)
                     {
-                        continue;
+                        tmp.ClassAddList(k);
                     }
-                    map.Set(j.timemap);
                 }
+                ret.Add(tmp);
             }
 
-            throw new NotImplementedException();
-            return r;
+            return ret;
+        }
+
+        List<ScheduleMid> getCombinationCurrent;
+        List<List<ScheduleMid>> getCombinationResult;
+        private void GetCombinations(List<List<ScheduleMid>> groups, int p = 0)
+        {
+            if (p == groups.Count)
+            {
+
+                getCombinationResult.Add(new List<ScheduleMid>(getCombinationCurrent));
+                return ;
+            }
+            
+            for (int i = 0; i < groups[p].Count; i++)
+            {
+                // 여기에 조건
+                bool isPossible = true;
+                foreach (var mid in getCombinationCurrent)
+                {
+                    if (mid.timemap.IsOverlap(groups[p][i].timemap))
+                    {
+                        isPossible = false;
+                        break;
+                    }
+                }
+
+                if (isPossible)
+                {
+                    getCombinationCurrent.Add(groups[p][i]);
+                    GetCombinations(groups, p + 1);
+                    getCombinationCurrent.RemoveAt(getCombinationCurrent.Count - 1);
+                }
+                
+            }
+            
+            return;
         }
         
         /// <summary>
@@ -61,11 +92,11 @@ namespace Tita.Algorithm
 
             foreach (ClassGroup i in groupRoot.Children)
             {
-                cur = new ScheduleMid();
-                result = new List<ScheduleMid>();
+                selectClassesCurrent = new ScheduleMid();
+                selectClassesResult = new List<ScheduleMid>();
 
                 SelectClasses(i, i.SelectCount);
-                r.Add(result);
+                r.Add(selectClassesResult);
             }
 
             return r;
@@ -95,8 +126,8 @@ namespace Tita.Algorithm
         }
 
 
-        ScheduleMid cur;
-        List<ScheduleMid> result;
+        ScheduleMid selectClassesCurrent;
+        List<ScheduleMid> selectClassesResult;
 
         /// <summary>
         /// 하나의 그룹에서 과목들의 가능한 조합들을 구하는 재귀함수
@@ -108,7 +139,7 @@ namespace Tita.Algorithm
         {
             if (cnt == 0)
             {
-                result.Add(cur.Clone() as ScheduleMid);
+                selectClassesResult.Add(selectClassesCurrent.Clone() as ScheduleMid);
                 return;
             }
             if (p >= group.CountChildren())
@@ -120,11 +151,11 @@ namespace Tita.Algorithm
             {
                 foreach (ClassInfoPlus h in (group.Children[p] as ClassGroup).Children)
                 {
-                    if (!cur.timemap.IsOverlap(h.Info.Time))
+                    if (!selectClassesCurrent.timemap.IsOverlap(h.Info.Time))
                     {
-                        cur.timemap.Set(h.Info.Time);
+                        selectClassesCurrent.timemap.Set(h.Info.Time);
                         SelectClasses(group, cnt - 1, p + 1);
-                        cur.timemap.Unset(h.Info.Time);
+                        selectClassesCurrent.timemap.Unset(h.Info.Time);
                         SelectClasses(group, cnt, p + 1);
                     }
                 }
