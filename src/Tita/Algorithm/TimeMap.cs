@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tita.Algorithm
 {
-    public class TimeMap
+    public class TimeMap : ICloneable
     {
         private int[,] map { get; set; }
 
@@ -34,8 +34,20 @@ namespace Tita.Algorithm
 
         public TimeMap()
         {
-            map = new int[1440 / ClassTimeItem.periodSpan, 7];
+            map = new int[7, 1440 / ClassTimeItem.periodSpan];
             
+        }
+
+        public bool IsOverlap(TimeMap target)
+        {
+            return IsOverlap(this, target);
+        }
+
+        public bool IsOverlap(ClassTime time)
+        {
+            var map = new TimeMap();
+            map.Set(time);
+            return IsOverlap(map);
         }
 
         public void Set(ClassTime target)
@@ -52,6 +64,20 @@ namespace Tita.Algorithm
             }
         }
 
+        public void Set(TimeMap timemap)
+        {
+            for (int w = 0; w < 7; w++)
+            {
+                for (int i = 0; i < 1440 / ClassTimeItem.periodSpan; i++)
+                {
+
+                    map[w, i] += timemap.map[w, i];
+                }
+            }
+            
+            
+        }
+
         public void Unset(ClassTime target)
         {
             foreach (var time in target.Items)
@@ -66,6 +92,11 @@ namespace Tita.Algorithm
             }
         }
 
-        
+        public object Clone()
+        {
+            var obj = new TimeMap();
+            obj.map = map.Clone() as int[,];
+            return obj;
+        }
     }
 }
