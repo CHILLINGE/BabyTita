@@ -10,7 +10,7 @@
     <Grid x:Name="maingrid" Margin="0,0,3.6,13">
         <local:ClassInfoControl x:Name="Sample" VerticalAlignment="Top" Margin="36,76,0,0" HorizontalAlignment="Left" Width="198"/>
         <!--<local:ClassInfoListControl x:Name="Mainlist" HorizontalAlignment="Left" Height="148" Margin="453,228,0,0" VerticalAlignment="Top" Width="264"/>-->
-        <local:ClassInfoInputControl HorizontalAlignment="Left" Height="141" Margin="436,0,0,0" VerticalAlignment="Top" Width="296"/>
+        <local:ClassInfoInputControl x:Name="classinfoinput" HorizontalAlignment="Left" Height="141" Margin="436,0,0,0" VerticalAlignment="Top" Width="296"/>
         <local:ClassInfoListControl x:Name="classList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="89,358,0,0" Height="458" Width="262" />
         <Button x:Name="classListupdate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,200,0,0" Height="50" Width="79" Click="ClassListupdate_Click"/>
         <local:TimeSelectControl x:Name="hello"  HorizontalAlignment="Left" Height="363" Margin="436,146,0,0" VerticalAlignment="Top" Width="296"/>
