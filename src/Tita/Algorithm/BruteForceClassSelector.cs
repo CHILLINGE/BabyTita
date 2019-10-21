@@ -147,25 +147,28 @@ namespace Tita.Algorithm
                 return;
             }
 
-            for (int i = p; i < group.CountChildren() - cnt + 1; i++)
-            {
-                foreach (ClassInfoPlus h in (group.Children[p] as ClassGroup).Children)
+            //for (int i = p; i < group.CountChildren() - cnt + 1; i++)
+            //{
+                foreach (ClassInfoPlus h in ((ClassGroup)group.Children[p]).Children)
                 {
                     if (!selectClassesCurrent.timemap.IsOverlap(h.Info.Time))
                     {
                         selectClassesCurrent.timemap.Set(h.Info.Time);
+                        selectClassesCurrent.infos.Add(h);
                         SelectClasses(group, cnt - 1, p + 1);
                         selectClassesCurrent.timemap.Unset(h.Info.Time);
+                        selectClassesCurrent.infos.RemoveAt(selectClassesCurrent.infos.Count - 1);
                         SelectClasses(group, cnt, p + 1);
                     }
                 }
-            }
+            //}
         }
 
         private ClassGroup PreProcess(ClassGroup ori)
         {
             ClassGroup subgroup = new ClassGroup();
             ClassGroup root = new ClassGroup();
+            ClassGroup tmp;
 
             foreach (ClassGroup child in ori.Children)
             {
@@ -178,6 +181,7 @@ namespace Tita.Algorithm
             int i = 0;
             foreach (ClassGroup group in ori.Children)
             {
+                tmp = new ClassGroup();
                 while (i < group.CountChildren())
                 {
                     var cur = group.Children[i] as ClassInfoPlus;
@@ -186,7 +190,7 @@ namespace Tita.Algorithm
                     {
                         if (subgroup.CountChildren() > 0)
                         {
-                            root.AddGroup(subgroup);
+                            tmp.AddGroup(subgroup);
                             subgroup = new ClassGroup();
                         }
 
@@ -199,8 +203,9 @@ namespace Tita.Algorithm
 
                 if (subgroup.CountChildren() > 0)
                 {
-                    root.AddGroup(subgroup);
+                    tmp.AddGroup(subgroup);
                 }
+                root.AddGroup(tmp);
             }
 
             return root;
