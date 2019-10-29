@@ -22,6 +22,6 @@
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,60,0,0"  Grid.Column="2" Height="30" Width="200" FontSize="18"/>
             <TextBox HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,50"   Grid.Column="2" Height="30" Width="200" FontSize="18"/>
         </Grid>
-        <Button Content="Go to next Page" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click"/>
+        <Button Content="Next" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="55" FontSize="15" Click="Button_Click"/>
     </Grid>
 </UserControl>

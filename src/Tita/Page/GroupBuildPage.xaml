@@ -15,11 +15,11 @@
             </Grid.ColumnDefinitions>
             <local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Grid.Column="0"  Width="450"  Height="{Binding Path=Width, ElementName=ClassTimePreview}" />
             <local:ClassInfoListControl x:Name="classList"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
-
+            <local:ClassGroupBoxControl x:Name="Gbox"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2"/>
         </Grid>
 
-        <Button Content="Go back to main" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Click"/>
-        <Button Content="Go to next page" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-        <local:ClassGroupBoxControl x:Name="Gbox"  HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="362" Margin="808,30,0,0"/>
+        <Button Content="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="55" FontSize="15"  Click="BackPage_Click" />
+        <Button Content="Next" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="55" FontSize="15" Click="NextPage_Click"/>
+        
     </Grid>
 </UserControl>

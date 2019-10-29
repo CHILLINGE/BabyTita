@@ -67,11 +67,15 @@ namespace Tita
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BackPage_Click(object sender, RoutedEventArgs e) //mainpage로 이동
         {
             OnNavigate(this, new NavigateEventArgs("main"));
         }
 
+        private void NextPage_Click(object sender, RoutedEventArgs e) //Resultpage로 이동
+        {
+            OnNavigate(this, new NavigateEventArgs("Result"));
+        }
 
         //그룸의 이름을 수정할 시
         private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)

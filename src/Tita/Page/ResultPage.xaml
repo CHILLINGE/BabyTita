@@ -5,8 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1200" Background="White">
     <Grid>
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,30,30,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Grid.Column="1"  Width="550"  Height="{Binding Path=Width, ElementName=ClassTimePreview}" />
+
             
+        </Grid>
+
+        <Button Content="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="55" FontSize="15" Click="BackPage_Click" />
     </Grid>
 </UserControl>
