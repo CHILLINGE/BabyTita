@@ -38,6 +38,8 @@ namespace Tita
 
             root = new ClassGroup();
 
+            Gbox.GrootGroup = root;
+
             //그룹 추가삭제 이벤트
             Gbox.ChangeGroup += Gbox_ChangeGroup;
             //그룹 이름 수정 이벤트
