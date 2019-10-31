@@ -167,9 +167,10 @@ namespace Tita.Algorithm
 
                 }
 
-                SelectClasses(group, cnt, p + 1);
+                
 
             }
+            SelectClasses(group, cnt, p + 1);
             //}
         }
 
@@ -198,6 +199,7 @@ namespace Tita.Algorithm
                         subgroup = new ClassGroup();
                         subgroup.AddGroup(i);
                         tmp.AddGroup(subgroup);
+                        namelast = i.Info.Name;
                     }
                     else
                     {
