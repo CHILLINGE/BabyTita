@@ -31,14 +31,12 @@ namespace Tita
         public event EventHandler<ClassChangeGroupEventArgs> ChangeGroup;
         public event EventHandler<ClassChangeMemberEventArgs> ChangeMember;
         public event EventHandler ElementAdd;
-
+        public ClassGroup GrootGroup{ get; set; }
 
         public ClassGroupBoxControl()
         {
             InitializeComponent();
-            ClassGroup Pin = new ClassGroup();
-            Pin.AddGroup(new ClassGroup());
-            Update(Pin);
+            GrootGroup = new ClassGroup();
         }
 
         /// <summary>
@@ -47,19 +45,23 @@ namespace Tita
         /// <param name="group"></param>
         public ClassGroupBoxControl(ClassGroup group) : this()
         {
+
         }
 
-        public void Update(ClassGroup group)
+        public void Update()
         {
-            foreach (ClassGroup g in group.Children)
+            //ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
+            //changeargs.rootGroup = new ClassGroup();
+            //changeargs.add_delete = 1;
+            //ChangeGroup?.Invoke(this, changeargs);  //info가 추가 되었을 때 추가 : 1
+            //GC.Questionbutton = true;
+            //GC.CheckPinClassGroupControl();
+
+            foreach (ClassGroup g in GrootGroup.Children)
             {
                 ClassGroupControl GControl = new ClassGroupControl(g);
-                GControl.EditGroupName += EditGroupNameSender;
-                GControl.ClassGroupRemove += Groupdelete;
-                GControl.ChangeMember += ADChangeMember;
-                GControl.Questionbutton = true;
-                GControl.CheckPinClassGroupControl();
-                groupbox.Children.Add(GControl);
+                NewGroupAdder(GControl);
+                GControl.BasketUpdate();
             }
         }
 
@@ -84,6 +86,12 @@ namespace Tita
             changeargs.add_delete = 1;
             ChangeGroup?.Invoke(this, changeargs);  //info가 추가 되었을 때 추가 : 1
             var GC = new ClassGroupControl(changeargs.rootGroup);
+            NewGroupAdder(GC);
+
+        }
+
+        private void NewGroupAdder(ClassGroupControl GC)
+        {
             GC.EditGroupName += EditGroupNameSender;
             GC.ClassGroupRemove += Groupdelete;
             GC.ChangeMember += ADChangeMember;
@@ -109,5 +117,9 @@ namespace Tita
             ChangeMember?.Invoke(this, mem);
         }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Update();
+        }
     }
 }
