@@ -29,7 +29,7 @@ namespace Tita
         {
             mainHost.RegisterPage("main", new MainPage());
             mainHost.RegisterPage("groupbuild", new GroupBuildPage());
-
+            mainHost.RegisterPage("Result", new ResultPage());
             mainHost.ChangePage("main");
         }
 
@@ -51,6 +51,11 @@ namespace Tita
         {
             EZYOONTest a = new EZYOONTest();
             a.Show();
+        }
+        private void Scaffold_Click(object sender, RoutedEventArgs e)
+        {
+            Scaffold ss = new Scaffold();
+            ss.Show();
         }
 
         private void Testb_Click(object sender, RoutedEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,10 +37,12 @@ namespace Tita
             {
                 group.AddGroup(new ClassInfoPlus(i, group));
             }
+            group.SelectCount = 1;
             root.AddGroup(group);
 
             BruteForceClassSelector algo = new BruteForceClassSelector();
-            algo.Calculate(root);
+            var result = algo.Calculate(root);
+            Debug.Write(result);
         }
     }
 }
