@@ -74,7 +74,9 @@ namespace Tita
 
         private void NextPage_Click(object sender, RoutedEventArgs e) //Resultpage로 이동
         {
-            OnNavigate(this, new NavigateEventArgs("Result"));
+
+            OnNavigate(this, new NavigateEventArgs("Result", root));
+
         }
 
         //그룸의 이름을 수정할 시

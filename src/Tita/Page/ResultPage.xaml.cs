@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tita.Algorithm;
 
 namespace Tita
 {
@@ -29,7 +30,9 @@ namespace Tita
 
         public void Navigated(string fromEndpoint, object data)
         {
-           
+            var algo = new BruteForceClassSelector();
+            var result = algo.Calculate((ClassGroup)data);
+            
         }
 
         private void BackPage_Click(object sender, RoutedEventArgs e) //mainpage로 이동
