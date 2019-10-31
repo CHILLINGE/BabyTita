@@ -56,7 +56,7 @@ namespace Tita
             //ChangeGroup?.Invoke(this, changeargs);  //info가 추가 되었을 때 추가 : 1
             //GC.Questionbutton = true;
             //GC.CheckPinClassGroupControl();
-
+            groupbox.Children.Clear(); 
             foreach (ClassGroup g in GrootGroup.Children)
             {
                 ClassGroupControl GControl = new ClassGroupControl(g);

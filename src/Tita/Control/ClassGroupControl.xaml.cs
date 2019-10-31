@@ -136,7 +136,7 @@ namespace Tita
                     panel.Children.Add(curcontrol);
                     e.Effects = DragDropEffects.Move;
                     subjectpicknum.Items.Add(panel.Children.Count);
-                    if (Questionbutton == true) Group.SelectCount = panel.Children.Count;
+                    //if (Questionbutton == true) Group.SelectCount = panel.Children.Count;
                 }
 
             }
