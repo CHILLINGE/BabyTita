@@ -29,7 +29,7 @@ namespace Tita
         {
             mainHost.RegisterPage("main", new MainPage());
             mainHost.RegisterPage("groupbuild", new GroupBuildPage());
-
+            mainHost.RegisterPage("Result", new ResultPage());
             mainHost.ChangePage("main");
         }
 

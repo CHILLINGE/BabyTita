@@ -74,7 +74,14 @@ namespace Tita
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             
-            hello.GetClassTime();
+            ClassTime time =  hello.GetClassTime();
+         
+            string name = classinfoinput.name.Text;
+            string credit = classinfoinput.credit.Text;
+            string professor = classinfoinput.professor.Text;
+            string division = classinfoinput.division.Text;
+            new ClassInfo(name, Int32.Parse(division), time, professor, Int32.Parse(credit));
+            MessageBox.Show("추가되었습니다!");
         }
 
    
