@@ -10,7 +10,7 @@ namespace Tita.Algorithm
     {
         public List<ScheduleTable> Calculate(ClassGroup groupRoot)
         {
-            // ㅠㅠ
+
             int countTotal = 0;
             foreach (ClassGroup i in groupRoot.Children)
             {
@@ -18,16 +18,16 @@ namespace Tita.Algorithm
             }
             groupRoot.SelectCount = countTotal;
 
-            var root = PreProcess(groupRoot);
+            var root = PreProcess(groupRoot); // 했어 ㅠㅠ
 
 
 
-            var groups = CreateGroupClasses(root);
+            var groups = CreateGroupClasses(root); // 했어 ㅠㅠ
 
 
             getCombinationCurrent = new List<ScheduleMid>();
             getCombinationResult = new List<List<ScheduleMid>>();
-            GetCombinations(groups);
+            GetCombinations(groups); // 갔다고
 
             List<ScheduleTable> ret = new List<ScheduleTable>();
             foreach (var i in getCombinationResult)
@@ -54,9 +54,9 @@ namespace Tita.Algorithm
             {
 
                 getCombinationResult.Add(new List<ScheduleMid>(getCombinationCurrent));
-                return ;
+                return;
             }
-            
+
             for (int i = 0; i < groups[p].Count; i++)
             {
                 // 여기에 조건
@@ -75,13 +75,14 @@ namespace Tita.Algorithm
                     getCombinationCurrent.Add(groups[p][i]);
                     GetCombinations(groups, p + 1);
                     getCombinationCurrent.RemoveAt(getCombinationCurrent.Count - 1);
+
                 }
-                
+
             }
-            
+
             return;
         }
-        
+
         /// <summary>
         /// 각 그룹별로 가능한 후보 리스트를 뽑는 함수
         /// </summary>
@@ -95,9 +96,12 @@ namespace Tita.Algorithm
             {
                 selectClassesCurrent = new ScheduleMid();
                 selectClassesResult = new List<ScheduleMid>();
+                if (i.SelectCount > 0)
+                {
+                    SelectClasses(i, i.SelectCount);
+                    r.Add(selectClassesResult);
+                }
 
-                SelectClasses(i, i.SelectCount);
-                r.Add(selectClassesResult);
             }
 
             return r;
@@ -136,7 +140,7 @@ namespace Tita.Algorithm
         /// <param name="group">구할 그룹</param>
         /// <param name="cnt">남은 개수</param>
         /// <param name="p">현재 위치</param>
-        private void SelectClasses(ClassGroup group, int cnt , int p = 0)
+        private void SelectClasses(ClassGroup group, int cnt, int p = 0)
         {
             if (cnt == 0)
             {
@@ -150,18 +154,22 @@ namespace Tita.Algorithm
 
             //for (int i = p; i < group.CountChildren() - cnt + 1; i++)
             //{
-                foreach (ClassInfoPlus h in ((ClassGroup)group.Children[p]).Children)
+            foreach (ClassInfoPlus h in ((ClassGroup)group.Children[p]).Children)
+            {
+
+                if (!selectClassesCurrent.timemap.IsOverlap(h.Info.Time))
                 {
-                    if (!selectClassesCurrent.timemap.IsOverlap(h.Info.Time))
-                    {
-                        selectClassesCurrent.timemap.Set(h.Info.Time);
-                        selectClassesCurrent.infos.Add(h);
-                        SelectClasses(group, cnt - 1, p + 1);
-                        selectClassesCurrent.timemap.Unset(h.Info.Time);
-                        selectClassesCurrent.infos.RemoveAt(selectClassesCurrent.infos.Count - 1);
-                        SelectClasses(group, cnt, p + 1);
-                    }
+                    selectClassesCurrent.timemap.Set(h.Info.Time);
+                    selectClassesCurrent.infos.Add(h);
+                    SelectClasses(group, cnt - 1, p + 1);
+                    selectClassesCurrent.timemap.Unset(h.Info.Time);
+                    selectClassesCurrent.infos.RemoveAt(selectClassesCurrent.infos.Count - 1);
+
                 }
+
+                SelectClasses(group, cnt, p + 1);
+
+            }
             //}
         }
 
@@ -176,31 +184,29 @@ namespace Tita.Algorithm
                 child.Children.Sort((a, b) => {
                     return string.Compare((a as ClassInfoPlus).Info.Name, (b as ClassInfoPlus).Info.Name);
                 });
-            } 
+            }
 
             /// 마지막 등장한 이름
             string namelast = "";
-            int i = 0;
             foreach (ClassGroup group in ori.Children)
             {
                 tmp = new ClassGroup();
-                foreach (ClassInfoPlus i in group)
-            	{
-                    if (i.Info.Name != namelast) {
+                foreach (ClassInfoPlus i in group.Children)
+                {
+                    if (i.Info.Name != namelast)
+                    {
                         subgroup = new ClassGroup();
                         subgroup.AddGroup(i);
                         tmp.AddGroup(subgroup);
-                    } else {
+                    }
+                    else
+                    {
                         subgroup.AddGroup(i);
                     }
-
-
-            	}
+                }
+                root.AddGroup(tmp);
             }
-
             return root;
-            
-            
         }
     }
 }
