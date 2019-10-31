@@ -206,6 +206,7 @@ namespace Tita.Algorithm
                         subgroup.AddGroup(i);
                     }
                 }
+                tmp.SelectCount = group.SelectCount;
                 root.AddGroup(tmp);
             }
             return root;

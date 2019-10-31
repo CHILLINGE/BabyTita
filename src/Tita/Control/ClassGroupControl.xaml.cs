@@ -198,7 +198,7 @@ namespace Tita
         private void deleteClick(object sender, RoutedEventArgs e)
         {
             ClassGroupRemove?.Invoke(this, new ClassGroupRemoveArgs() { rootGroup = this.Group});
-            if(basketstack.Children.Count > 0)  subjectpicknum.Items.RemoveAt(basketstack.Children.Count + 1);
+            if(basketstack.Children.Count > 0)  subjectpicknum.Items.RemoveAt(basketstack.Children.Count);
             /*
             ClassChangeGroupEventArgs changeargs = new ClassChangeGroupEventArgs();
             changeargs.rootGroup = Group;
