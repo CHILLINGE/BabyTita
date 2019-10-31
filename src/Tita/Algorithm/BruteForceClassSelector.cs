@@ -10,6 +10,7 @@ namespace Tita.Algorithm
     {
         public List<ScheduleTable> Calculate(ClassGroup groupRoot)
         {
+            // ㅠㅠ
             int countTotal = 0;
             foreach (ClassGroup i in groupRoot.Children)
             {
@@ -177,35 +178,24 @@ namespace Tita.Algorithm
                 });
             } 
 
+            /// 마지막 등장한 이름
             string namelast = "";
             int i = 0;
             foreach (ClassGroup group in ori.Children)
             {
                 tmp = new ClassGroup();
-                while (i < group.CountChildren())
-                {
-                    var cur = group.Children[i] as ClassInfoPlus;
-
-                    if (cur.Info.Name != namelast)
-                    {
-                        if (subgroup.CountChildren() > 0)
-                        {
-                            tmp.AddGroup(subgroup);
-                            subgroup = new ClassGroup();
-                        }
-
+                foreach (ClassInfoPlus i in group)
+            	{
+                    if (i.Info.Name != namelast) {
+                        subgroup = new ClassGroup();
+                        subgroup.AddGroup(i);
+                        tmp.AddGroup(subgroup);
+                    } else {
+                        subgroup.AddGroup(i);
                     }
 
-                    subgroup.AddGroup(group.Children[i]);
-                    namelast = cur.Info.Name;
-                    i++;
-                }
 
-                if (subgroup.CountChildren() > 0)
-                {
-                    tmp.AddGroup(subgroup);
-                }
-                root.AddGroup(tmp);
+            	}
             }
 
             return root;
