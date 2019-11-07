@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita" DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
-             d:DesignWidth="300" Background="#FFE7F8FF" BorderThickness="0" BorderBrush="#FFCACACA" AllowDrop="True" Loaded="UserControl_Loaded">
+             d:DesignWidth="300" Background="AliceBlue" BorderThickness="0" BorderBrush="#FFCACACA" AllowDrop="True" Loaded="UserControl_Loaded">
     <Grid>
 
         <Grid Margin="5">
@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal" Grid.ColumnSpan="2">
-                <TextBlock Text="{Binding ClassName, FallbackValue='SubjectName'}" FontSize="14"
+                <TextBlock Text="{Binding ClassName, FallbackValue='SubjectName'}" FontSize="15"
                    Margin="5,0,0,0"/>
                 <TextBlock Text="{Binding ClassDivision, FallbackValue='Division', Converter={local:SuffixConverter}, ConverterParameter='분반'}" FontSize="10"
                    Margin="10,0,0,0" VerticalAlignment="Bottom"/>

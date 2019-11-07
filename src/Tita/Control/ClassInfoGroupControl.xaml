@@ -8,12 +8,12 @@
              d:DesignHeight="400" d:DesignWidth="400">
     <Grid>
         <Expander x:Name="GroupNameBox" >
-            <ScrollViewer Grid.ColumnSpan="3" Height="367">
+
                 <StackPanel x:Name="MainScroll">
 
 
                 </StackPanel>
-            </ScrollViewer>
+
         </Expander>
     </Grid>
 </UserControl>
