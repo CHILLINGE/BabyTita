@@ -39,6 +39,7 @@ namespace Tita
             root = new ClassGroup();
 
             Gbox.GrootGroup = root;
+            root.AddGroup(new ClassGroup());
 
             //그룹 추가삭제 이벤트
             Gbox.ChangeGroup += Gbox_ChangeGroup;
@@ -81,7 +82,7 @@ namespace Tita
 
         }
 
-        //그룸의 이름을 수정할 시
+        //그룹의 이름을 수정할 시
         private void Gbox_EditGroupName(Object sender, EditEventArgs argevent)
         {
             //root
