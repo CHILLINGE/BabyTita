@@ -41,26 +41,5 @@ namespace Tita
             win.Show();
         }
 
-        private void smalljb_Click(object sender, RoutedEventArgs e)
-        {
-            smalljTest s = new smalljTest();
-            s.Show();
-        }
-
-        private void EZYOONb_Click(object sender, RoutedEventArgs e)
-        {
-            EZYOONTest a = new EZYOONTest();
-            a.Show();
-        }
-        private void Scaffold_Click(object sender, RoutedEventArgs e)
-        {
-            Scaffold ss = new Scaffold();
-            ss.Show();
-        }
-
-        private void Testb_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
