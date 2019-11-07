@@ -46,6 +46,6 @@
             </StackPanel>
             
         </Grid>
-        <Button x:Name="isContinuable" Content="Next" IsEnabled="False" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="55" FontSize="15" Click="Button_Click"/>
+        <Button x:Name="isContinuable" Content="시작" IsEnabled="False" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="55" FontSize="15" Click="Button_Click"/>
     </Grid>
 </UserControl>
