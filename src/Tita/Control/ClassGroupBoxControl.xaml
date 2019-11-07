@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <Style TargetType="{x:Type local:ClassGroupControl}">
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="20,20,20,70"/>
+            <Setter Property="Margin" Value="20,20,20,20"/>
         </Style>
     </UserControl.Resources>
     <Grid>
