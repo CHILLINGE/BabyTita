@@ -34,9 +34,9 @@ namespace Tita
         public void Update(List<ClassInfo> list)
         {
             DeleteChildren();
-            foreach(IGroupable item in list)
+            foreach(ClassInfo item in list)
             {
-                ClassInfoControl info = new ClassInfoControl((ClassInfoPlus)item);
+                ClassInfoControl info = new ClassInfoControl(item);
                 Front.Children.Add(info);
             }
         }
