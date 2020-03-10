@@ -10,13 +10,13 @@
 
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,30,30,50">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Grid.Column="1"  Width="550"  Height="{Binding Path=Width, ElementName=ClassTimePreview}" />
+            <local:MiniScheduleListControl x:Name="ResultScheduleList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" ClickSchedule="ResultScheduleList_ClickSchedule"/>
 
-            
         </Grid>
 
         <Button Content="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="55" FontSize="15" Click="BackPage_Click" />
