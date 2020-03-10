@@ -30,15 +30,15 @@ namespace Tita
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataFile file = new DataFile("subjects.xml");
-            classList.ClassDatalist = file.LoadClassInfo();
+            //DataFile file = new DataFile("subjects.xml");
+            //classList.ClassDatalist = file.LoadClassInfo();
 
-            classList.UpDate();
+            //classList.UpDate();
             classList.SelectSubject += ClassList_SelectSubject;
 
-            root = new ClassGroup();
+            //root = new ClassGroup();
 
-            Gbox.GrootGroup = root;
+            //Gbox.GrootGroup = root;
 
             //그룹 추가삭제 이벤트
             Gbox.ChangeGroup += Gbox_ChangeGroup;
@@ -66,7 +66,17 @@ namespace Tita
 
         public void Navigated(string fromEndpoint, object data)
         {
-            
+            if (fromEndpoint == "main")
+            {
+                DataFile file = (DataFile)data;
+
+                root = new ClassGroup();
+                Gbox.GrootGroup = root;
+
+                classList.ClassDatalist = file.ClassInfos;
+
+                classList.UpDate();
+            }
         }
 
         private void BackPage_Click(object sender, RoutedEventArgs e) //mainpage로 이동

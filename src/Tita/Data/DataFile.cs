@@ -35,6 +35,19 @@ namespace Tita
         public string Etc { get; set; }
 
 
+        ClassInfoList infoListCache = null;
+        public ClassInfoList ClassInfos {
+            get
+            {
+                if (infoListCache == null)
+                {
+                    LoadClassInfo();
+                }
+                return infoListCache;
+            }
+        }
+
+
         public DataFile(FileInfo targetFile)
         {
             Info = targetFile;
@@ -108,6 +121,22 @@ namespace Tita
         }
 
 
+        private async Task<XmlDocument> GetXmlDocumentAsync()
+        {
+
+            string xmldata = "";
+            using (var stream = new StreamReader(Info.OpenRead()))
+            {
+                
+                xmldata = await stream.ReadToEndAsync();
+            }
+
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.LoadXml(xmldata);
+
+            return xdoc;
+        }
+
 
         /// <summary>
         /// 파일에서 ClassInfo 들을 파싱해서 읽어온다.
@@ -127,10 +156,33 @@ namespace Tita
             
 
             ClassInfoList result = ParseData(root);
-            
+
+            infoListCache = result;
 
             return result;
         }
+
+
+
+        public async Task<ClassInfoList> LoadClassInfoAsync()
+        {
+            XmlDocument xdoc = await GetXmlDocumentAsync();
+
+
+            var root = xdoc.SelectSingleNode("subjectdb");
+
+            School = root["school"]?.InnerText;
+            When = root["when"]?.InnerText;
+
+
+
+            ClassInfoList result = ParseData(root);
+
+            infoListCache = result;
+
+            return result;
+        }
+
 
         /// <summary>
         /// 직접입력받은 ClassInfo의 리스트를 해당 db에 저장한다.
