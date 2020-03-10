@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tita.Control
+namespace Tita
 {
     /// <summary>
     /// ResultPageListControl.xaml에 대한 상호 작용 논리
@@ -23,6 +23,27 @@ namespace Tita.Control
         public ResultPageListControl()
         {
             InitializeComponent();
+        }
+
+       
+        public ResultPageListControl(List<ClassInfo> list)
+        {
+            Update(list);
+        }
+
+        public void Update(List<ClassInfo> list)
+        {
+            DeleteChildren();
+            foreach(IGroupable item in list)
+            {
+                ClassInfoControl info = new ClassInfoControl((ClassInfoPlus)item);
+                Front.Children.Add(info);
+            }
+        }
+
+        public void DeleteChildren()
+        {
+            Front.Children.Clear();
         }
     }
 }
