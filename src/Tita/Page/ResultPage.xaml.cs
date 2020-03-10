@@ -48,8 +48,9 @@ namespace Tita
         private void ResultScheduleList_ClickSchedule(object sender, ScheduleTable e)
         {
             ClassTimePreview.Remove();
-            ClassTimePreview.ClassData = ConvertToClassList(e);
-            
+            var clslst = ConvertToClassList(e);
+            classList.Update(clslst);
+            ClassTimePreview.ClassData = clslst;
             ClassTimePreview.UpDate();
         }
 
