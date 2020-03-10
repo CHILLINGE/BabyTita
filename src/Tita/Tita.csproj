@@ -80,8 +80,8 @@
     <Compile Include="Control\MiniSchedule.xaml.cs">
       <DependentUpon>MiniSchedule.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\MiniScheduleList.xaml.cs">
-      <DependentUpon>MiniScheduleList.xaml</DependentUpon>
+    <Compile Include="Control\MiniScheduleListControl.xaml.cs">
+      <DependentUpon>MiniScheduleListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\PageHostControl.xaml.cs">
       <DependentUpon>PageHostControl.xaml</DependentUpon>
@@ -161,7 +161,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\MiniScheduleList.xaml">
+    <Page Include="Control\MiniScheduleListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

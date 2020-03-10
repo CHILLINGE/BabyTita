@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Tita.MiniScheduleList"
+﻿<UserControl x:Class="Tita.MiniScheduleListControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,11 +6,11 @@
              xmlns:local="clr-namespace:Tita"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="MiniScheList">
+    <Grid x:Name="MiniScheListControl">
         <ScrollViewer>
-                <StackPanel x:Name="MiniScroll">
+                <WrapPanel x:Name="MiniScroll">
 
-                </StackPanel>
+                </WrapPanel>
         </ScrollViewer>
 
     </Grid>
