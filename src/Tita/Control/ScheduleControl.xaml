@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Tita"
-             mc:Ignorable="d" Background="White">
              mc:Ignorable="d" Background="White" >
     <UserControl.Resources>
         <Style x:Key="CaptionStyle" TargetType="{x:Type TextBlock}">
@@ -54,7 +53,6 @@
         <TextBlock Text="목" Style="{StaticResource CaptionStyle}" Grid.Column="4" Grid.Row="0"/>
         <TextBlock Text="금" Style="{StaticResource CaptionStyle}" Grid.Column="5" Grid.Row="0"/>
 
-        <TextBlock Text="4:00" Style="{DynamicResource TimeStyle}" Grid.Column="0" Grid.Row="8"/>
         <TextBlock Text="9:00" Style="{DynamicResource TimeStyle}" Grid.Column="0" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" />
         <TextBlock Text="10:00" Style="{DynamicResource TimeStyle}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Text="11:00" Style="{DynamicResource TimeStyle}" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
