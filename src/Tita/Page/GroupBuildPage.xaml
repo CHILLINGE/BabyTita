@@ -6,20 +6,20 @@
              xmlns:local="clr-namespace:Tita"
              mc:Ignorable="d" Loaded="Window_Loaded"
              d:DesignHeight="800" d:DesignWidth="1200" Background="White">
-    <Grid>
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,30,30,50">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
-            <local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Grid.Column="0"  Width="450"  Height="{Binding Path=Width, ElementName=ClassTimePreview}" />
-            <local:ClassInfoListControl x:Name="classList"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
-            <local:ClassGroupBoxControl x:Name="Gbox"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2"/>
-        </Grid>
+	<Grid>
+		<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,30,40,50">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="4*"/>
+				<ColumnDefinition Width="2.5*"/>
+				<ColumnDefinition Width="3*"/>
+			</Grid.ColumnDefinitions>
+			<local:ScheduleControl x:Name="ClassTimePreview" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.Column="0" RenderTransformOrigin="0.504,0.501" Margin="0,0,10,0" />
+			<local:ClassInfoListControl x:Name="classList"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" />
+			<local:ClassGroupBoxControl x:Name="Gbox"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2"/>
+		</Grid>
 
-        <!--<Button Content="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="55" FontSize="15"  Click="BackPage_Click" />-->
-        <Button Content="Shuffle" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="55" FontSize="15" Click="NextPage_Click"/>
-        
-    </Grid>
+		<!--<Button Content="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="55" FontSize="15"  Click="BackPage_Click" />-->
+		<Button Content="Shuffle" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="30" Width="55" FontSize="15" Click="NextPage_Click"/>
+
+	</Grid>
 </UserControl>
