@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace Tita
     /// </summary>
     public partial class ResultPage : UserControl, INavigable
     {
+        public List<ScheduleTable> CurrentResult { get; set; }
+
         public ResultPage()
         {
             InitializeComponent();
@@ -32,12 +35,28 @@ namespace Tita
         {
             var algo = new BruteForceClassSelector();
             var result = algo.Calculate((ClassGroup)data);
-            
+            CurrentResult = result;
+            ResultScheduleList.Results = result;
+            ResultScheduleList.Update();
         }
 
         private void BackPage_Click(object sender, RoutedEventArgs e) //mainpage로 이동
         {
             OnNavigate(this, new NavigateEventArgs("groupbuild"));
+        }
+
+        private void ResultScheduleList_ClickSchedule(object sender, ScheduleTable e)
+        {
+            ClassTimePreview.Remove();
+            ClassTimePreview.ClassData = ConvertToClassList(e);
+            
+            ClassTimePreview.UpDate();
+        }
+
+        private List<ClassInfo> ConvertToClassList(ScheduleTable table)
+        {
+            return new List<ClassInfo>(from i in table.ClassList
+                                       select i.Info);
         }
     }
 }

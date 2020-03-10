@@ -51,7 +51,7 @@ namespace Tita
 
                 btn.Click += (sender, e) =>
                 {
-                    ClickSchedule.Invoke(this, schedule);
+                    ClickSchedule?.Invoke(this, schedule);
                 };
 
                 MiniScroll.Children.Add(btn);
